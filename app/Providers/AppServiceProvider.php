@@ -29,9 +29,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-         View::share('userkredit', Profile::all());
-         View::share('markets', Result::where('status',1)->get());
-         Paginator::useBootstrap();
+//         View::share('userkredit', Profile::all());
+//         View::share('markets', Result::where('status',1)->get());
+
+        Paginator::useBootstrap();
 
     }
 }
