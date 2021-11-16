@@ -93,7 +93,11 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a href="{{ route('transaksi') }}" class="dropdown-item">Transaksi</a>
-                                    <a href="#" class="dropdown-item" style="background: #0b7ec4; color:yellow;" readonly>Kredit : {{number_format($userkredit->where('user_id', Auth::user()->id)->pluck('kredit')->firstOrFail())}} </a>
+                                    @if(isset(Auth::user()->profile->kredit))
+                                    <a href="#" class="dropdown-item" style="background: #0b7ec4; color:yellow;" readonly>Kredit : {{ number_format(Auth::user()->profile->kredit) }}</a>
+                                    @else
+                                        <a href="#" class="dropdown-item" style="background: #0b7ec4; color:yellow;" readonly>Kredit : 0</a>
+                                    @endif
                                     <a href="{{ route('statement') }}" class="dropdown-item">Statement</a>
                                     <a href="{{ route('gantipassword') }}" class="dropdown-item">Ganti Password</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

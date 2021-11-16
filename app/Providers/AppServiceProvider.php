@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
+
     /**
      * Register any application services.
      *
@@ -29,9 +30,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-//         View::share('userkredit', Profile::all());
-//         View::share('markets', Result::where('status',1)->get());
 
+        View::share('markets', Result::where('status',1)->get());
         Paginator::useBootstrap();
 
     }
