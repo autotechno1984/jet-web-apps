@@ -17,12 +17,14 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
-
-Route::get('/',[App\Http\Controllers\Auth\LoginController::class,'showLoginForm'])->name('login');
-Route::post('/',[App\Http\Controllers\Auth\LoginController::class,'login'])->name('login');
+//Auth::routes();
+Route::get('/', function(){
+    return view('front.index');
+});
+//Route::get('/',[App\Http\Controllers\Auth\LoginController::class,'showLoginForm'])->name('login');
+//Route::post('/',[App\Http\Controllers\Auth\LoginController::class,'login'])->name('login');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
+//Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
 
 //Front-End
 Route::get('togel/{id}', [GeneralController::class,'togel'])->name('togel');

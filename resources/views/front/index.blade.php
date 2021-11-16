@@ -138,9 +138,9 @@
     <div class="row" style="font-size:1.6rem;">
         <div class="col-lg-1"></div>
         <div class="col-lg-3">
-            <table class="table table-bordered">
+            <table class="table" style="box-shadow: #718096 5px 5px;" >
                 <thead>
-                <th colspan="2" style="background: #b3d9ff;">4D Result</th>
+                <th colspan="2" style="background: #b3d9ff; border-top-left-radius:  15px;">4D Result</th>
                 </thead>
                 <tbody>
                 <tr>
@@ -159,9 +159,9 @@
             </table>
         </div>
         <div class="col-lg-2">
-            <table class="table table-bordered" style="background: #b3d9ff;">
-                <thead>
-                <th>Starter Prize</th>
+            <table class="table" style="background: #b3d9ff; border-top-left-radius: 15px; box-shadow: #718096 5px 5px;">
+                <thead >
+                     <th>Starter Prizes</th>
                 </thead>
                 <tbody>
                 <tr>
@@ -177,9 +177,9 @@
             </table>
         </div>
         <div class="col-lg-5">
-            <table class="table table-bordered" style="background: #b3d9ff;">
+            <table class="table" style="background: #b3d9ff; border-top-left-radius: 15px; box-shadow: #718096 5px 5px;">
                 <thead>
-                <th colspan="3">Consolation Prize</th>
+                <th colspan="3" >Consolation Prize</th>
                 </thead>
                 <tbody>
                 <tr>

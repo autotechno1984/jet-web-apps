@@ -78,8 +78,6 @@ class GeneralController extends Controller
             return redirect()->back();
         }
 
-
-
     }
 
     public function angkabb(Request $request) {
