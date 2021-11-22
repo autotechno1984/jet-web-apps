@@ -16,6 +16,7 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" ></script>
         @livewireStyles
+        @powerGridStyles
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -38,7 +39,12 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                            <form action="{{ route('admin.logout') }}" id="logout-form" method="POST">
+                            @csrf
+
+                            </form>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -49,7 +55,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading"></div>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('admin.home') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -61,7 +67,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ route('members') }}">User List</a>
+                                    <a class="nav-link" href="{{ route('admin.user-list') }}">User List</a>
                                 </nav>
 
                             </div>
@@ -72,11 +78,11 @@
                             </a>
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="{{ route('market.index') }}" >
+                                    <a class="nav-link" href="{{ route('admin.market.index') }}" >
                                         Market
 {{--                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--}}
                                     </a>
-                                    <a class="nav-link" href="{{ route('results.index') }}">
+                                    <a class="nav-link" href="{{ route('admin.results.index') }}">
                                         Result
                                     </a>
 {{--                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">--}}
@@ -86,7 +92,7 @@
 {{--                                            <a class="nav-link" href="password.html">Forgot Password</a>--}}
 {{--                                        </nav>--}}
 {{--                                    </div>--}}
-                                    <a class="nav-link collapsed" href="{{ route('games.index') }}"  >
+                                    <a class="nav-link collapsed" href="{{ route('admin.games.index') }}"  >
                                         Games
 {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
                                     </a>
@@ -107,16 +113,23 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseTransaksi" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <a class="nav-link collapsed" href="{{ route('admintransaksi') }}"  >
+                                <a class="nav-link collapsed" href="{{ route('admin.admintransaksi') }}"  >
                                     Deposit And Withdraw
                                     {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
                                 </a>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Reports</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                            <div class="sb-sidenav-menu-heading">Front</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsewebsetting" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                               Setting
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            <div class="collapse" id="collapsewebsetting" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <a class="nav-link collapsed" href="{{ route('admin.websetting') }}"  >
+                                    Website
+                                    {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
+                                </a>
+                            </div>
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
@@ -125,11 +138,12 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Username : Aacafa
+                        Username : {{ Auth::guard('admin')->user()->username }}
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
+
                   @yield('members')
                   @yield('users')
                   @yield('users.edit')
@@ -138,10 +152,13 @@
                   @yield('results')
                   @yield('limits')
                   @yield('transaksi')
+                  @yield('websetting')
+                  @yield('dashboard')
+
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                            <div class="text-muted text-center">Copyright &copy; Your Website 2021</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -152,6 +169,9 @@
                 </footer>
             </div>
         </div>
+
+        @livewireScripts
+        @powerGridScripts
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
         <script src="{{ asset('js/script.js')}}"></script>
@@ -173,8 +193,8 @@
                 });
             });
         </script>
-        @livewireScripts
-        @stack('users')
+
+{{--        @stack('users')--}}
 {{--        <script>--}}
 {{--            $(document).ready( function () {--}}
 

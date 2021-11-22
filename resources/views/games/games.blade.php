@@ -4,7 +4,7 @@
         <div class="row">
 
             <div class="col-lg-4">
-                <form action="{{ route('games.store') }}" method="POST">
+                <form action="{{ route('admin.games.store') }}" method="POST">
                     @csrf
                     <div class="card">
                     <div class="card-header">

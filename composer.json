@@ -6,7 +6,6 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "pusher/pusher-php-server": "^7.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.65",
@@ -14,6 +13,8 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "livewire/livewire": "^2.7",
+        "power-components/livewire-powergrid": "^1.4",
+        "pusher/pusher-php-server": "^7.0",
         "rappasoft/laravel-authentication-log": "^1.1",
         "yajra/laravel-datatables-oracle": "^9.18"
     },

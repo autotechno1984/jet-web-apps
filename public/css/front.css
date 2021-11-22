@@ -1,3 +1,9 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
 body {
     margin:0;
     padding:0;
@@ -8,10 +14,10 @@ body {
 header {
 
     padding: 0 100px;
-    background: #1a53ff;
+    background: #091353;
     width:100%;
     height:50px;
-    border-bottom: 3px solid yellow;
+    border-bottom: 5px solid yellow;
 
 }
 
@@ -54,7 +60,7 @@ header nav ul li.active.sub-menu:before{
 header nav ul li ul {
     position:absolute;
     left: 0;
-    background:#59a1f3;
+    background:#113CFC;
     display: none;
     z-index: 10;
 
@@ -79,7 +85,7 @@ header nav ul li a {
 header nav ul li a:hover,
 header nav ul li a.active {
     color:#fff;
-    background: #4193f1;
+    background: #396EB0;
 }
 
 .menu-toggle {
@@ -99,6 +105,44 @@ header nav ul li a.active {
     display: none;
 }
 
+.whatsapp_float {
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:#25d366;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index:100;
+}
+
+.whatsapp-icon {
+    margin-top:16px;
+}
+.fa-instagram:hover , .fa-facebook:hover, .fa-youtube:hover, .fa-tiktok:hover{
+    color:gold !important;
+}
+
+
+
+/* for mobile */
+@media screen and (max-width: 767px){
+    .whatsapp-icon {
+        margin-top:10px;
+    }
+    .whatsapp_float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 10px;
+        font-size: 28px;
+    }
+}
+
 @media (max-width: 1300px) {
     header {
         padding: 0 20px;
@@ -115,7 +159,7 @@ header nav ul li a.active {
         width: 100%;
         top:50px;
         height:1000px;
-        background: #1a53ff;
+        background: #091353;
         left:-100%;
         transition: 0.5s;
     }
@@ -167,7 +211,7 @@ header nav ul li a.active {
     }
 }
 
-@media (max-width: 577px) {
+@media (max-width: 575px) {
     .modal-body .col-sm-6 {
         width:50%;
     }
@@ -176,5 +220,21 @@ header nav ul li a.active {
         display: block;
         z-index:3;
     }
+    #passbox, #userbox {
+        display: flex;
+        flex-direction: row;
+    }
+    #usernamelabel, #passwordlabel {
+        width: 35%;
+    }
 
+    #passwordtext, #usernametext {
+        width: 65%;
+    }
+
+    #hadiah {
+        column-gap: 0px;
+    }
 }
+
+

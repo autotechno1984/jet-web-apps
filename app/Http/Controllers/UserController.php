@@ -14,14 +14,13 @@ class UserController extends Controller
 
     public function members()
     {
-
         return view('members.index');
     }
 
     public function data() {
 
         return Datatables(User::with('profile')->get())->addColumn('action', function($model) {
-            return '<a  href="'. route('users.show', $model->id) .'" style="color:yellow; background: dodgerblue;">Edit</a>';})->toJson();
+            return '<a  href="'. route('admin.users.show', $model->id) .'" style="color:yellow; background: dodgerblue;">Edit</a>';})->toJson();
 }
 
 
@@ -114,7 +113,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        DD('EDIT', $id);
+       // DD('EDIT', $id);
     }
 
     /**
