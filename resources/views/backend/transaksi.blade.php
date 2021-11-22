@@ -31,7 +31,7 @@
                                     <td style="padding-top:15px;">{{ number_format($data->amount) }}</td>
                                     <td><a href="#" class="btn btn-warning form-control disabled" >Pending</a></td>
 
-                                    <form action="{{ route('depositreject' , [$data->id] ) }}" method="POST">
+                                    <form action="{{ route('admin.depositreject' , [$data->id] ) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <td><button class="btn btn-danger form-control" type="submit">Reject</button></td>
