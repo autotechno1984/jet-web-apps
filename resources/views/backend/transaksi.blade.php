@@ -37,7 +37,7 @@
                                         <td><button class="btn btn-danger form-control" type="submit">Reject</button></td>
 
                                     </form>
-                                    <form action="{{ route('depositapproved', [$data->id]) }}" method="POST">
+                                    <form action="{{ route('admin.depositapproved', [$data->id]) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <td><button class="btn btn-primary form-control" type="submit">Approved</button></td>
@@ -79,16 +79,16 @@
                                 <tr>
                                     <td style="padding-top:15px;">{{ Auth::user()->name }}</td>
                                     <td style="padding-top:15px;">{{ Auth::user()->username }}</td>
-                                    <td style="padding-top:15px;">{{ Auth::user()->profile->kota }}</td>
+                                    <td style="padding-top:15px;">{{ Auth::user()->profile->kota ?? '-'}}</td>
                                     <td style="padding-top:15px;">{{ $data->data_request }}</td>
                                     <td style="padding-top:15px;">{{ number_format($data->amount * -1) }}</td>
                                     <td><a href="#" class="btn btn-warning form-control disabled" >Pending</a></td>
-                                    <form action="{{ route('withdrawreject', [$data->id]) }}" method="POST">
+                                    <form action="{{ route('admin.withdrawreject', [$data->id]) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                     <td><button class="btn btn-danger form-control" type="submit">Reject</button></td>
                                     </form>
-                                    <form action="{{ route('withdrawapproved', [$data->id]) }}" method="POST">
+                                    <form action="{{ route('admin.withdrawapproved', [$data->id]) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <td>
