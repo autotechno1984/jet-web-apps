@@ -21,7 +21,7 @@ class CreateAdminsTable extends Migration
             $table->string('handphone');
             $table->string('status')->default(1);
             $table->string('role');
-            $table->string('date_update')->nullable();
+            $table->timestamp('date_update')->nullable();
             $table->timestamps();
         });
     }
