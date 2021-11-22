@@ -4,6 +4,7 @@ use App\Http\Controllers\GamesController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\MarketController;
 use App\Http\Controllers\ResultController;
+use App\Http\Livewire\Results;
 use App\Models\Admin;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
@@ -111,6 +112,7 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
             'delete' => 'market.delete'
         ]]);
 //Result
+//
         Route::resource('/results', ResultController::class);
 
 //Transaksi
