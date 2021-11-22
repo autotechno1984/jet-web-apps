@@ -112,7 +112,8 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
             'delete' => 'market.delete'
         ]]);
 //Result
-//
+
+//        Route::get('/admin-panel/results', Results::class);
         Route::resource('/results', ResultController::class);
 
 //Transaksi
