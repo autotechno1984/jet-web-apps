@@ -19,6 +19,7 @@
         @powerGridStyles
     </head>
     <body class="sb-nav-fixed">
+
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="#">Grand-Shanghai</a>
@@ -49,6 +50,7 @@
                 </li>
             </ul>
         </nav>
+
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -136,10 +138,12 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
                         Username : {{ Auth::guard('admin')->user()->username }}
                     </div>
+
                 </nav>
             </div>
             <div id="layoutSidenav_content">

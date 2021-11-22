@@ -32,7 +32,7 @@ class Results extends Component
     public function render()
     {
 
-        return view('livewire.Results',[
+        return view('livewire.results',[
             'resulttable' => Result::with('result_details')->orderBy('id','desc')->paginate(10),
         ]);
 
