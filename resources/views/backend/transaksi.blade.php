@@ -26,7 +26,7 @@
                                 <tr>
                                     <td style="padding-top:15px;">{{ Auth::user()->name }}</td>
                                     <td style="padding-top:15px;">{{ Auth::user()->username }}</td>
-                                    <td style="padding-top:15px;">{{ Auth::user()->profile->kota }}</td>
+                                    <td style="padding-top:15px;">{{ Auth::user()->profile->kota ?? '-' }}</td>
                                     <td style="padding-top:15px;">{{ $data->data_request }}</td>
                                     <td style="padding-top:15px;">{{ number_format($data->amount) }}</td>
                                     <td><a href="#" class="btn btn-warning form-control disabled" >Pending</a></td>
