@@ -1,6 +1,6 @@
 @extends('layouts.admin-panel')
 @section('dashboard')
     <div>
-        Dashboard;
+        Dashboard
     </div>
 @endsection

@@ -111,10 +111,17 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
             'update' => 'market.update',
             'delete' => 'market.delete'
         ]]);
-//Result
 
-//        Route::get('/admin-panel/results', Results::class);
-        Route::resource('/results', ResultController::class);
+
+        Route::resource('/results', ResultController::class, ['names' => [
+            'index' => 'results.index',
+            'create' => 'results.create',
+            'store' => 'results.store',
+            'show' => 'results.show',
+            'edit' => 'results.edit',
+            'update' => 'results.update',
+            'delete' => 'results.delete'
+        ]]);
 
 //Transaksi
         Route::get('/transaksi', [GeneralController::class,'admintransaksi'])->name('admintransaksi');
