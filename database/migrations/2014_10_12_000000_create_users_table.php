@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('referallid')->unique();
             $table->string('uplineid')->nullable();
             $table->softDeletes();
-            $table->string('status')->default('1');
+            $table->string('status');
             $table->timestamps();
 
         });

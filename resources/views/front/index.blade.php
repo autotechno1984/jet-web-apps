@@ -112,33 +112,41 @@
 </header>
 <div class="main-banner">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
+
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://i.ibb.co/N9sJqys/c5eb1e9c74934144ac751bc96f885522.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-{{--                    <h5>First slide label</h5>--}}
-{{--                    <p>Some representative placeholder content for the first slide.</p>--}}
-                </div>
+
+            <div class="carousel-item active" >
+                @isset($banner->get(0)->file)
+                    <img src="{{ asset('storage/img/'.$banner->get(0)->file)}}" class="d-block w-100" alt="...">
+                @endisset
+
             </div>
             <div class="carousel-item">
-                <img src="https://i.ibb.co/zbykx3K/1c60701987064b7abc83df449554081f.png" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-{{--                    <h5>Second slide label</h5>--}}
-{{--                    <p>Some representative placeholder content for the second slide.</p>--}}
-                </div>
+                @isset($banner->get(1)->file)
+                    <img src="{{ asset('storage/img/'.$banner->get(1)->file)}}" class="d-block w-100" alt="...">
+                @endisset
             </div>
+            @isset($banner->get(2)->file)
             <div class="carousel-item">
-                <img src="https://i.ibb.co/zbqc542/Micro-Gaming-Imgur.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-{{--                    <h5>Third slide label</h5>--}}
-{{--                    <p>Some representative placeholder content for the third slide.</p>--}}
-                </div>
+                @isset($banner->get(2)->file)
+                    <img src="{{ asset('storage/img/'.$banner->get(2)->file)}}" class="d-block w-100" alt="...">
+                @endisset
             </div>
+            @endisset
+            @isset($banner->get(3)->file)
+                <div class="carousel-item">
+                    @isset($banner->get(3)->file)
+                        <img src="{{ asset('storage/img/'.$banner->get(3)->file)}}" class="d-block w-100" alt="...">
+                    @endisset
+                </div>
+            @endisset
+            @isset($banner->get(4)->file)
+                <div class="carousel-item">
+                    @isset($banner->get(4)->file)
+                        <img src="{{ asset('storage/img/'.$banner->get(4)->file)}}" class="d-block w-100" alt="...">
+                    @endisset
+                </div>
+            @endisset
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -150,6 +158,7 @@
         </button>
     </div>
 </div>
+
 {{-- Grand Shanghai Result--}}
 <div class="container-fluid" style="background: #091353; padding-bottom: 15px;">
     <div class="container text-center" id="result-number" >
@@ -291,23 +300,30 @@
         <h1 class="text-center py-2 text-white pt-2 pb-2"> VIDEO RESULTS</h1>
         <div class="row" style="background: white; box-shadow: 2px 2px grey;">
             <div class="col-lg-9 mt-3">
-                <iframe width="100%" height="610px" src="https://youtube.com/embed/d2KYDIuJBIc">
+                <iframe width="100%" height="610px" src="{{ $videoBaru ?? '#' }}">
 
                 </iframe>
             </div>
             <div class="col-lg-3">
                 <div class="row">
                     <div class="col-lg-12 mt-3">
+
                         <div class="d-flex flex-column">
-                            <iframe src="https://youtube.com/embed/xlMPwGtU6L0" width="100%" height="200px">
+                            @isset($recentvideo->get(0)->url)
+                            <iframe src="{{ $recentvideo->get(0)->url }}" width="100%" height="200px">
 
                             </iframe>
-                            <iframe class="mt-1" src="https://youtube.com/embed/xlMPwGtU6L0" width="100%" height="200px">
+                            @endisset
+                            @isset($recentvideo->get(1)->url)
+                            <iframe class="mt-1" src="{{$recentvideo->get(1)->url}}" width="100%" height="200px">
 
                             </iframe>
-                            <iframe class="mt-1" src="https://youtube.com/embed/xlMPwGtU6L0" width="100%" height="200px">
+                            @endisset
+                            @isset($recentvideo->get(2)->url)
+                            <iframe class="mt-1" src="{{$recentvideo->get(2)->url}}" width="100%" height="200px">
 
                             </iframe>
+                            @endisset
 
 
                         </div>

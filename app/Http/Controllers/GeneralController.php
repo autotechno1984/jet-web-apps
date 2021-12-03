@@ -13,6 +13,7 @@ use App\Models\Result;
 use App\Models\transaksidepowd;
 use App\Models\User;
 use App\Models\userBankDetail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -33,7 +34,9 @@ class GeneralController extends Controller
 
         $userid = Auth::user()->id;
 //        $markets = Result::where('status', 1)->get();
-        $tempInv = InvoiceTemp::where('user_id', $userid)->where('result_id',$id)->orderBy('id','desc')->paginate(10);
+        $tempInv = InvoiceTemp::where('user_id', $userid)->where('result_id', $id)->paginate(10);
+
+
 //        $checkInv = InvoiceTemp::where('user_id', $userid)->first();
         $totaldiskon = DB::table('invoice_temps')->select(DB::raw('sum(amount) as jumlah'),DB::raw('sum(amount * (diskon/100)) as total'))->where('user_id', $userid)->where('result_id',$id)->first();
 
@@ -67,6 +70,7 @@ class GeneralController extends Controller
             $invoicetemp->amount = $request->nominal;
             $invoicetemp->diskon = $games->diskon;
             $invoicetemp->kei = $games->kei;
+            $invoicetemp->total = $kredituse;
             $invoicetemp->winlose = 0;
             $invoicetemp->is_win = 0;
             $invoicetemp->status = 2;
@@ -120,7 +124,7 @@ class GeneralController extends Controller
 
         $checkkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
         $kredituse = ($request->nominal - ($request->nominal * ($games->diskon /100 ))) * $total ;
-
+        $jumlah = ($request->nominal - ($request->nominal * ($games->diskon/100)));
         if($kredituse > $checkkredit) {
             return redirect()->back()->with('error', 'Maaf Kredit Anda Tidak Cukup, Silahkan melakukan Deposit');
         }else {
@@ -139,6 +143,7 @@ class GeneralController extends Controller
                     'diskon' => $diskon,
                     'kei' => 0,
                     'winlose' => 0,
+                    'total' => $jumlah,
                     'is_win' => 0,
                     'status' => 2,
                     'tgl_beli' => now(),
@@ -172,7 +177,9 @@ class GeneralController extends Controller
         $games = games::where('kode', $kode)->first();
 
         $checkkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
-        $kredituse = $request->nominal - ($request->nominal * ($games->diskon /100 )) ;
+        $kei = $request->nominal * ($games->kei /100);
+        $kredituse = ($request->nominal + $kei) - ($request->nominal * ($games->diskon /100 )) ;
+
 
         if($kredituse > $checkkredit) {
             return redirect()->back()->with('error', 'Maaf Kredit Anda Tidak Cukup, Silahkan melakukan Deposit');
@@ -189,6 +196,7 @@ class GeneralController extends Controller
             $invoicetemp->diskon = $games->diskon;
             $invoicetemp->kei = $games->kei;
             $invoicetemp->winlose = 0;
+            $invoicetemp->total = $kredituse;
             $invoicetemp->is_win = 0;
             $invoicetemp->status = 2;
             $invoicetemp->tgl_beli = now();
@@ -215,7 +223,10 @@ class GeneralController extends Controller
 
 
         $checkkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
-        $kredituse = $request->nominal - ($request->nominal * ($games->diskon /100 )) ;
+
+        $kei = $request->nominal * ($games->kei /100);
+        $kredituse = ($request->nominal + $kei) - ($request->nominal * ($games->diskon /100 )) ;
+
 
         if($kredituse > $checkkredit) {
             return redirect()->back()->with('error', 'Maaf Kredit Anda Tidak Cukup, Silahkan melakukan Deposit');
@@ -233,6 +244,7 @@ class GeneralController extends Controller
             $invoicetemp->winlose = 0;
             $invoicetemp->is_win = 0;
             $invoicetemp->status = 2;
+            $invoicetemp->total = $kredituse;
             $invoicetemp->tgl_beli = now();
             $invoicetemp->save();
 
@@ -258,7 +270,9 @@ class GeneralController extends Controller
         $games = games::where('kode', $kode)->first();
 
         $checkkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
-        $kredituse = $request->nominal - ($request->nominal * ($games->diskon /100 )) ;
+        $kei = $request->nominal * ($games->kei /100);
+        $kredituse = ($request->nominal + $kei) - ($request->nominal * ($games->diskon /100 )) ;
+
 
         if($kredituse > $checkkredit) {
             return redirect()->back()->with('error', 'Maaf Kredit Anda Tidak Cukup, Silahkan melakukan Deposit');
@@ -277,6 +291,7 @@ class GeneralController extends Controller
             $invoicetemp->winlose = 0;
             $invoicetemp->is_win = 0;
             $invoicetemp->status = 2;
+            $invoicetemp->total = $kredituse;
             $invoicetemp->tgl_beli = now();
             $invoicetemp->save();
             Profile::where('user_id', $user_id)
@@ -299,7 +314,9 @@ class GeneralController extends Controller
         $games = games::where('kode', $kode)->first();
 
         $checkkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
-        $kredituse = $request->nominal - ($request->nominal * ($games->diskon /100 )) ;
+        $kei = $request->nominal * ($games->kei /100);
+        $kredituse = ($request->nominal + $kei) - ($request->nominal * ($games->diskon /100 )) ;
+
 
         if($kredituse > $checkkredit) {
             return redirect()->back()->with('error', 'Maaf Kredit Anda Tidak Cukup, Silahkan melakukan Deposit');
@@ -318,6 +335,7 @@ class GeneralController extends Controller
             $invoicetemp->winlose = 0;
             $invoicetemp->is_win = 0;
             $invoicetemp->status = 2;
+            $invoicetemp->total = $kredituse;
             $invoicetemp->tgl_beli = now();
             $invoicetemp->save();
 
@@ -337,7 +355,7 @@ class GeneralController extends Controller
             'nominal' => 'required|numeric'
         ]);
 
-        $kode = "5050";
+        $kode = "50UM";
         $games = games::where('kode', $kode)->first();
 
 
@@ -361,6 +379,7 @@ class GeneralController extends Controller
         $invoicetemp->winlose = 0;
         $invoicetemp->is_win = 0;
         $invoicetemp->status = 2;
+        $invoicetemp->total = $kredituse;
         $invoicetemp->tgl_beli = now();
         $invoicetemp->save();
             Profile::where('user_id', $user_id)
@@ -384,7 +403,9 @@ class GeneralController extends Controller
         $games = games::where('kode', $kode)->first();
 
         $checkkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
-        $kredituse = $request->nominal - ($request->nominal * ($games->diskon /100 )) ;
+        $kei = $request->nominal * ($games->kei /100);
+        $kredituse = ($request->nominal + $kei) - ($request->nominal * ($games->diskon /100 )) ;
+
         if($kredituse > $checkkredit) {
             return redirect()->back()->with('error', 'Maaf Kredit Anda Tidak Cukup, Silahkan melakukan Deposit');
         } else {
@@ -402,6 +423,7 @@ class GeneralController extends Controller
             $invoicetemp->winlose = 0;
             $invoicetemp->is_win = 0;
             $invoicetemp->status = 2;
+            $invoicetemp->total = $kredituse;
             $invoicetemp->tgl_beli = now();
             $invoicetemp->save();
             Profile::where('user_id', $user_id)
@@ -424,7 +446,10 @@ class GeneralController extends Controller
 
 
         $checkkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
-        $kredituse = $request->nominal - ($request->nominal * ($games->diskon /100 )) ;
+        $kei = $request->nominal * ($games->kei /100);
+        $kredituse = ($request->nominal + $kei) - ($request->nominal * ($games->diskon /100 )) ;
+
+
         if($kredituse > $checkkredit) {
             return redirect()->back()->with('error', 'Maaf Kredit Anda Tidak Cukup, Silahkan melakukan Deposit');
         } else {
@@ -441,6 +466,7 @@ class GeneralController extends Controller
             $invoicetemp->winlose = 0;
             $invoicetemp->is_win = 0;
             $invoicetemp->status = 2;
+            $invoicetemp->total = $kredituse;
             $invoicetemp->tgl_beli = now();
             $invoicetemp->save();
             Profile::where('user_id', $user_id)
@@ -465,7 +491,9 @@ class GeneralController extends Controller
 
 
         $checkkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
-        $kredituse = $request->nominal - ($request->nominal * ($games->diskon /100 )) ;
+        $kei = $request->nominal * ($games->kei /100);
+        $kredituse = ($request->nominal + $kei) - ($request->nominal * ($games->diskon /100 )) ;
+
         if($kredituse > $checkkredit) {
             return redirect()->back()->with('error', 'Maaf Kredit Anda Tidak Cukup, Silahkan melakukan Deposit');
         } else {
@@ -482,6 +510,7 @@ class GeneralController extends Controller
             $invoicetemp->winlose = 0;
             $invoicetemp->is_win = 0;
             $invoicetemp->status = 2;
+            $invoicetemp->total = $kredituse;
             $invoicetemp->tgl_beli = now();
             $invoicetemp->save();
             Profile::where('user_id', $user_id)
@@ -504,7 +533,9 @@ class GeneralController extends Controller
         $games = games::where('kode', $kode)->first();
 
         $checkkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
-        $kredituse = $request->nominal - ($request->nominal * ($games->diskon /100 )) ;
+        $kei = $request->nominal * ($games->kei /100);
+        $kredituse = ($request->nominal + $kei) - ($request->nominal * ($games->diskon /100 )) ;
+
         if($kredituse > $checkkredit) {
             return redirect()->back()->with('error', 'Maaf Kredit Anda Tidak Cukup, Silahkan melakukan Deposit');
         } else {
@@ -521,6 +552,7 @@ class GeneralController extends Controller
             $invoicetemp->winlose = 0;
             $invoicetemp->is_win = 0;
             $invoicetemp->status = 2;
+            $invoicetemp->total = $kredituse;
             $invoicetemp->tgl_beli = now();
             $invoicetemp->save();
             Profile::where('user_id', $user_id)
@@ -544,7 +576,8 @@ class GeneralController extends Controller
         $games = games::where('kode', $kode)->first();
 
         $checkkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
-        $kredituse = $request->nominal - ($request->nominal * ($games->diskon /100 )) ;
+        $kei = $request->nominal * ($games->kei /100);
+        $kredituse = ($request->nominal + $kei) - ($request->nominal * ($games->diskon /100 )) ;
         if($kredituse > $checkkredit) {
             return redirect()->back()->with('error', 'Maaf Kredit Anda Tidak Cukup, Silahkan melakukan Deposit');
         } else {
@@ -561,6 +594,7 @@ class GeneralController extends Controller
             $invoicetemp->winlose = 0;
             $invoicetemp->is_win = 0;
             $invoicetemp->status = 2;
+            $invoicetemp->total = $kredituse;
             $invoicetemp->tgl_beli = now();
             $invoicetemp->save();
             Profile::where('user_id', $user_id)
@@ -601,22 +635,22 @@ class GeneralController extends Controller
     public function createinvoice(Request $request){
         $user_id = Auth::user()->id;
         $resultid = $request->id;
-
         $invoicetemp = InvoiceTemp::where('result_id', $resultid)->where('user_id', $user_id)->get();
         $invoicetempdata = InvoiceTemp::where('result_id', $resultid)->where('user_id', $user_id)->first();
-        $total = $invoicetemp->sum('amount');
+        $total = $invoicetemp->sum('total');
         $diskon = $invoicetemp->sum('diskon');
-
+        $Jumlah = $invoicetemp->sum('amount');
 
         $validated = $request->validate([
 
         ]);
 
-        DB::transaction(function () use($user_id, $resultid, $total, $diskon,  $invoicetemp) {
+        DB::transaction(function () use($user_id, $resultid, $total, $diskon,  $invoicetemp, $Jumlah) {
 
             $invoice = new Invoices();
             $invoice->user_id = $user_id;
             $invoice->result_id = $resultid;
+            $invoice->amount =  $Jumlah;
             $invoice->total = $total;
             $invoice->diskon = $diskon;
             $invoice->winLose = 0;
@@ -627,6 +661,7 @@ class GeneralController extends Controller
             foreach($invoicetemp as $data)
             DB::table('invoice_details')->insert([
                'invoice_id' => $invoice->id,
+                'user_id' => $user_id,
                 'result_id' => $resultid,
                 'kode' => $data->kode,
                 'posisi' => $data->posisi,
@@ -635,12 +670,14 @@ class GeneralController extends Controller
                 'hadiah' => $data->hadiah,
                 'diskon' => $data->diskon,
                 'kei' => $data->kei,
+                'total' => $data->total,
                 'winlose' => 0,
                 'is_win' => 0,
                 'status' => 2,
                 'tgl_beli' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
-
         });
 
         InvoiceTemp::where('user_id', $user_id)->delete();
@@ -698,7 +735,9 @@ class GeneralController extends Controller
             'nominal' => 'required|min:3'
         ]);
         $user_id = Auth::user()->id;
+        $bank = bankDetail::find($request->tujuanbank);
         $bankid = $request->tujuanbank;
+        $user_bank = userBankDetail::find($request->sumberbank);
         $userbankid = $request->sumberbank;
         $checkdeposit = transaksidepowd::where('user_Id',$user_id)->where('kategori','DEPO')->where('status',2)->count();
 
@@ -711,7 +750,13 @@ class GeneralController extends Controller
             $transaksi->kategori = 'DEPO';
             $transaksi->amount = $request->nominal;
             $transaksi->id_bank_detail = $bankid;
+            $transaksi->bank = $bank->nama;
+            $transaksi->akun_bank = $bank->nomor_akun;
+            $transaksi->nama_bank = $bank->nama_bank;
             $transaksi->user_bank_detail = $userbankid;
+            $transaksi->user_bank = $user_bank->nama;
+            $transaksi->user_nomor_bank = $user_bank->nomor_bank;
+            $transaksi->nama_akun_bank = $user_bank->nama_bank;
             $transaksi->status = '2';
             $transaksi->save();
 
@@ -726,6 +771,7 @@ class GeneralController extends Controller
         ]);
         $user_id = Auth::user()->id;
         $userbankid = $request->sumberbank;
+        $user_bank = userBankDetail::find($request->sumberbank);
         $userkredit = Profile::where('user_id',$user_id)->pluck('kredit')->first();
         $wdamount = $request->nominal;
         $total = (float) $userkredit - (float) $wdamount;
@@ -747,7 +793,13 @@ class GeneralController extends Controller
             $transaksi->kategori = 'WD';
             $transaksi->amount = $wdamount * -1;
             $transaksi->id_bank_detail = 0;
+            $transaksi->bank = 'A';
+            $transaksi->akun_bank = 'A';
+            $transaksi->nama_bank = 'A';
             $transaksi->user_bank_detail = $userbankid;
+            $transaksi->user_bank = $user_bank->nama;
+            $transaksi->user_nomor_bank = $user_bank->nomor_bank;
+            $transaksi->nama_akun_bank = $user_bank->nama_bank;
             $transaksi->status = '2';
             $transaksi->save();
 
@@ -757,8 +809,9 @@ class GeneralController extends Controller
     public function admintransaksi(){
         $depopending = transaksidepowd::where('kategori', 'DEPO')->where('status',2)->paginate(12);
         $wdpending = transaksidepowd::where('kategori', 'WD')->where('status',2)->paginate(12);
-
-        return view('backend.transaksi',compact('depopending','wdpending'));
+        $transaksi = transaksidepowd::with('user')->orderBy('id','Desc')->paginate(15);
+        $datauser = User::with('profile')->get();
+        return view('backend.transaksi',compact('depopending','wdpending','transaksi', 'datauser'));
     }
 
     public function depositreject($id){
@@ -775,7 +828,6 @@ class GeneralController extends Controller
 
     public function depositapproved($id){
 
-        $user_id = Auth::user()->id;
 
         $useridrequest = transaksidepowd::where('id', $id)->pluck('user_id')->first();
         $userkredit = Profile::where('user_id', $useridrequest)->pluck('kredit')->first();
@@ -828,11 +880,41 @@ class GeneralController extends Controller
         return redirect()->back()->with('success', 'Penarikan Berhasil');
     }
 
-    public function statement() {
+//
+//select
+//date,
+//coalesce(
+//sum(added_amount) over(
+//order by date
+//rows between unbounded preceding and 1 preceding
+//),
+//0) prev_balance,
+//added_amount,
+//sum(added_amount) over(order by date) balance
+//from mytable
 
-        return view('front.statement');
+    public function statement() {
+        $userid = Auth::user()->id;
+        $sekarang = Carbon::parse(now())->format('Y-m-d');
+        $seminggu = Carbon::parse(now())->subday(7)->format('Y-m-d');
+        $runningInvoice = DB::table('invoices')->where('user_id', $userid)->where('status',0)->get();
+        $transaksi = DB::table('transaksidepowds')
+            ->select('kategori','amount','bank','akun_bank','nama_bank','user_bank','user_nomor_bank','nama_akun_bank','catatan', DB::raw('coalesce(sum(amount) over (order by data_request rows between unbounded preceding and 1 preceding),0) saldoawal, amount, (sum(amount) over(order by data_request)) balance '), DB::raw('date_format(data_request,"%Y-%m-%d") as tanggal'))
+            ->where('user_id', $userid)
+            ->whereBetween(DB::raw('date_format(data_request,"%Y-%m-%d")'), [$seminggu, $sekarang])->orderBy('id','Desc')->paginate(10);
+
+        return view('front.statement',compact('transaksi','runningInvoice'));
     }
 
+    public function invoicedetail($id){
+
+        $invoicedetail = InvoiceDetail::where('invoice_id', $id)->paginate(15);
+        $idresultinvoice = InvoiceDetail::where('invoice_id',$id)->pluck('result_id')->first();
+        $pasaran = Result::where('id', $idresultinvoice)->pluck('pasaran')->first();
+
+        return view('front.statementinvoicedetail', compact('invoicedetail','pasaran'));
+
+    }
     public function gantipassword(){
 
         return view('front.gantipassword');
@@ -862,4 +944,6 @@ class GeneralController extends Controller
 
 
     }
+
+
 }

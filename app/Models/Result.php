@@ -15,6 +15,7 @@ class Result extends Model
         'kode',
         'pasaran',
         'jam_tutup',
+        'status'
     ];
 
     public function result_details(){

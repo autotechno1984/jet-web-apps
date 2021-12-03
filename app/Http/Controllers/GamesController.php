@@ -20,7 +20,7 @@ class GamesController extends Controller
 
     public function index()
     {
-        $games = games::all();
+        $games = games::paginate(15);
         return view('games.games', compact('games'));
     }
 
@@ -54,7 +54,7 @@ class GamesController extends Controller
             ['nama' => $request->nama , 'hadiah' => $request->hadiah , 'diskon' => $request->diskon, 'kei' => $request->kei]
         );
 
-        return redirect()->route('games.index');
+        return redirect()->route('admin.games.index');
     }
 
     /**

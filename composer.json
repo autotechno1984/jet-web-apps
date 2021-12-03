@@ -13,9 +13,12 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "livewire/livewire": "^2.7",
+        "maatwebsite/excel": "^3.1",
+        "phpoffice/phpspreadsheet": "^1.20",
         "power-components/livewire-powergrid": "^1.4",
         "pusher/pusher-php-server": "^7.0",
         "rappasoft/laravel-authentication-log": "^1.1",
+        "rappasoft/laravel-livewire-tables": "^1.21",
         "yajra/laravel-datatables-oracle": "^9.18"
     },
     "require-dev": {

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\User;
+use App\Models\transaksidepowd;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\Eloquent\Builder;
@@ -13,7 +13,7 @@ use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 
-class Members extends PowerGridComponent
+class transaksidepositwd extends PowerGridComponent
 {
     use ActionButton;
 
@@ -28,7 +28,7 @@ class Members extends PowerGridComponent
     {
         $this->showCheckBox()
             ->showPerPage()
-            ->showExportOption('download', ['excel', 'csv','pdf'])
+            ->showExportOption('download', ['excel', 'csv'])
             ->showSearchInput();
     }
 
@@ -41,7 +41,8 @@ class Members extends PowerGridComponent
     */
     public function datasource(): ?Builder
     {
-        return User::query()->with('profile');
+       return transaksidepowd::query()->with('user')->orderBy('id','Desc');
+
     }
 
     /*
@@ -53,7 +54,11 @@ class Members extends PowerGridComponent
     */
     public function relationSearch(): array
     {
-        return [];
+        return [
+            'user' => [
+                'username',
+            ]
+        ];
     }
 
     /*
@@ -68,29 +73,31 @@ class Members extends PowerGridComponent
     {
         return PowerGrid::eloquent()
             ->addColumn('id')
-            ->addColumn('id')
-            ->addColumn('name')
-            ->addColumn('username')
-            ->addColumn('handphone', function(User $model){
-                return ($model->profile->handphone ?? '-');
+            ->addColumn('kategori')
+            ->addColumn('amount', function(transaksidepowd  $model){
+                return number_format($model->amount);
             })
-            ->addColumn('kredit', function(User $model){
-                return number_format($model->profile->kredit ?? '0');
+            ->addColumn('bank')
+            ->addColumn('akun_bank')
+            ->addColumn('nama_bank')
+            ->addColumn('nama', function(transaksidepowd  $model) {
+               return ($model->user->get(0)->name);
             })
-            ->addColumn('referallid')
-            ->addColumn('status', function(User $model){
-                if($model->status == 1){
-                    return 'MEMBER';
-                } elseif ($model->status == 6) {
-                    return 'AGEN';
-                }
+            ->addColumn('username', function(transaksidepowd  $model) {
+                return ($model->user->get(0)->username);
             })
-            ->addColumn('created_at_formatted', function(User $model) {
-                return Carbon::parse($model->created_at)->format('d/m/Y H:i:s');
+
+            ->addColumn('user_bank')
+            ->addColumn('user_nomor_bank')
+            ->addColumn('nama_akun_bank')
+            ->addColumn('catatan')
+            ->addColumn('data_request_formatted', function(transaksidepowd $model) {
+                return Carbon::parse($model->data_request)->format('d/m/Y H:i:s');
             })
-            ->addColumn('updated_at_formatted', function(User $model) {
-                return Carbon::parse($model->updated_at)->format('d/m/Y H:i:s');
+            ->addColumn('date_approved', function(transaksidepowd $model) {
+                return Carbon::parse($model->date_approved)->format('d/m/Y H:i:s');
             });
+
     }
 
     /*
@@ -103,39 +110,71 @@ class Members extends PowerGridComponent
     */
     public function columns(): array
     {
-        $canEdit = true;
+
         return [
             Column::add()
-                ->title(__('ID'))
-                ->field('id'),
-
-            Column::add()
-                ->title(__('NAME'))
-                ->field('name')
-                ->sortable()
+                ->title(__('TRK.ID'))
+                ->field('id')
                 ->searchable(),
 
             Column::add()
-                ->title(__('USERNAME'))
+                ->title(__('KATEGORI'))
+                ->field('kategori')
+                ->headerAttribute('text-center')
+                ->bodyAttribute('text-center', 'font-weight:bold;'),
+
+            Column::add()
+                ->title(__('AMOUNT'))
+                ->field('amount')
+                ->headerAttribute('text-center')
+                ->bodyAttribute('text-center'),
+
+            Column::add()
+                ->title(__('BANK'))
+                ->field('bank')
+                ->searchable(),
+            Column::add()
+                ->title(__('Nomor Bank'))
+                ->field('akun_bank'),
+
+            Column::add()
+                ->title('Nama rekening')
+                ->field('nama_bank')
+                ->searchable(),
+
+            Column::add()
+                ->title('Nama')
+                ->field('nama')
+                ->searchable(),
+
+            Column::add()
+                ->title('username')
                 ->field('username')
-                ->sortable()
                 ->searchable(),
+
             Column::add()
-                ->title(__('HANDPHONE'))
-                ->field('handphone'),
+                ->title('Bank Member')
+                ->field('user_bank'),
+
             Column::add()
-                ->title(__('kredit'))
-                ->field('kredit'),
+                ->title('Nomor Rekening')
+                ->field('user_nomor_bank'),
+
             Column::add()
-                ->title('Referall ID')
-                ->field('referallid'),
+                ->title('Nama Rekening')
+                ->field('nama_akun_bank'),
+
             Column::add()
-                 ->title('Upline ID')
-                 ->field('uplineid'),
+                ->title(__('CATATAN'))
+                ->field('catatan'),
+
             Column::add()
-                 ->title('Status')
-                 ->field('status')
-                 ->bodyAttribute('','font-weight:bold;'),
+                ->title(__('DATA REQUEST'))
+                ->field('data_request_formatted'),
+
+            Column::add()
+                ->title('Date Approved')
+                ->field('date_approved'),
 
 
         ]
@@ -150,23 +189,23 @@ class Members extends PowerGridComponent
     |
     */
 
-
+    /*
     public function actions(): array
     {
        return [
            Button::add('edit')
                ->caption(__('Edit'))
-               ->class('btn btn-primary form-control')
-               ->route('admin.users.show', ['user' => 'id'])
+               ->class('bg-indigo-500 text-white')
+               ->route('transaksidepowd.edit', ['transaksidepowd' => 'id']),
 
-//           Button::add('destroy')
-//               ->caption(__('Delete'))
-//               ->class('bg-red-500 text-white')
-//               ->route('user.destroy', ['user' => 'id'])
-//               ->method('delete')
+           Button::add('destroy')
+               ->caption(__('Delete'))
+               ->class('bg-red-500 text-white')
+               ->route('transaksidepowd.destroy', ['transaksidepowd' => 'id'])
+               ->method('delete')
         ];
     }
-
+    */
 
     /*
     |--------------------------------------------------------------------------
@@ -176,11 +215,11 @@ class Members extends PowerGridComponent
     |
     */
 
-
+    /*
     public function update(array $data ): bool
     {
        try {
-           $updated = User::query()->find($data['id'])->update([
+           $updated = transaksidepowd::query()->find($data['id'])->update([
                 $data['field'] => $data['value']
            ]);
        } catch (QueryException $exception) {
@@ -204,6 +243,7 @@ class Members extends PowerGridComponent
 
         return ($updateMessages[$status][$field] ?? $updateMessages[$status]['_default_message']);
     }
+    */
 
     public function template(): ?string
     {

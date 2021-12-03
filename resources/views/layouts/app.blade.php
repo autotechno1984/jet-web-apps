@@ -125,6 +125,7 @@
             @yield('transaksi')
             @yield('statement')
             @yield('gantipassword')
+            @yield('invoicedetail')
 
 
     </div>

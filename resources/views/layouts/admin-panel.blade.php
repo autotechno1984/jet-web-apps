@@ -13,7 +13,7 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"/>
-
+        <script src="https://kit.fontawesome.com/942785f6e0.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" ></script>
         @livewireStyles
         @powerGridStyles
@@ -116,10 +116,25 @@
                             </a>
                             <div class="collapse" id="collapseTransaksi" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <a class="nav-link collapsed" href="{{ route('admin.admintransaksi') }}"  >
-                                    Deposit And Withdraw
+                                    Kredit-Depo-WD
                                     {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
                                 </a>
                             </div>
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapselaporan" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Laporan
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapselaporan" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <a class="nav-link collapsed" href="{{ route('admin.laporanOmset') }}"  >
+                                    Laporan Omset
+                                </a>
+                                <a class="nav-link collapsed" href="#" >
+                                    Laporan Omset by agent
+                                </a>
+                            </div>
+
                             <div class="sb-sidenav-menu-heading">Front</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsewebsetting" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
@@ -132,10 +147,7 @@
                                     {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
                                 </a>
                             </div>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
+
                         </div>
                     </div>
 
@@ -158,7 +170,7 @@
                   @yield('transaksi')
                   @yield('websetting')
                   @yield('dashboard')
-
+                  @yield('laporanOmset')
 
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">

@@ -71,13 +71,8 @@
                             <div class="col-lg-6">
                                 <select class="form-select" name ="group" aria-label="Default select example">
                                     <option selected>Jenis Akun</option>
-                                    <option value="0">Admin</option>
-                                    <option value="1">Manager</option>
-                                    <option value="2">Supervisor</option>
-                                    <option value="3">Operator</option>
-                                    <option value="4">Kasir</option>
-                                    <option value="5">Agent</option>
-                                    <option value="6">Member</option>
+                                    <option value="1">Member</option>
+                                    <option value="6">Agent</option>
                                 </select>
                             </div>
                         </div>

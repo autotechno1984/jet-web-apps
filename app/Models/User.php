@@ -25,7 +25,10 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'is_admin'
+        'is_admin',
+        'referallid',
+        'uplineid',
+        'status',
     ];
 
     /**
@@ -57,4 +60,11 @@ class User extends Authenticatable
         return $this->hasMany(userBankDetail::class,'user_id', 'id');
     }
 
+    public function transaksi(){
+        return $this->belongsTo(transaksidepowd::class,'user_id');
+    }
+
+    public function invoicedetail(){
+        return $this->belongsTo(InvoiceDetail::class, 'user_id','id');
+    }
 }

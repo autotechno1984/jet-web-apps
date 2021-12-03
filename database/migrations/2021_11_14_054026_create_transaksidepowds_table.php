@@ -17,9 +17,15 @@ class CreateTransaksidepowdsTable extends Migration
             $table->id()->startingValue(500);
             $table->foreignId('user_id')->constrained();
             $table->string('kategori');
-            $table->string('amount');
-            $table->string('id_bank_detail');
-            $table->string('user_bank_detail');
+            $table->decimal('amount',22,2);
+            $table->foreignId('id_bank_detail');
+            $table->string('bank');
+            $table->string('akun_bank');
+            $table->string('nama_bank');
+            $table->foreignId('user_bank_detail');
+            $table->string('user_bank');
+            $table->string('user_nomor_bank');
+            $table->string('nama_akun_bank');
             $table->string('status');
             $table->string('catatan')->nullable();
             $table->string('approvedby')->nullable();

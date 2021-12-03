@@ -573,6 +573,16 @@
                                                         <select name="nomor" id="" class="form-select">
                                                             <option selected>Pilih Shio</option>
                                                             <option value="TIKUS">TIKUS</option>
+                                                            <option value="KERBAU">KERBAU</option>
+                                                            <option value="HARIMAU">HARIMAU</option>
+                                                            <option value="KELINCI">KELINCI</option>
+                                                            <option value="NAGA">NAGA</option>
+                                                            <option value="ULAR">ULAR</option>
+                                                            <option value="KUDA">KUDA</option>
+                                                            <option value="KAMBING">KAMBING</option>
+                                                            <option value="MONYET">MONYET</option>
+                                                            <option value="AYAM">AYAM</option>
+                                                            <option value="ANJING">ANJING</option>
                                                             <option value="BABI">BABI</option>
                                                         </select>
                                                     </div>
@@ -619,6 +629,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
                                        @forelse($tempInv as $data)
                                             <tr>
                                                 @switch($data->kode)
@@ -686,7 +697,7 @@
                                                         {{ $data->data }}
                                                     </td>
 
-                                                <td>{{number_format($data->amount) }}</td>
+                                                <td>{{number_format($data->total) }}</td>
                                                     <td>
                                                         <form action="{{ route('deleteorder', $data->id ) }}" method="POST">
                                                             @method('delete')

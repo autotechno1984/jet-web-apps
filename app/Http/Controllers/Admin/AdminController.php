@@ -3,11 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\banner;
 use App\Models\Contact;
+use App\Models\InvoiceDetail;
+use App\Models\Result;
+use App\Models\User;
+use App\Models\Video;
 use Illuminate\Http\Request;
-
-use App\Models\Admin;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
+
 
 class AdminController extends Controller
 {
@@ -29,7 +34,9 @@ class AdminController extends Controller
     }
 
     function home(){
-        return view("backend.dashboard");
+        $result = Result::where('status',1)->get();
+        $invoicedetail = InvoiceDetail::where('status',2)->get();
+        return view("backend.dashboard",compact('result','invoicedetail'));
     }
 
     function logout(){
@@ -38,8 +45,71 @@ class AdminController extends Controller
     }
 
     function websetting() {
+        $video = Video::orderBy('id','Desc')->paginate(10);
         $dataContact = Contact::all();
-
-        return view('backend.websitesetting',compact('dataContact'));
+        $banner = banner::where('status', 1)->get();
+        return view('backend.websitesetting',compact('dataContact','banner', 'video'));
     }
+
+    function addcontact(Request $request) {
+
+        $validated = $request->validate([
+            'medsos' => 'required|unique:contacts,aplikasi',
+            'url' => 'required',
+        ]);
+
+        $contact = new Contact;
+        $contact->aplikasi = $request->medsos;
+        $contact->url = $request->url;
+        $contact->save();
+
+        return redirect()->route('admin.websetting');
+    }
+
+    function addbanner(Request $request){
+
+
+
+        $validated = $request->validate([
+            'posisi' => 'required',
+            'namabanner' => 'required',
+            'banner' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+        ]);
+            if($request->hasFile('banner')){
+                $name = $request->file('banner')->getClientOriginalName();
+                $path = $request->file('banner')->storeAs('public/img', $name);
+
+                $banner = new banner;
+                $banner->posisi = $request->posisi;
+                $banner->nama = $request->namabanner;
+                $banner->file = $name;
+                $banner->status = 1;
+                $banner->save();
+                return redirect()->route('admin.websetting');
+
+            }
+//
+    }
+
+    function addvideo(Request $request){
+
+        $validated = $request->validate([
+            'periode' => 'required',
+            'url' => 'required'
+        ]);
+
+
+        $video = new Video;
+        $video->periode = $request->periode;
+        $video->url = $request->url;
+        $video->save();
+
+        return redirect()->route('admin.websetting');
+    }
+
+    function laporanByOmset()
+    {
+        return view('Laporan.laporanomset');
+    }
+
 }

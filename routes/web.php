@@ -6,7 +6,10 @@ use App\Http\Controllers\MarketController;
 use App\Http\Controllers\ResultController;
 use App\Http\Livewire\Results;
 use App\Models\Admin;
+use App\Models\banner;
 use App\Models\Contact;
+use App\Models\User;
+use App\Models\Video;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AdminController;
@@ -25,17 +28,14 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes();
 
-
-
-
 Route::get('/', function() {
-
+    $recentvideo = Video::select('url')->orderBy('id','Desc')->skip(1)->take(3)->get();
+    $videoBaru = Video::pluck('url')->last();
+    $banner = banner::select('file')->where('status',1)->get();
     $whatsapp = Contact::select('aplikasi','url')->get();
-
-
-    return view('front.index',compact('whatsapp'));
-
+    return view('front.index',compact('whatsapp','banner','videoBaru','recentvideo'));
 });
+
 Route::middleware(['auth','PreventBackHistory'])->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('togel/{id}', [GeneralController::class,'togel'])->name('togel');
@@ -59,6 +59,7 @@ Route::middleware(['auth','PreventBackHistory'])->group(function(){
     Route::post('member/depo', [GeneralController::class,'deposit'])->name('deposit');
     Route::post('member/withdraw', [GeneralController::class, 'withdraw'])->name('withdraw');
     Route::get('member/statement', [GeneralController::class,'statement'])->name('statement');
+    Route::get('member/statement/{id}/invoicedetail', [GeneralController::class, 'invoicedetail'])->name('invoicedetail');
     Route::get('member/ganti-password', [GeneralController::class,'gantipassword'])->name('gantipassword');
     Route::put('member/ganti-password-baru', [GeneralController::class,'gantipasswordbaru'])->name('gantipasswordbaru');
 
@@ -75,9 +76,18 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::post('/logout', [AdminController::class,'logout'])->name('logout');
 
         Route::get('/web-setting',[AdminController::class,'websetting'])->name('websetting');
+        Route::post('/web-setting/contact', [AdminController::class,'addcontact'])->name('addcontact');
+        Route::post('/web-setting/banner', [AdminController::class,'addbanner'])->name('addbanner');
+        Route::post('/web-setting/videos', [AdminController::class,'addvideo'])->name('addvideo');
+        Route::get('/laporan-by-omset',[AdminController::class,'laporanByOmset'])->name('laporanOmset');
         //Members
         Route::get('/user-list', [UserController::class, 'members'])->name('user-list');
         Route::get('/data', [UserController::class, 'data'])->name('data');
+        Route::put('/users/{id}/gantipass', [UserController::class,'resetpass'])->name('resetpass');
+        Route::delete('/users/{id}/hapusbank/{bankid}', [UserController::class,'akunbankuser'])->name('hapusbankuser');
+        Route::post('/users/{id}/add-bank', [UserController::class,'savebankuser'])->name('bankuser');
+        Route::post('/users/{id}/user-limit', [UserController::class,'userlimit'])->name('userlimit');
+        Route::put('/users/{id}/update-referall', [UserController::class,'referall'])->name('referall');
         Route::resource('/users', UserController::class , ['names' => [
             'index' => 'users.index',
             'create' => 'users.create',

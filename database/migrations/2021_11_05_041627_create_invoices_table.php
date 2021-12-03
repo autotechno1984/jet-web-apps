@@ -17,9 +17,10 @@ class CreateInvoicesTable extends Migration
             $table->id()->startingValue(100);
             $table->foreignId('user_id')->constrained();
             $table->foreignId('result_id')->constrained();
-            $table->string('total');
-            $table->string('diskon');
-            $table->string('winLose');
+            $table->decimal('amount',22,2);
+            $table->decimal('total',22,2);
+            $table->decimal('diskon',22,2);
+            $table->decimal('winLose');
             $table->string('status');
             $table->timestamp('tgl_invoice')->useCurrent();
             $table->timestamps();

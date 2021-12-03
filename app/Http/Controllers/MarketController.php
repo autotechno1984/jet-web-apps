@@ -14,7 +14,7 @@ class MarketController extends Controller
      */
     public function index()
     {
-        $markets = Market::all();
+        $markets = Market::paginate(12);
         return view('market.market',compact('markets'));
     }
 
@@ -46,7 +46,7 @@ class MarketController extends Controller
         $market->tipe = $request->tipe;
         $market->save();
 
-        return redirect()->route('market.index')->with('success','Data Berhasil Disimpan!!');
+        return redirect()->route('admin.market.index')->with('success','Data Berhasil Disimpan!!');
 
     }
 

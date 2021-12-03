@@ -22,6 +22,8 @@
                                     <option value="COLOK">COLOK</option>
                                     <option value="5050">50-50</option>
                                     <option value="MACAU">MACAU</option>
+                                    <option value="DASAR">DASAR</option>
+                                    <option value="SHIO">SHIO</option>
                                 </select>
                             </div>
                         </div>
@@ -123,6 +125,7 @@
                         @endforelse
                    </tbody>
                </table>
+                {{ $games->links() }}
             </div>
         </div>
     </div>

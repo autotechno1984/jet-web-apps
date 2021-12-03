@@ -134,6 +134,7 @@
                             @endforelse
                             </tbody>
                         </table>
+{{--                        {{ $markets->link() }}--}}
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ return [
     // The database connection where the authentication_log table resides. Leave empty to use the default
     'db_connection' => null,
 
+
     'notifications' => [
         'new-device' => [
             // Send the NewDevice notification

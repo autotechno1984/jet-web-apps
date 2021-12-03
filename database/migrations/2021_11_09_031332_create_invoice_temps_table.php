@@ -26,6 +26,7 @@ class CreateInvoiceTempsTable extends Migration
             $table->decimal('diskon', 22,2);
             $table->decimal('kei',22,2);
             $table->decimal('winlose',22,2);
+            $table->decimal('total',22,2);
             $table->softDeletes();
             $table->string('is_win')->default(0);
             $table->string('status')->default(1);

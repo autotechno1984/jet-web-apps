@@ -25,7 +25,7 @@ class CreateProfilesTable extends Migration
             $table->string('kecamatan');
             $table->string('rtrw');
             $table->string('point')->default(0);
-            $table->string('kredit')->default(0);
+            $table->decimal('kredit')->default(0);
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
