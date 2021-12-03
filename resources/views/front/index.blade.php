@@ -311,21 +311,21 @@
                     <div class="col-lg-12 mt-3">
 
                         <div class="d-flex flex-column">
-                            @isset($recentvideo->get(0)->url)
-                            <iframe src="{{ $recentvideo->get(0)->url }}" width="100%" height="200px">
+{{--                            @isset($recentvideo->get(0)->url)--}}
+{{--                            <iframe src="{{ $recentvideo->get(0)->url }}" width="100%" height="200px">--}}
 
-                            </iframe>
-                            @endisset
-                            @isset($recentvideo->get(1)->url)
-                            <iframe class="mt-1" src="{{$recentvideo->get(1)->url}}" width="100%" height="200px">
+{{--                            </iframe>--}}
+{{--                            @endisset--}}
+{{--                            @isset($recentvideo->get(1)->url)--}}
+{{--                            <iframe class="mt-1" src="{{$recentvideo->get(1)->url}}" width="100%" height="200px">--}}
 
-                            </iframe>
-                            @endisset
-                            @isset($recentvideo->get(2)->url)
-                            <iframe class="mt-1" src="{{$recentvideo->get(2)->url}}" width="100%" height="200px">
+{{--                            </iframe>--}}
+{{--                            @endisset--}}
+{{--                            @isset($recentvideo->get(2)->url)--}}
+{{--                            <iframe class="mt-1" src="{{$recentvideo->get(2)->url}}" width="100%" height="200px">--}}
 
-                            </iframe>
-                            @endisset
+{{--                            </iframe>--}}
+{{--                            @endisset--}}
 
 
                         </div>
