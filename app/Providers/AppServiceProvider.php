@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
     {
 
 
-        View::share('markets', Result::where('status',1)->get());
+        //View::share('markets', Result::where('status',1)->get());
         Paginator::useBootstrap();
         date_default_timezone_set('Asia/Jakarta');
 
