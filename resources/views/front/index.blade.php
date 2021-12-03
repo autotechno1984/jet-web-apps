@@ -116,39 +116,39 @@
         <div class="carousel-inner">
 
             <div class="carousel-item active" >
-                @if(!empty($banner->get(0)->file))
-                    <img src="{{ asset('storage/img/'.$banner->get(0)->file) }}" class="d-block w-100" alt="...">
+{{--                @if(!empty($banner->get(0)->file))--}}
+{{--                    <img src="{{ asset('storage/img/'.$banner->get(0)->file) }}" class="d-block w-100" alt="...">--}}
 
-                @else
-                    <img src="#" alt="no picture">
-                @endif
+{{--                @else--}}
+{{--                    <img src="#" alt="no picture">--}}
+{{--                @endif--}}
             </div>
-            <div class="carousel-item">
-                @isset($banner->get(1)->file)
-                    <img src="{{ asset('storage/img/'.$banner->get(1)->file)}}" class="d-block w-100" alt="...">
-                @endisset
-            </div>
-            @isset($banner->get(2)->file)
-            <div class="carousel-item">
-                @isset($banner->get(2)->file)
-                    <img src="{{ asset('storage/img/'.$banner->get(2)->file)}}" class="d-block w-100" alt="...">
-                @endisset
-            </div>
-            @endisset
-            @isset($banner->get(3)->file)
-                <div class="carousel-item">
-                    @isset($banner->get(3)->file)
-                        <img src="{{ asset('storage/img/'.$banner->get(3)->file)}}" class="d-block w-100" alt="...">
-                    @endisset
-                </div>
-            @endisset
-            @isset($banner->get(4)->file)
-                <div class="carousel-item">
-                    @isset($banner->get(4)->file)
-                        <img src="{{ asset('storage/img/'.$banner->get(4)->file)}}" class="d-block w-100" alt="...">
-                    @endisset
-                </div>
-            @endisset
+{{--            <div class="carousel-item">--}}
+{{--                @isset($banner->get(1)->file)--}}
+{{--                    <img src="{{ asset('storage/img/'.$banner->get(1)->file)}}" class="d-block w-100" alt="...">--}}
+{{--                @endisset--}}
+{{--            </div>--}}
+{{--            @isset($banner->get(2)->file)--}}
+{{--            <div class="carousel-item">--}}
+{{--                @isset($banner->get(2)->file)--}}
+{{--                    <img src="{{ asset('storage/img/'.$banner->get(2)->file)}}" class="d-block w-100" alt="...">--}}
+{{--                @endisset--}}
+{{--            </div>--}}
+{{--            @endisset--}}
+{{--            @isset($banner->get(3)->file)--}}
+{{--                <div class="carousel-item">--}}
+{{--                    @isset($banner->get(3)->file)--}}
+{{--                        <img src="{{ asset('storage/img/'.$banner->get(3)->file)}}" class="d-block w-100" alt="...">--}}
+{{--                    @endisset--}}
+{{--                </div>--}}
+{{--            @endisset--}}
+{{--            @isset($banner->get(4)->file)--}}
+{{--                <div class="carousel-item">--}}
+{{--                    @isset($banner->get(4)->file)--}}
+{{--                        <img src="{{ asset('storage/img/'.$banner->get(4)->file)}}" class="d-block w-100" alt="...">--}}
+{{--                    @endisset--}}
+{{--                </div>--}}
+{{--            @endisset--}}
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
