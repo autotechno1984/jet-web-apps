@@ -32,6 +32,7 @@ Route::get('/', function() {
     $recentvideo = Video::select('url')->orderBy('id','Desc')->skip(1)->take(3)->get();
     $videoBaru = Video::pluck('url')->last();
     $banner = banner::select('file')->where('status',1)->get();
+
     $whatsapp = Contact::select('aplikasi','url')->get();
     return view('front.index',compact('whatsapp','banner','videoBaru','recentvideo'));
 });

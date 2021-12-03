@@ -116,10 +116,12 @@
         <div class="carousel-inner">
 
             <div class="carousel-item active" >
-                @isset($banner->get(0)->file)
-                    <img src="{{ asset('storage/img/'.$banner->get(0)->file)}}" class="d-block w-100" alt="...">
-                @endisset
+                @if(!empty($banner->get(0)->file))
+                    <img src="{{ asset('storage/img/'.$banner->get(0)->file) }}" class="d-block w-100" alt="...">
 
+                @else
+                    <img src="#" alt="no picture">
+                @endif
             </div>
             <div class="carousel-item">
                 @isset($banner->get(1)->file)
