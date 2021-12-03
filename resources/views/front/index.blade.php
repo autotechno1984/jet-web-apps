@@ -345,7 +345,7 @@
 
    </div>
 </div>
-<a href="{{'https://wa.me/'.$whatsapp->where('aplikasi','whatsapp')->pluck('url')->first() ?? '#'}}" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
+<a href="#" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <footer class="w-100 " style="background: #091353; ">
 
     <h6 class="text-center text-white" style="padding-top:1rem;">Grand-shanghai &copy;2019 Copyright</h6>
