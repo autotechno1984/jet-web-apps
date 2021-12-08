@@ -25,6 +25,7 @@ class Admin extends Authenticatable
         'password',
         'handphone',
         'role',
+        'bann',
         'date_update'
     ];
 

@@ -229,7 +229,7 @@ class UserController extends Controller
 
     public function referall(Request $request, $id){
 
-        $updatereferall = User::where('id', $id)->update(['uplineid' => $request->uplineid, 'status' => $request->status]);
+        $updatereferall = User::where('id', $id)->update(['uplineid' => $request->uplineid, 'bann' => $request->status]);
         return redirect()->route('admin.users.show', [$id]);
 
     }

@@ -6,7 +6,8 @@ use App\Models\InvoiceDetail;
 use App\Models\Result;
 use App\Models\User;
 use Livewire\Component;
-use Maatwebsite\Excel\Excel;
+use App\Exports\OmsetDaily;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LaporanOmset extends Component
 {
@@ -32,6 +33,13 @@ class LaporanOmset extends Component
 
     public function export()
     {
+        if($this->kode == ''){
+            return (new OmsetDaily($this->pasarans))->download('OmsetByPasaran.xlsx');
+        }elseif($this->caridata == ''){
+            return Excel::download(OmsetDaily::where('status',2)->where('result_id', $this->pasaran)->where('kode', $this->kode)->get(), 'omsetbykode.xlsx');
+        }else {
+            return Excel::download(OmsetDaily::where('status', 2)->where('result_id', $this->pasaran)->where('kode', $this->kode)->where('data', $this->caridata)->get(), 'Omsetbykodenddata.xlsx');
+        }
 
     }
 }

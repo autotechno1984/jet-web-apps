@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('uplineid')->nullable();
             $table->softDeletes();
             $table->string('status');
+            $table->string('bann');
             $table->timestamps();
 
         });

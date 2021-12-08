@@ -23,21 +23,21 @@
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        Shanghai-Cobra
+        GRAND-SHANGHAI
     </div>
     <nav>
         <ul>
-            <li><a href="#" >HOME</a></li>
-            <li><a href="/hadiah">HADIAH</a>
+            <li><a href="/" >HOME</a></li>
+            <li><a href="#">HADIAH</a>
 
             </li>
             <li><a href="#">HASIL</a></li>
-{{--            <li class="sub-menu"><a href="#">COMMUNITY</a>--}}
-{{--                <ul>--}}
-{{--                    <li><a href="#">LINK</a></li>--}}
-{{--                    <li><a href="#">LINK</a></li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
+            {{--            <li class="sub-menu"><a href="#">COMMUNITY</a>--}}
+            {{--                <ul>--}}
+            {{--                    <li><a href="#">LINK</a></li>--}}
+            {{--                    <li><a href="#">LINK</a></li>--}}
+            {{--                </ul>--}}
+            {{--            </li>--}}
             <li><a href="#">ABOUT-US</a></li>
             <li><a href="#">CONTACT</a></li>
             <li><a href="#">ENG</a>
@@ -107,182 +107,156 @@
         </div>
     </div>
 </header>
-<div class="main-banner">
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-
-        <div class="carousel-inner">
-
-            <div class="carousel-item active" >
-                        <img src="https://i.ibb.co/bWL2dJq/Shanghai-cobra.jpg" class="d-block w-100" alt="...">
-
-
-            </div>
-
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
-
-{{-- Grand Shanghai Result--}}
-<div class="container-fluid" style="background: #091353; padding-bottom: 15px;">
-    <div class="container text-center" id="result-number" >
-        <div class="container pt-3">
-            <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-10">
-                    <h1 class="glow">JACKPOT</h1>
-                    <h1 class="glow">Rp 100.000.000</h1>
-                </div>
-                <div class="col-lg-1"></div>
-
-            </div>
-
-        </div>
-
-        <h1 class="text-white pt-2 pb-2 mt-5">Hasil Terbaru..</h1>
-        <div class="row" style="font-size:1.3rem;">
-            <div class="col-lg-1"></div>
-            <div class="col-lg-3">
-                <table class="table" style="font-family: 'Oswald', sans-serif; border-top-left-radius: 20px; border-top-right-radius: 20px;">
-                    <thead style=" font-weight: bold; border-bottom: 4px solid gold; background: black; color:white; letter-spacing: 0.3rem; ">
-                        <tr>
-                            <td colspan="2" style="border-top-left-radius: 20px; border-top-right-radius: 20px; ">4D RESULT</td>
-                        </tr>
-
-                    </thead>
-                    <tbody style="font-weight: bold; background: white;">
-                    <tr >
-                        <td style="color:gold; background: #BD1616;">1st Prize</td>
-                        <td>2 3 5 0</td>
-                    </tr>
-                    <tr>
-                        <td style="color:gold; background: #BD1616;">2nd Prize</td>
-                        <td>7 9 0 0</td>
-                    </tr>
-                    <tr>
-                        <td style="color:gold; background: #BD1616;">3rd Prize</td>
-                        <td>9 0 1 2</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-2">
-                <table class="table" style="font-family: 'Oswald', sans-serif;  border-top-left-radius: 20px; border-top-right-radius: 20px;">
-                    <thead style="border-bottom:4px solid gold; background: black; color:white;">
-                    <th style="border-top-left-radius: 20px; border-top-right-radius: 20px; letter-spacing: 0.2rem;" colspan="2">Starter Prizes</th>
-                    </thead>
-                    <tbody style="background: white;">
-                    <tr>
-                        <td>1.</td>
-                        <td style="font-weight: bold">2 3 5 0</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td style="font-weight: bold">7 9 0 0</td>
-                    </tr>
-                    <tr>
-                        <td>3.</td>
-                        <td style="font-weight: bold">9 0 1 2</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-5">
-                <table class="table" style="font-family: 'Oswald', sans-serif;  border-top-left-radius: 20px; border-top-right-radius: 20px;">
-                    <thead style="border-bottom: 4px solid gold; background: black; color:white;">
-                    <th colspan="6" style="border-top-left-radius: 20px; border-top-right-radius: 20px; letter-spacing: 0.2rem;" >Consolation Prize</th>
-                    </thead>
-                    <tbody style="background: white;">
-                    <tr>
-                        <td>1.</td>
-                        <td style="font-weight: bold">2 3 5 0</td>
-                        <td>2.</td>
-                        <td style="font-weight: bold">4 7 2 9</td>
-                        <td>3.</td>
-                        <td style="font-weight: bold">2 2 0 1</td>
-                    </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td style="font-weight: bold">0 0 9 8</td>
-                        <td>5.</td>
-                        <td style="font-weight: bold">7 0 2 0</td>
-                        <td>6.</td>
-                        <td style="font-weight: bold">8 0 9 0</td>
-                    </tr>
-                    <tr>
-                        <td>7.</td>
-                        <td style="font-weight: bold">9 0 1 2</td>
-                        <td>8.</td>
-                        <td style="font-weight: bold">7 0 8 1</td>
-                        <td>9.</td>
-                        <td style="font-weight: bold">1 5 2 0</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-1">
-
-            </div>
-        </div>
-    </div>
-
-    <div class="container text-center d-flex justify-content-center" id="result-number-other">
-
-    </div>
-
-    <div class="container text-center mt-3 " id="others-results" >
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <table class="table table-bordered" style="background: black; color:white;">
-                    <thead>
-                    <th colspan="3">
-                        Other 4D Result's
-                    </th>
-                    <tr style="background: white; color:black;">
-                        <th>Date</th>
-                        <th>Market</th>
-                        <th>Results</th>
-                    </tr>
-                    </thead>
-                    <tbody style="background: white;color:black;">
-                        <tr>
-
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-2">
-
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
-
-<div class="container-fluid video-result" style="border-top:5px solid gold; border-bottom:5px solid gold; background: #091353; padding-bottom: 20px; ">
+<div class="container-fluid" style="background: #0a53be; color:white;">
     <div class="container">
+        <h3 >Hadiah Shanghai Cobra</h3>
+        <div class="row">
+            <div class="col-lg-4">
+                <table class="table table-bordered text-center text-white">
+                    <thead>
+                    <tr>
+                        <td colspan="3" style="font-weight: bold;">Hadiah Utama 4D</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1stPrize</td>
+                        <td>Rp 3.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>2ndPrizes</td>
+                        <td>Rp 1.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>3rdprizes</td>
+                        <td>Rp 500.000</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <table class="table table-bordered text-center text-white">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Hadiah Starter</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Starter 1</td>
+                            <td>Rp 300.000</td>
+                        </tr>
+                    <tr>
+                        <td>Starter 2</td>
+                        <td>Rp 200.000</td>
+                    </tr>
+                    <tr>
+                        <td>Starter 3</td>
+                        <td>Rp 100.000</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <table class="table table-bordered text-center text-white">
+                    <thead>
+                    <tr>
+                        <th colspan="2">Hadiah Consolation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Consol 1</td>
+                            <td>Rp 75.000</td>
+                        </tr>
+                        <tr>
+                            <td>Consol 2</td>
+                            <td>Rp 75.000</td>
+                        </tr>
+                        <tr>
+                            <td>Consol 3</td>
+                            <td>Rp 75.000</td>
+                        </tr>
+                        <tr>
+                            <td>Consol 4</td>
+                            <td>Rp 50.000</td>
+                        </tr>
+
+                        <tr>
+                            <td>Consol 5</td>
+                            <td>Rp 50.000</td>
+                        </tr>
+
+                        <tr>
+                            <td>Consol 6</td>
+                            <td>Rp 50.000</td>
+                        </tr>
+                        <tr>
+                            <td>Consol 7</td>
+                            <td>Rp 25.000</td>
+                        </tr>
+
+                        <tr>
+                            <td>Consol 8</td>
+                            <td>Rp 25.000</td>
+                        </tr>
+
+                        <tr>
+                            <td>Consol 9</td>
+                            <td>Rp 25.000</td>
+                        </tr>
 
 
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <table class="table table-bordered text-center text-white">
+                    <thead>
+                        <tr>
+                            <th colspan="2">Hadiah 3angka dan 2angka</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hadiah 3angka</td>
+                            <td>Rp. 500.000</td>
+                        </tr>
+                        <tr>
+                            <td>Hadiah 2Angka</td>
+                            <td>Rp. 70.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <h6>Peraturan :</h6>
+            <p>** Apabila Keluar Nomor 4 Angka yang sama dihadiah Utama, starter dan consolation, maka secara otomatis yang dihitung hadiah tertinggi, tidak dapat double.</p>
+            <span style="font-size:1rem;">*** Hadiah 3angka dan 2angka berdasarkan hadiah utama 1st price</span>
+        </div>
+        <div class="row mt-3">
+            <h2 style="color:yellow;">Hadiah Jackpot : Rp. 100.000.000</h2>
+            <h5>Kupon Hadiah Grand Jackpot</h5>
+            <p>Harga 1 Kupon Rp.10.000</p>
+            <p>** Hadiah Jackpot Diputar setiap hari minggu Jam 23:00 WIB</p>
+            <p>Nomor Jackpot didapat dari penggabungan hadiah 2ndprize dan 1stprize </p>
+            <p>Contoh 2stprize = 5678 dan 1stprize = 1234</p>
+            <p>Maka nomor jackpot adalah = 56781234</p>
+        </div>
     </div>
 
 </div>
 
-<div class="container-fluid">
-   <h1 class="text-center font-weight-bold" style="letter-spacing: 0.2rem;">Shanghai Cobra</h1>
-</div>
 <a href="https://wa.me/+6287886486915" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <footer class="w-100 " style="background: #091353; ">
-
     <h6 class="text-center text-white" style="padding-top:1rem;">Shanghai-Cobra &copy;2019 Copyright</h6>
     <div class="text-center pb-3" >
         <span><a href="#"><i class="fab fa-instagram fa-2x" style="color:white; margin-right: 10px;" ></i></a></span>
@@ -317,3 +291,4 @@
 
 </body>
 </html>
+

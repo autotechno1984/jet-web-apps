@@ -54,16 +54,17 @@
                     </tr>
                 </thead>
                 <tbody>
+
                         @forelse($omset as $data)
                             <tr>
                                 <td>{{ $data->invoice_id }}</td>
-                                <td>{{ $data->result_id }}</td>
-                                <td>{{ $data->user_id }}</td>
+                                <td>{{ $pasaran->where('id',$data->result_id)->pluck('pasaran')->first() }}</td>
+                                <td>{{ $username->where('id', $data->user_id)->pluck('username')->first() }}</td>
                                 <td>{{ $data->kode }}</td>
                                 <td>{{ $data->posisi }}</td>
                                 <td>{{ $data->data }}</td>
                                 <td>{{ $data->amount }}</td>
-                                <td>{{$data->total}}</td>
+                                <td>{{ $data->total }}</td>
                                 <th>{{ $data->tgl_beli }}</th>
                             </tr>
                         @empty
@@ -75,9 +76,4 @@
             </table>
         </div>
     </div>
-    {{--    {{ $omset }}--}}
-
-
-
-
 </div>

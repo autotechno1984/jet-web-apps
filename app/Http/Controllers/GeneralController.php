@@ -633,55 +633,67 @@ class GeneralController extends Controller
     }
 
     public function createinvoice(Request $request){
-        $user_id = Auth::user()->id;
-        $resultid = $request->id;
-        $invoicetemp = InvoiceTemp::where('result_id', $resultid)->where('user_id', $user_id)->get();
-        $invoicetempdata = InvoiceTemp::where('result_id', $resultid)->where('user_id', $user_id)->first();
-        $total = $invoicetemp->sum('total');
-        $diskon = $invoicetemp->sum('diskon');
-        $Jumlah = $invoicetemp->sum('amount');
 
-        $validated = $request->validate([
+           $user_id = Auth::user()->id;
+           $resultid = $request->id;
+           $invoicetemp = InvoiceTemp::where('result_id', $resultid)->where('user_id', $user_id)->get();
+           $invoicetempdata = InvoiceTemp::where('result_id', $resultid)->where('user_id', $user_id)->first();
+           $total = $invoicetemp->sum('total');
+           $diskon = $invoicetemp->sum('diskon');
+           $Jumlah = $invoicetemp->sum('amount');
+        $tempInv = InvoiceTemp::where('user_id', $user_id)->where('result_id', $resultid)->get();
+        $checkmarket = Result::find($resultid);
 
-        ]);
+        if($tempInv->isEmpty()){
 
-        DB::transaction(function () use($user_id, $resultid, $total, $diskon,  $invoicetemp, $Jumlah) {
+        }else {
 
-            $invoice = new Invoices();
-            $invoice->user_id = $user_id;
-            $invoice->result_id = $resultid;
-            $invoice->amount =  $Jumlah;
-            $invoice->total = $total;
-            $invoice->diskon = $diskon;
-            $invoice->winLose = 0;
-            $invoice->status = 0;
-            $invoice->tgl_invoice = now();
-            $invoice->save();
+            if($checkmarket->status == 1){
+                DB::transaction(function () use($user_id, $resultid, $total, $diskon,  $invoicetemp, $Jumlah) {
 
-            foreach($invoicetemp as $data)
-            DB::table('invoice_details')->insert([
-               'invoice_id' => $invoice->id,
-                'user_id' => $user_id,
-                'result_id' => $resultid,
-                'kode' => $data->kode,
-                'posisi' => $data->posisi,
-                'data' => $data->data,
-                'amount' => $data->amount,
-                'hadiah' => $data->hadiah,
-                'diskon' => $data->diskon,
-                'kei' => $data->kei,
-                'total' => $data->total,
-                'winlose' => 0,
-                'is_win' => 0,
-                'status' => 2,
-                'tgl_beli' => now(),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        });
+                    $invoice = new Invoices();
+                    $invoice->user_id = $user_id;
+                    $invoice->result_id = $resultid;
+                    $invoice->amount =  $Jumlah;
+                    $invoice->total = $total;
+                    $invoice->diskon = $diskon;
+                    $invoice->winLose = 0;
+                    $invoice->status = 0;
+                    $invoice->tgl_invoice = now();
+                    $invoice->save();
 
-        InvoiceTemp::where('user_id', $user_id)->delete();
-        return redirect()->back();
+                    foreach($invoicetemp as $data)
+                        DB::table('invoice_details')->insert([
+                            'invoice_id' => $invoice->id,
+                            'user_id' => $user_id,
+                            'result_id' => $resultid,
+                            'kode' => $data->kode,
+                            'posisi' => $data->posisi,
+                            'data' => $data->data,
+                            'amount' => $data->amount,
+                            'hadiah' => $data->hadiah,
+                            'diskon' => $data->diskon,
+                            'kei' => $data->kei,
+                            'total' => $data->total,
+                            'winlose' => 0,
+                            'is_win' => 0,
+                            'status' => 2,
+                            'tgl_beli' => now(),
+                            'created_at' => now(),
+                            'updated_at' => now(),
+                        ]);
+                });
+
+                InvoiceTemp::where('user_id', $user_id)->delete();
+                return redirect()->back()->with('Success', 'Data Sudah berhasil diproses');
+
+            }else {
+                return redirect()->back()->with('error', 'Market Sudah Tutup ');
+            }
+
+        }
+
+
 
     }
 
@@ -897,7 +909,7 @@ class GeneralController extends Controller
         $userid = Auth::user()->id;
         $sekarang = Carbon::parse(now())->format('Y-m-d');
         $seminggu = Carbon::parse(now())->subday(7)->format('Y-m-d');
-        $runningInvoice = DB::table('invoices')->where('user_id', $userid)->where('status',0)->get();
+        $runningInvoice = DB::table('invoices')->where('user_id', $userid)->where('status',0)->paginate(12);
         $transaksi = DB::table('transaksidepowds')
             ->select('kategori','amount','bank','akun_bank','nama_bank','user_bank','user_nomor_bank','nama_akun_bank','catatan', DB::raw('coalesce(sum(amount) over (order by data_request rows between unbounded preceding and 1 preceding),0) saldoawal, amount, (sum(amount) over(order by data_request)) balance '), DB::raw('date_format(data_request,"%Y-%m-%d") as tanggal'))
             ->where('user_id', $userid)

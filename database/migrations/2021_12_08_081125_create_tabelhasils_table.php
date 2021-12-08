@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShiosTable extends Migration
+class CreateTabelhasilsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateShiosTable extends Migration
      */
     public function up()
     {
-        Schema::create('shios', function (Blueprint $table) {
+        Schema::create('tabelhasils', function (Blueprint $table) {
             $table->id();
-            $table->string('nomor');
-            $table->string('nama')->nullable();
+            $table->foreignId('result_id')->constrained();
+            $table->string('kode');
+            $table->string('link')->nullable();
+            $table->timestamp('tgl_buka')->useCurrent();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateShiosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shios');
+        Schema::dropIfExists('tabelhasils');
     }
 }

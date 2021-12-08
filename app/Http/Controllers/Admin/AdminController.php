@@ -24,8 +24,8 @@ class AdminController extends Controller
             'username.exists' => 'this username is not exist on data'
         ]);
 
-        $creds = $request->only('username','password');
 
+        $creds =  array_merge($request->only('username', 'password'),['bann' => 1]);
         if( Auth::guard('admin')->attempt($creds) ) {
             return redirect()->route('admin.home');
         }else {
@@ -110,6 +110,26 @@ class AdminController extends Controller
     function laporanByOmset()
     {
         return view('Laporan.laporanomset');
+    }
+
+    function adminlist()
+    {
+        return view('backend.usermember');
+    }
+
+    function tabelshio()
+    {
+        return view('backend.tableshio');
+    }
+
+    function inputhasil()
+    {
+        return view('backend.inputhasil');
+    }
+
+    function bank()
+    {
+        return view('backend.bank');
     }
 
 }

@@ -71,7 +71,9 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('admin.user-list') }}">User List</a>
                                 </nav>
-
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('admin.admin-list') }}">Admin List</a>
+                                </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
@@ -134,6 +136,26 @@
                                     Laporan Omset by agent
                                 </a>
                             </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseShio" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Dan Lain - Lain
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseShio" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <a class="nav-link collapsed" href="{{ route('admin.tabelshio') }}"  >
+                                    Tabel Shio
+                                    {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
+                                </a>
+                                <a class="nav-link collapsed" href="{{ route('admin.inputhasil') }}"  >
+                                    Input Hasil
+                                    {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
+                                </a>
+                                <a class="nav-link collapsed" href="{{ route('admin.bank') }}"  >
+                                    Bank
+                                    {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
+                                </a>
+
+                            </div>
 
                             <div class="sb-sidenav-menu-heading">Front</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsewebsetting" aria-expanded="false" aria-controls="collapsePages">
@@ -171,6 +193,10 @@
                   @yield('websetting')
                   @yield('dashboard')
                   @yield('laporanOmset')
+                  @yield('useradmin')
+                  @yield('tabelshio')
+                  @yield('inputhasil')
+                  @yield('bank')
 
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -190,7 +216,6 @@
         @livewireScripts
         @powerGridScripts
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-
         <script src="{{ asset('js/script.js')}}"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>

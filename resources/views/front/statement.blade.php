@@ -96,7 +96,10 @@
 
                                         </div>
                                     </tbody>
-                                </table>
+                            </table>
+                            <div>
+                                {{ $runningInvoice->links() }}
+                            </div>
 
 
                             </div>

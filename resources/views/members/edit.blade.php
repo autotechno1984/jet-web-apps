@@ -392,6 +392,7 @@
                     Referall dan upline id
                 </div>
                 <div class="card-body">
+
                     <form action="{{ route('admin.referall', [$id]) }}" method="POST">
                         @csrf
                         @method('PUT')
@@ -430,13 +431,10 @@
                         </div>
                         <div class="col-lg-6">
                             <select name="status" id="status" class="form-select">
-                            @if($dataUser->status == 0)
-                                    <option value="0" selected class="text-danger" style="font-weight: bold;">Tidak Aktif</option>
-                                    <option value="6"  class="text-primary " style="font-weight: bold"> Aktifkan Agent</option>
-                                    <option value="1"  class="text-primary " style="font-weight: bold"> Aktifkan Member</option>
+                            @if($dataUser->bann == 0)
+                                    <option value="1"  class="text-primary " style="font-weight: bold"> Aktifkan </option>
                             @else
-                                    <option value="{{ $dataUser->status }}" selected class="text-primary " style="font-weight: bold">Aktif</option>
-                                    <option value="0" class="text-danger" style="font-weight: bold;">Non Aktifkan</option>
+                                   <option value="0" class="text-danger" style="font-weight: bold;">Non Aktifkan</option>
                             @endif
 
                             </select>
