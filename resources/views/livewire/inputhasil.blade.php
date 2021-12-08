@@ -81,6 +81,7 @@
                     Consolation Prize
                 </div>
                 <div class="card-body">
+
                     <div class="row">
                         <div class="col-lg-6">
                             <label for="" class="col-form-label">Consol - 1</label>
@@ -105,6 +106,7 @@
                             <input wire:model="consol3" type="text" name="" id="" class="form-control">
                         </div>
                     </div>
+
                     <div class="row mt-1">
                         <div class="col-lg-6">
                             <label for="" class="col-form-label">Consol - 3</label>

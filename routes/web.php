@@ -33,7 +33,7 @@ Auth::routes();
 
 Route::get('/', function() {
 
-    $hasilshg = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
+    $hasilshg = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
     $tabelshg = tabelhasil::where('result_id', $hasilshg)->get();
 
     $recentvideo = Video::select('url')->orderBy('id','Desc')->skip(1)->take(3)->get();
