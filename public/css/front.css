@@ -20,8 +20,8 @@ header {
     border-bottom: 5px solid yellow;
 
 }
-.glow {
-    font-size: 70px;
+.glow{
+    font-size: 3rem;
     color: #ffffff;
     text-align: center;
     -webkit-animation: glow 1s ease-in-out infinite alternate;

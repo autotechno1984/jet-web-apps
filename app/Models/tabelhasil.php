@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class tabelhasil extends Model
 {
+    protected $fillable = [
+        'result_id',
+        'kode',
+        'hasil',
+    ];
     use HasFactory;
 }

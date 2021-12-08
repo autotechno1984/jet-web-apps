@@ -17,7 +17,7 @@ class CreateTabelhasilsTable extends Migration
             $table->id();
             $table->foreignId('result_id')->constrained();
             $table->string('kode');
-            $table->string('link')->nullable();
+            $table->string('hasil')->nullable();
             $table->timestamp('tgl_buka')->useCurrent();
             $table->timestamps();
         });

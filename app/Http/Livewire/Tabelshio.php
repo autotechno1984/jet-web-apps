@@ -42,6 +42,7 @@ class Tabelshio extends Component
 
     public function update()
     {
+
         $checkdata = shio::all();
 
         $data1 = array(

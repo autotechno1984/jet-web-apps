@@ -9,6 +9,8 @@ use App\Http\Livewire\Results;
 use App\Models\Admin;
 use App\Models\banner;
 use App\Models\Contact;
+use App\Models\Result;
+use App\Models\tabelhasil;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Support\Facades\Route;
@@ -31,11 +33,15 @@ Auth::routes();
 
 Route::get('/', function() {
 
+    $hasilshg = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
+    $tabelshg = tabelhasil::where('result_id', $hasilshg)->get();
+
     $recentvideo = Video::select('url')->orderBy('id','Desc')->skip(1)->take(3)->get();
     $videoBaru = Video::pluck('url')->last();
     $banner = banner::select('file')->where('status',1)->get();
     $whatsapp = Contact::select('aplikasi','url')->get();
-    return view('front.index',compact('whatsapp','banner','videoBaru','recentvideo'));
+    return view('front.index',compact('whatsapp','banner','videoBaru','recentvideo','tabelshg'));
+
 });
 
 Route::get('/hadiah', function(){

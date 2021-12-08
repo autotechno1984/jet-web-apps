@@ -160,15 +160,15 @@
                     <tbody style="font-weight: bold; background: white;">
                     <tr >
                         <td style="color:gold; background: #BD1616;">1st Prize</td>
-                        <td>2 3 5 0</td>
+                        <td> {{ $tabelshg->where('kode','sh1')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
                         <td style="color:gold; background: #BD1616;">2nd Prize</td>
-                        <td>7 9 0 0</td>
+                        <td> {{ $tabelshg->where('kode','sh2')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
                         <td style="color:gold; background: #BD1616;">3rd Prize</td>
-                        <td>9 0 1 2</td>
+                        <td> {{ $tabelshg->where('kode','sh3')->pluck('hasil')->first() }}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -181,15 +181,15 @@
                     <tbody style="background: white;">
                     <tr>
                         <td>1.</td>
-                        <td style="font-weight: bold">2 3 5 0</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh4')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
                         <td>2.</td>
-                        <td style="font-weight: bold">7 9 0 0</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh5')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
                         <td>3.</td>
-                        <td style="font-weight: bold">9 0 1 2</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh6')->pluck('hasil')->first() }}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -202,27 +202,27 @@
                     <tbody style="background: white;">
                     <tr>
                         <td>1.</td>
-                        <td style="font-weight: bold">2 3 5 0</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh7')->pluck('hasil')->first() }}</td>
                         <td>2.</td>
-                        <td style="font-weight: bold">4 7 2 9</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh8')->pluck('hasil')->first() }}</td>
                         <td>3.</td>
-                        <td style="font-weight: bold">2 2 0 1</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh9')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
                         <td>4.</td>
-                        <td style="font-weight: bold">0 0 9 8</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh10')->pluck('hasil')->first() }}</td>
                         <td>5.</td>
-                        <td style="font-weight: bold">7 0 2 0</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh11')->pluck('hasil')->first() }}</td>
                         <td>6.</td>
-                        <td style="font-weight: bold">8 0 9 0</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh12')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
                         <td>7.</td>
-                        <td style="font-weight: bold">9 0 1 2</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh13')->pluck('hasil')->first() }}</td>
                         <td>8.</td>
-                        <td style="font-weight: bold">7 0 8 1</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh14')->pluck('hasil')->first() }}</td>
                         <td>9.</td>
-                        <td style="font-weight: bold">1 5 2 0</td>
+                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh15')->pluck('hasil')->first() }}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -233,7 +233,7 @@
         </div>
     </div>
 
-    <div class="container text-center d-flex justify-content-center" id="result-number-other">
+    <div class="container text-center d-flex justify-content-center text-white" id="result-number-other">
 
     </div>
 
