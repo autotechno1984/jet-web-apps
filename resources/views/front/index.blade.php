@@ -136,9 +136,9 @@
         <div class="container pt-3">
             <div class="row">
                 <div class="col-lg-1"></div>
-                <div class="col-lg-10">
-                    <h1 class="glow">JACKPOT</h1>
-                    <h1 class="glow">Rp 100.000.000</h1>
+                <div class="col-lg-10 text-white">
+                    <h1>JACKPOT</h1>
+                    <h1>Rp 100.000.000</h1>
                 </div>
                 <div class="col-lg-1"></div>
 
