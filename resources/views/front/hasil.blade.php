@@ -110,7 +110,7 @@
 
 {{-- Grand Shanghai Result--}}
 <div class="container-fluid" style="background: #091353; text-align: center; color:white;">
-    <div class="container">
+    <div class="container" style="overflow-x:auto;">
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="py-3">Daftar Keluaran Togel Shanghai-Cobra</h3>
