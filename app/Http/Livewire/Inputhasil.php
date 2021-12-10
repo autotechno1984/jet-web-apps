@@ -28,7 +28,8 @@ class Inputhasil extends Component
     public function render()
     {
         $hasil = Result::whereIn('status', [1,2])->get();
-        return view('livewire.inputhasil', compact('hasil'));
+        $tablehasil = Result::with('tabelhasil')->paginate(15);
+        return view('livewire.inputhasil', compact('hasil','tablehasil'));
     }
 
     public function savehasil() {

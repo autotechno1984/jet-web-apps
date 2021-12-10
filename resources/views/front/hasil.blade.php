@@ -23,15 +23,15 @@
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        GRAND-SHANGHAI
+        Shanghai-Cobra
     </div>
     <nav>
         <ul>
             <li><a href="/" >HOME</a></li>
-            <li><a href="#">HADIAH</a>
+            <li><a href="/hadiah">HADIAH</a>
 
-                </li>
-            <li><a href="/hasil">HASIL</a></li>
+            </li>
+            <li><a href="#">HASIL</a></li>
             {{--            <li class="sub-menu"><a href="#">COMMUNITY</a>--}}
             {{--                <ul>--}}
             {{--                    <li><a href="#">LINK</a></li>--}}
@@ -107,160 +107,95 @@
         </div>
     </div>
 </header>
-<div class="container-fluid" style="background: #0a53be; color:white;">
+
+{{-- Grand Shanghai Result--}}
+<div class="container-fluid" style="background: #091353; text-align: center; color:white;">
     <div class="container">
-        <h3 >Hadiah Shanghai Cobra</h3>
         <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
+            <div class="col-lg-12">
+                <h3 class="py-3">Daftar Keluaran Togel Shanghai-Cobra</h3>
+                <table class="table table-bordered table-striped text-white text-center" id="scb">
+                    <thead class="align-middle">
                     <tr>
-                        <td colspan="3" style="font-weight: bold;">Hadiah Utama 4D</td>
+                        <th rowspan="2">tanggal</th>
+                        <th rowspan="2">Periode</th>
+                        <th rowspan="2">Pasaran</th>
+                        <th colspan="3">Hadiah-Utama</th>
+                        <th rowspan="2">Detail</th>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1stPrize</td>
-                        <td>Rp 3.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>2ndPrizes</td>
-                        <td>Rp 1.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>3rdprizes</td>
-                        <td>Rp 500.000</td>
-                    </tr>
+                        @forelse($tablehasil->where('tipe','H') as $data)
+                                <tr >
+                                    <td style="color:white;">{{ date('y-m-d', strtotime($data->tgl_periode)) }}</td>
+                                    <td style="color:white;">{{ $data->id }}</td>
+                                    <td style="color:white;">{{ $data->pasaran }}</td>
+                                    <td style="color:white;">{{ $data->tabelhasil->pluck('hasil')->get(0) }}</td>
+                                    <td style="color:white;">{{ $data->tabelhasil->pluck('hasil')->get(1) }}</td>
+                                    <td style="color:white;">{{ $data->tabelhasil->pluck('hasil')->get(2) }}</td>
+                                    <td ><a href="/shanghai-cobra-detail/{{ $data->tabelhasil->pluck('result_id')->get(0) }}" style="color:white;">Detail</a></td>
+                                </tr>
+                        @empty
+
+                        @endforelse
                     </tbody>
                 </table>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                        <tr>
-                            <th colspan="2">Hadiah Starter</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Starter 1</td>
-                            <td>Rp 300.000</td>
-                        </tr>
-                    <tr>
-                        <td>Starter 2</td>
-                        <td>Rp 200.000</td>
-                    </tr>
-                    <tr>
-                        <td>Starter 3</td>
-                        <td>Rp 100.000</td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div>
+{{--                {{ $tablehasil->links() }}--}}
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                    <tr>
-                        <th colspan="2">Hadiah Consolation</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Consol 1</td>
-                            <td>Rp 75.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 2</td>
-                            <td>Rp 75.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 3</td>
-                            <td>Rp 75.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 4</td>
-                            <td>Rp 50.000</td>
-                        </tr>
+        <div class="d-flex flex-wrap justify-content-between">
+               @forelse($market as $data)
 
-                        <tr>
-                            <td>Consol 5</td>
-                            <td>Rp 50.000</td>
-                        </tr>
+                <div style="width:30%; margin-right:20px;">
+                    <h5 style="color:gold;">{{ $data->pasaran }}</h5>
+                    <table class="table table-bordered" style="color:gold;">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Periode</th>
+                                <th>Nomor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse($tablehasil->where('pasaran', $data->pasaran)->take(10)->sortByDesc('id') as $togel)
+                                <tr>
+                                    <td>{{$togel->tgl_periode }}</td>
+                                    <td>{{ $togel->id }}</td>
+                                    <td>{{ $togel->tabelhasil->pluck('hasil')->first() }}</td>
+                                </tr>
+                                @empty
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            @empty
+                <div class="w-50">
+                    <table>
 
-                        <tr>
-                            <td>Consol 6</td>
-                            <td>Rp 50.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 7</td>
-                            <td>Rp 25.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Consol 8</td>
-                            <td>Rp 25.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Consol 9</td>
-                            <td>Rp 25.000</td>
-                        </tr>
-
-
-
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                        <tr>
-                            <th colspan="2">Hadiah 3angka dan 2angka</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Hadiah 3angka</td>
-                            <td>Rp. 500.000</td>
-                        </tr>
-                        <tr>
-                            <td>Hadiah 2Angka</td>
-                            <td>Rp. 70.000</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <h6>Peraturan :</h6>
-            <p>** Apabila Keluar Nomor 4 Angka yang sama dihadiah Utama, starter dan consolation, maka secara otomatis yang dihitung hadiah tertinggi, tidak dapat double.</p>
-            <span style="font-size:1rem;">*** Hadiah 3angka dan 2angka berdasarkan hadiah utama 1st price</span>
-        </div>
-        <div class="row mt-3">
-
-            <h2 style="color:yellow;">Hadiah Jackpot : Rp. 100.000.000</h2>
-            <h5>Kupon Hadiah Grand Jackpot</h5>
-            <p>Harga 1 Kupon Rp.10.000</p>
-            <p>** Hadiah Jackpot Diputar setiap hari minggu Jam 23:00 WIB</p>
-            <p>Nomor Jackpot didapat dari penggabungan hadiah 2ndprize dan 1stprize </p>
-            <p>Contoh 2stprize = 5678 dan 1stprize = 1234</p>
-            <p>Maka nomor jackpot adalah = 56781234</p>
-            <p>Apabila Angka kupon jackpot yang dibeli 4 angka ujungnya adalah nomor sama dengan nomor
-            keluaran 1st prize maka akan mendapatkan hadiah Rp 20.000.000</p>
+                    </table>
+                </div>
+            @endforelse
 
         </div>
     </div>
-
 </div>
 
+
+
+<div class="container-fluid">
+    <h1 class="text-center font-weight-bold" style="letter-spacing: 0.2rem; margin:0;">Shanghai Cobra</h1>
+</div>
 <a href="https://wa.me/+6287886486915" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <footer class="w-100 " style="background: #091353; ">
+
     <h6 class="text-center text-white" style="padding-top:1rem;">Shanghai-Cobra &copy;2019 Copyright</h6>
     <div class="text-center pb-3" >
         <span><a href="#"><i class="fab fa-instagram fa-2x" style="color:white; margin-right: 10px;" ></i></a></span>
@@ -295,4 +230,3 @@
 
 </body>
 </html>
-

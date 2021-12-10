@@ -13,4 +13,8 @@ class tabelhasil extends Model
         'hasil',
     ];
     use HasFactory;
+
+    public function Result(){
+        return $this->belongsTo(Result::class);
+    }
 }

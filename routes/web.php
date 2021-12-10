@@ -33,14 +33,15 @@ Auth::routes();
 
 Route::get('/', function() {
 
-    $hasilshg = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
+    $hasilshg = Result::whereIn('kode', ['SHG1', 'SHG1'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
+    $periode = Result::whereIn('kode', ['SHG2', 'SHG2'])->where('status',0)->OrderBy('id', 'Desc')->first();
     $tabelshg = tabelhasil::where('result_id', $hasilshg)->get();
 
     $recentvideo = Video::select('url')->orderBy('id','Desc')->skip(1)->take(3)->get();
     $videoBaru = Video::pluck('url')->last();
     $banner = banner::select('file')->where('status',1)->get();
     $whatsapp = Contact::select('aplikasi','url')->get();
-    return view('front.index',compact('whatsapp','banner','videoBaru','recentvideo','tabelshg'));
+    return view('front.index',compact('whatsapp','banner','videoBaru','recentvideo','tabelshg','periode'));
 
 });
 
@@ -48,7 +49,17 @@ Route::get('/hadiah', function(){
    return view('front.hadiah');
 });
 
+Route::get('/hasil', function(){
+    $tablehasil = Result::with('tabelhasil')->get();
+    $market = Result::where('tipe','D')->select('pasaran')->groupBy('pasaran')->get();
+   return view('front.hasil', compact('tablehasil','market'));
+});
 
+Route::get('/shanghai-cobra-detail/{id}', function($id){
+   $tabelhasil = tabelhasil::where('result_id', $id)->get();
+   $data = Result::find($id);
+   return view('front.scbdetail', compact('tabelhasil','data'));
+});
 Route::middleware(['auth','PreventBackHistory'])->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('togel/{id}', [GeneralController::class,'togel'])->name('togel');
@@ -93,6 +104,7 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::post('/web-setting/videos', [AdminController::class,'addvideo'])->name('addvideo');
         Route::get('/bank' ,[AdminController::class, 'bank'])->name('bank');
         Route::get('/laporan-by-omset',[AdminController::class,'laporanByOmset'])->name('laporanOmset');
+
         Route::get('/laporan-by-omset/download', [LaporanOmset::class,'export'])->name('exportlaporanomset');
         //Members
         Route::get('/user-list', [UserController::class, 'members'])->name('user-list');
@@ -105,6 +117,7 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::put('/users/{id}/update-referall', [UserController::class,'referall'])->name('referall');
         Route::get('/tabel-shio', [AdminController::class, 'tabelshio'])->name('tabelshio');
         Route::get('input-hasil', [AdminController::class, 'inputhasil'])->name('inputhasil');
+        Route::get('input-togel', [AdminController::class, 'inputtogel'])->name('inputtogel');
         Route::resource('/users', UserController::class , ['names' => [
             'index' => 'users.index',
             'create' => 'users.create',

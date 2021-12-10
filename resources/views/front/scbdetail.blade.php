@@ -23,14 +23,14 @@
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        GRAND-SHANGHAI
+        Shanghai-Cobra
     </div>
     <nav>
         <ul>
             <li><a href="/" >HOME</a></li>
-            <li><a href="#">HADIAH</a>
+            <li><a href="/hadiah">HADIAH</a>
 
-                </li>
+            </li>
             <li><a href="/hasil">HASIL</a></li>
             {{--            <li class="sub-menu"><a href="#">COMMUNITY</a>--}}
             {{--                <ul>--}}
@@ -107,160 +107,104 @@
         </div>
     </div>
 </header>
-<div class="container-fluid" style="background: #0a53be; color:white;">
+
+{{-- Grand Shanghai Result--}}
+<div class="container-fluid" style="background: #091353; text-align: center; color:white;">
     <div class="container">
-        <h3 >Hadiah Shanghai Cobra</h3>
-        <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                    <tr>
-                        <td colspan="3" style="font-weight: bold;">Hadiah Utama 4D</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1stPrize</td>
-                        <td>Rp 3.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>2ndPrizes</td>
-                        <td>Rp 1.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>3rdprizes</td>
-                        <td>Rp 500.000</td>
-                    </tr>
-                    </tbody>
-                </table>
+        <div class="row pt-2">
+            <div class="col-lg-1">
+                <a href="/hasil" class="btn btn-info">Back</a>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                        <tr>
-                            <th colspan="2">Hadiah Starter</th>
-                        </tr>
+            <div class="col-lg-12">
+                <h3 class="pt-3">Daftar Keluaran Togel Shanghai-Cobra</h3>
+                <h3 style="color:gold;">Periode {{ $data->id }} - {{ $data->pasaran }}</h3>
+                <h5 style="color:gold;">{{ $data->tgl_periode }}</h5>
+                <table class="table table-bordered table-striped text-white text-center" id="scb">
+                    <thead class="align-middle">
+                    <tr>
+                      <th>Periode</th>
+                      <th>Kategori</th>
+                      <th>Nomor</th>
+                    </tr>
+
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Starter 1</td>
-                            <td>Rp 300.000</td>
-                        </tr>
-                    <tr>
-                        <td>Starter 2</td>
-                        <td>Rp 200.000</td>
-                    </tr>
-                    <tr>
-                        <td>Starter 3</td>
-                        <td>Rp 100.000</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                    <tr>
-                        <th colspan="2">Hadiah Consolation</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Consol 1</td>
-                            <td>Rp 75.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 2</td>
-                            <td>Rp 75.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 3</td>
-                            <td>Rp 75.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 4</td>
-                            <td>Rp 50.000</td>
-                        </tr>
+                        @foreach($tabelhasil as $data)
+                            <tr>
+                                <td style="color:white;">{{ $data->result_id }}</td>
+                                @switch($data->kode)
+                                    @case('sh1')
+                                    <td style="color:gold;background:darkred;">1st Prize</td>
+                                    @break
+                                    @case('sh2')
+                                    <td style="color:gold;background:darkred;">2nd Prize</td>
+                                    @break
+                                    @case('sh3')
+                                    <td style="color:gold;background:darkred;">3rd Prize</td>
+                                    @break
+                                    @case('sh4')
+                                    <td style="color:white;background:darkgoldenrod;">Starter 1</td>
+                                    @break
+                                    @case('sh5')
+                                    <td style="color:white;background:darkgoldenrod;">Starter 2</td>
+                                    @break
+                                    @case('sh6')
+                                    <td style="color:white;background:darkgoldenrod;">Starter 3</td>
+                                    @break
+                                    @case('sh7')
+                                    <td style="color:white;">Consol 1</td>
+                                    @break
+                                    @case('sh8')
+                                    <td style="color:white;">Consol 2</td>
+                                    @break
+                                    @case('sh9')
+                                    <td style="color:white;">Consol 3</td>
+                                    @break
+                                    @case('sh10')
+                                    <td style="color:white;">Consol 4</td>
+                                    @break
+                                    @case('sh11')
+                                    <td style="color:white;">Consol 5</td>
+                                    @break
+                                    @case('sh12')
+                                    <td style="color:white;">Consol 6</td>
+                                    @break
+                                    @case('sh13')
+                                    <td style="color:white;">Consol 7</td>
+                                    @break
+                                    @case('sh14')
+                                    <td style="color:white;">Consol 8</td>
+                                    @break
+                                    @case('sh15')
+                                    <td style="color:white;">Consol 9</td>
+                                    @break
 
-                        <tr>
-                            <td>Consol 5</td>
-                            <td>Rp 50.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Consol 6</td>
-                            <td>Rp 50.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 7</td>
-                            <td>Rp 25.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Consol 8</td>
-                            <td>Rp 25.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Consol 9</td>
-                            <td>Rp 25.000</td>
-                        </tr>
-
-
-
+                                @endswitch
+                                <td style="color:white;">{{ $data->hasil }}</td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
 
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                        <tr>
-                            <th colspan="2">Hadiah 3angka dan 2angka</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Hadiah 3angka</td>
-                            <td>Rp. 500.000</td>
-                        </tr>
-                        <tr>
-                            <td>Hadiah 2Angka</td>
-                            <td>Rp. 70.000</td>
-                        </tr>
-                    </tbody>
-                </table>
 
-            </div>
-            <h6>Peraturan :</h6>
-            <p>** Apabila Keluar Nomor 4 Angka yang sama dihadiah Utama, starter dan consolation, maka secara otomatis yang dihitung hadiah tertinggi, tidak dapat double.</p>
-            <span style="font-size:1rem;">*** Hadiah 3angka dan 2angka berdasarkan hadiah utama 1st price</span>
         </div>
-        <div class="row mt-3">
-
-            <h2 style="color:yellow;">Hadiah Jackpot : Rp. 100.000.000</h2>
-            <h5>Kupon Hadiah Grand Jackpot</h5>
-            <p>Harga 1 Kupon Rp.10.000</p>
-            <p>** Hadiah Jackpot Diputar setiap hari minggu Jam 23:00 WIB</p>
-            <p>Nomor Jackpot didapat dari penggabungan hadiah 2ndprize dan 1stprize </p>
-            <p>Contoh 2stprize = 5678 dan 1stprize = 1234</p>
-            <p>Maka nomor jackpot adalah = 56781234</p>
-            <p>Apabila Angka kupon jackpot yang dibeli 4 angka ujungnya adalah nomor sama dengan nomor
-            keluaran 1st prize maka akan mendapatkan hadiah Rp 20.000.000</p>
+        <div>
 
         </div>
     </div>
-
 </div>
 
+
+
+<div class="container-fluid">
+    <h1 class="text-center font-weight-bold" style="letter-spacing: 0.2rem; margin:0;">Shanghai Cobra</h1>
+</div>
 <a href="https://wa.me/+6287886486915" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <footer class="w-100 " style="background: #091353; ">
+
     <h6 class="text-center text-white" style="padding-top:1rem;">Shanghai-Cobra &copy;2019 Copyright</h6>
     <div class="text-center pb-3" >
         <span><a href="#"><i class="fab fa-instagram fa-2x" style="color:white; margin-right: 10px;" ></i></a></span>
@@ -295,4 +239,3 @@
 
 </body>
 </html>
-

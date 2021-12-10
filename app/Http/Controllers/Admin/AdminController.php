@@ -132,4 +132,9 @@ class AdminController extends Controller
         return view('backend.bank');
     }
 
+    function inputtogel()
+    {
+        return view('backend.inputhasiltogel');
+    }
+
 }

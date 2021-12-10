@@ -22,4 +22,9 @@ class Result extends Model
         return $this->hasMany(ResultDetail::class);
     }
 
+    public function tabelhasil(){
+        return $this->hasMany(tabelhasil::class);
+    }
+
+
 }
