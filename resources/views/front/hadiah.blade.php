@@ -23,7 +23,7 @@
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        GRAND-SHANGHAI
+        Shanghai - Cobra
     </div>
     <nav>
         <ul>
