@@ -19,7 +19,6 @@
 
             <div class="col-lg-7 mt-1">
                 @include('flash-message')
-
                 <div class="accordion accordion-flush" id="accordionFlushExample" disabled>
 
 {{--                     4D BB                                                   --}}
