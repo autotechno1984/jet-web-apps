@@ -276,7 +276,7 @@
     <div class="text-center pb-3" >
         <span><a href="#"><i class="fab fa-instagram fa-2x" style="color:white; margin-right: 10px;" ></i></a></span>
         <span><a href="#"><i class="fab fa-facebook fa-2x" style="color:white; margin-right: 10px;"></i></a></span>
-        <span><a href="#"><i class="fab fa-youtube fa-2x" style="color:white; margin-right:10px;"></i></a></span>
+        <span><a href="https://www.youtube.com/channel/UCgcS0s_l_w7D5jZpifBxVqA"><i class="fab fa-youtube fa-2x" style="color:white; margin-right:10px;"></i></a></span>
         <span><a href=""><i class="fab fa-tiktok fa-2x" style="color:white;"></i></a></span>
     </div>
 </footer>
