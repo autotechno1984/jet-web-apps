@@ -81,6 +81,7 @@ class UserController extends Controller
         $user->is_admin = $request->group;
         $user->referallid = Str::random(8);
         $user->status = $request->group;
+        $user->bann = '1';
         $user->save();
 
         $profile->user_id = $user->id;

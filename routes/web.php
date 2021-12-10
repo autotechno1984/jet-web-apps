@@ -33,8 +33,8 @@ Auth::routes();
 
 Route::get('/', function() {
 
-    $hasilshg = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
-    $periode = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status',0)->OrderBy('id', 'Desc')->first();
+    $hasilshg = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
+    $periode = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status',0)->OrderBy('id', 'Desc')->first();
     $tabelshg = tabelhasil::where('result_id', $hasilshg)->get();
 
     $recentvideo = Video::select('url')->orderBy('id','Desc')->skip(1)->take(3)->get();
@@ -50,7 +50,7 @@ Route::get('/hadiah', function(){
 });
 
 Route::get('/hasil', function(){
-    $tablehasil = Result::with('tabelhasil')->get();
+    $tablehasil = Result::with('tabelhasil')->orderBy('id','Desc')->get();
     $market = Result::where('tipe','D')->select('pasaran')->groupBy('pasaran')->get();
    return view('front.hasil', compact('tablehasil','market'));
 });
