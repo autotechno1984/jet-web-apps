@@ -16,7 +16,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Oswald&family=Poppins:ital,wght@0,200;0,500;1,100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Salsa&family=Sura&display=swap" rel="stylesheet">
     <title>Shanghai Cobra Lottery</title>
+    @livewireStyles
 </head>
 <body >
 
@@ -30,7 +36,7 @@
             <li><a href="/" >HOME</a></li>
             <li><a href="#">HADIAH</a>
 
-                </li>
+            </li>
             <li><a href="/hasil">HASIL</a></li>
             {{--            <li class="sub-menu"><a href="#">COMMUNITY</a>--}}
             {{--                <ul>--}}
@@ -107,155 +113,9 @@
         </div>
     </div>
 </header>
-<div class="container-fluid" style="background: #0a53be; color:white;">
-    <div class="container">
-        <h3 >Hadiah Shanghai Cobra</h3>
-        <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                    <tr>
-                        <td colspan="3" style="font-weight: bold;">Hadiah Utama 4D</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1stPrize</td>
-                        <td>Rp 3.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>2ndPrizes</td>
-                        <td>Rp 1.000.000</td>
-                    </tr>
-                    <tr>
-                        <td>3rdprizes</td>
-                        <td>Rp 500.000</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                        <tr>
-                            <th colspan="2">Hadiah Starter</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Starter 1</td>
-                            <td>Rp 300.000</td>
-                        </tr>
-                    <tr>
-                        <td>Starter 2</td>
-                        <td>Rp 200.000</td>
-                    </tr>
-                    <tr>
-                        <td>Starter 3</td>
-                        <td>Rp 100.000</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                    <tr>
-                        <th colspan="2">Hadiah Consolation</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Consol 1</td>
-                            <td>Rp 75.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 2</td>
-                            <td>Rp 75.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 3</td>
-                            <td>Rp 75.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 4</td>
-                            <td>Rp 50.000</td>
-                        </tr>
+<div class="container-fluid" style="background: #1F0079; color:white;">
 
-                        <tr>
-                            <td>Consol 5</td>
-                            <td>Rp 50.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Consol 6</td>
-                            <td>Rp 50.000</td>
-                        </tr>
-                        <tr>
-                            <td>Consol 7</td>
-                            <td>Rp 25.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Consol 8</td>
-                            <td>Rp 25.000</td>
-                        </tr>
-
-                        <tr>
-                            <td>Consol 9</td>
-                            <td>Rp 25.000</td>
-                        </tr>
-
-
-
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <table class="table table-bordered text-center text-white">
-                    <thead>
-                        <tr>
-                            <th colspan="2">Hadiah 3angka dan 2angka</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Hadiah 3angka</td>
-                            <td>Rp. 500.000</td>
-                        </tr>
-                        <tr>
-                            <td>Hadiah 2Angka</td>
-                            <td>Rp. 70.000</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <h6>Peraturan :</h6>
-            <p>** Apabila Keluar Nomor 4 Angka yang sama dihadiah Utama, starter dan consolation, maka secara otomatis yang dihitung hadiah tertinggi, tidak dapat double.</p>
-            <span style="font-size:1rem;">*** Hadiah 3angka dan 2angka berdasarkan hadiah utama 1st price</span>
-        </div>
-        <div class="row mt-3">
-
-            <h2 style="color:yellow;">Hadiah Jackpot : Rp. 100.000.000</h2>
-            <h5>Kupon Hadiah Grand Jackpot</h5>
-            <p>Harga 1 Kupon Rp.10.000</p>
-            <p>** Hadiah Jackpot Diputar setiap hari minggu Jam 23:00 WIB</p>
-            <p>Nomor Jackpot didapat dari penggabungan hadiah 2ndprize dan 1stprize </p>
-            <p>Contoh 2stprize = 5678 dan 1stprize = 1234</p>
-            <p>Maka nomor jackpot adalah = 56781234</p>
-            <p>Apabila Angka kupon jackpot yang dibeli 4 angka ujungnya adalah nomor sama dengan nomor
-            keluaran 1st prize maka akan mendapatkan hadiah Rp 20.000.000</p>
-
-        </div>
-    </div>
+    @livewire('liveresult')
 
 </div>
 
@@ -272,7 +132,7 @@
 {{--https://i.ibb.co/zbqc542/Micro-Gaming-Imgur.jpg--}}
 {{--"https://i.ibb.co/zbykx3K/1c60701987064b7abc83df449554081f.png--}}
 {{--"https://i.ibb.co/N9sJqys/c5eb1e9c74934144ac751bc96f885522.jpg--}}
-
+@livewireScripts
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" ></script>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" ></script>

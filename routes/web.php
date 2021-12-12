@@ -60,6 +60,11 @@ Route::get('/shanghai-cobra-detail/{id}', function($id){
    $data = Result::find($id);
    return view('front.scbdetail', compact('tabelhasil','data'));
 });
+
+Route::get('/live', function(){
+
+   return view('front.liveresult');
+});
 Route::middleware(['auth','PreventBackHistory'])->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('togel/{id}', [GeneralController::class,'togel'])->name('togel');
@@ -104,7 +109,7 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::post('/web-setting/videos', [AdminController::class,'addvideo'])->name('addvideo');
         Route::get('/bank' ,[AdminController::class, 'bank'])->name('bank');
         Route::get('/laporan-by-omset',[AdminController::class,'laporanByOmset'])->name('laporanOmset');
-
+        Route::get('/liveresult', [AdminController::class, 'liveresult'])->name('liveresult');
         Route::get('/laporan-by-omset/download', [LaporanOmset::class,'export'])->name('exportlaporanomset');
         //Members
         Route::get('/user-list', [UserController::class, 'members'])->name('user-list');

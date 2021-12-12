@@ -158,6 +158,9 @@
                                     Bank
                                     {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
                                 </a>
+                                <a class="nav-link collapsed" href="{{ route('admin.liveresult') }}"  >
+                                    Live Togel {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
+                                </a>
 
                             </div>
 
@@ -202,6 +205,7 @@
                   @yield('inputhasil')
                   @yield('bank')
                   @yield('hasiltogel')
+                  @yield('liveresult')
 
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">

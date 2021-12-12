@@ -137,4 +137,9 @@ class AdminController extends Controller
         return view('backend.inputhasiltogel');
     }
 
+    function liveresult()
+    {
+        return view('backend.liveresult');
+    }
+
 }

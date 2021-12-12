@@ -38,7 +38,7 @@
 {{--                    <li><a href="#">LINK</a></li>--}}
 {{--                </ul>--}}
 {{--            </li>--}}
-            <li><a href="#">ABOUT-US</a></li>
+            <li><a href="/live">LIVE</a></li>
             <li><a href="#">CONTACT</a></li>
             <li><a href="#">ENG</a>
                 <ul>

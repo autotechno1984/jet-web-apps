@@ -31,14 +31,14 @@
             <li><a href="/hadiah">HADIAH</a>
 
             </li>
-            <li><a href="#">HASIL</a></li>
+            <li><a href="/hasil">HASIL</a></li>
             {{--            <li class="sub-menu"><a href="#">COMMUNITY</a>--}}
             {{--                <ul>--}}
             {{--                    <li><a href="#">LINK</a></li>--}}
             {{--                    <li><a href="#">LINK</a></li>--}}
             {{--                </ul>--}}
             {{--            </li>--}}
-            <li><a href="#">ABOUT-US</a></li>
+            <li><a href="/live">LIVE</a></li>
             <li><a href="#">CONTACT</a></li>
             <li><a href="#">ENG</a>
                 <ul>
@@ -117,7 +117,7 @@
                 <table class="table table-bordered table-striped text-white text-center" id="scb">
                     <thead class="align-middle">
                     <tr>
-                        <th rowspan="2">tanggal</th>
+                        <th rowspan="2">Tanggal</th>
                         <th rowspan="2">Periode</th>
                         <th rowspan="2">Pasaran</th>
                         <th colspan="3">Hadiah-Utama</th>
