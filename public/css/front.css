@@ -238,6 +238,10 @@ header nav ul li a.active {
     #scb{
         font-size:0.6rem;
     }
+
+    #liveresult{
+        width:330px !important;
+    }
 }
 
 
