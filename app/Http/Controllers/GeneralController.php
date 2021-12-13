@@ -33,14 +33,14 @@ class GeneralController extends Controller
     public function togel($id) {
 
         $userid = Auth::user()->id;
-//        $markets = Result::where('status', 1)->get();
+        $markets = Result::where('status', 1)->get();
         $tempInv = InvoiceTemp::where('user_id', $userid)->where('result_id', $id)->paginate(10);
 
 
 //        $checkInv = InvoiceTemp::where('user_id', $userid)->first();
         $totaldiskon = DB::table('invoice_temps')->select(DB::raw('sum(amount) as jumlah'),DB::raw('sum(amount * (diskon/100)) as total'))->where('user_id', $userid)->where('result_id',$id)->first();
 
-        return view('front.togel',compact('id','tempInv', 'totaldiskon'));
+        return view('front.togel',compact('id','tempInv', 'totaldiskon','markets'));
 
 
     }
