@@ -19,8 +19,6 @@ class Results extends Component
     public $noperiode;
     public $nourut;
 
-
-
     protected $paginationTheme = 'bootstrap';
     public function mount()
     {
@@ -85,6 +83,12 @@ class Results extends Component
             $this->emit('alert_remove');
             return;
         }
-
     }
+
+
+    public function tutup($id){
+        $updatestatus = Result::where('id', $id)->update(['status' => 2]);
+        return redirect()->back();
+    }
+
 }

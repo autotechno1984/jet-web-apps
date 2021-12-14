@@ -20,7 +20,7 @@ class CreateInvoicesTable extends Migration
             $table->decimal('amount',22,2);
             $table->decimal('total',22,2);
             $table->decimal('diskon',22,2);
-            $table->decimal('winLose');
+            $table->decimal('winLose',22,2);
             $table->string('status');
             $table->timestamp('tgl_invoice')->useCurrent();
             $table->timestamps();

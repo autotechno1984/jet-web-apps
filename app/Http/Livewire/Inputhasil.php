@@ -27,7 +27,7 @@ class Inputhasil extends Component
 
     public function render()
     {
-        $hasil = Result::whereIn('status', [1,2])->get();
+        $hasil = Result::where('status', 2)->get();
         $tablehasil = Result::with('tabelhasil')->where('tipe','H')->paginate(15);
         return view('livewire.inputhasil', compact('hasil','tablehasil'));
     }
@@ -58,7 +58,7 @@ class Inputhasil extends Component
          tabelhasil::insert($data);
          Result::where('id', $this->resultid)
                 ->update([
-             'status' => 0
+             'status' => 3
          ]);
          $this->resultid = '';
          $this->hadiahsatu = '';

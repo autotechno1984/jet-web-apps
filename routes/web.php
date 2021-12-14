@@ -34,10 +34,9 @@ Auth::routes();
 
 Route::get('/', function() {
 
-    $hasilshg = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
-    $periode = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status',0)->OrderBy('id', 'Desc')->first();
+    $hasilshg = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
+    $periode = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status',0)->OrderBy('id', 'Desc')->first();
     $tabelshg = tabelhasil::where('result_id', $hasilshg)->get();
-
     $recentvideo = Video::select('url')->orderBy('id','Desc')->skip(1)->take(3)->get();
     $videoBaru = Video::pluck('url')->last();
     $banner = banner::select('file')->where('status',1)->get();
@@ -110,6 +109,7 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::post('/web-setting/videos', [AdminController::class,'addvideo'])->name('addvideo');
         Route::get('/bank' ,[AdminController::class, 'bank'])->name('bank');
         Route::get('/laporan-by-omset',[AdminController::class,'laporanByOmset'])->name('laporanOmset');
+        Route::get('/winlose-agen', [AdminController::class, 'winloseagen'])->name('winloseagen');
         Route::get('/liveresult', [AdminController::class, 'liveresult'])->name('liveresult');
         Route::get('/laporan-by-omset/download', [LaporanOmset::class,'export'])->name('exportlaporanomset');
         //Members
@@ -124,6 +124,7 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::get('/tabel-shio', [AdminController::class, 'tabelshio'])->name('tabelshio');
         Route::get('input-hasil', [AdminController::class, 'inputhasil'])->name('inputhasil');
         Route::get('input-togel', [AdminController::class, 'inputtogel'])->name('inputtogel');
+        Route::get('hitungan', [AdminController::class,'hitungan'])->name('hitungan');
         Route::resource('/users', UserController::class , ['names' => [
             'index' => 'users.index',
             'create' => 'users.create',

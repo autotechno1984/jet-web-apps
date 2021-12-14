@@ -47,7 +47,7 @@
                         <th>1st Prize</th>
                         <th>Status</th>
                         <th>Detail</th>
-                        <th>Upd-Hasil</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,7 +65,18 @@
                             @else
                                 <td>No-Detail</td>
                             @endif
-                            <td><a href="#" class="btn btn-danger form-control">Update</a></td>
+                            @if($data->status == 0 )
+                            <td>Tutup</td>
+                            @elseif($data->status == 2)
+                            <td>Proses</td>
+                            @else
+                            <td>
+                                <form wire:submit.prevent="tutup({{ $data->id }})">
+                                <button class="form-control btn-danger" style="padding:0;"><i class="fas fa-power-off"></i>
+                                </button>
+                                </form>
+                            </td>
+                            @endif
                         </tr>
                     @empty
                         <tr>

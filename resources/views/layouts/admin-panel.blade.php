@@ -50,7 +50,6 @@
                 </li>
             </ul>
         </nav>
-
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -121,6 +120,10 @@
                                     Kredit-Depo-WD
                                     {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
                                 </a>
+                                <a class="nav-link collapsed" href="{{ route('admin.hitungan') }}"  >
+                                    Hitungan
+                                    {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
+                                </a>
                             </div>
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapselaporan" aria-expanded="false" aria-controls="collapsePages">
@@ -132,8 +135,8 @@
                                 <a class="nav-link collapsed" href="{{ route('admin.laporanOmset') }}"  >
                                     Laporan Omset
                                 </a>
-                                <a class="nav-link collapsed" href="#" >
-                                    Laporan Omset by agent
+                                <a class="nav-link collapsed" href="{{ route('admin.winloseagen') }}" >
+                                    Laporan Win - Lose
                                 </a>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseShio" aria-expanded="false" aria-controls="collapsePages">
@@ -206,7 +209,8 @@
                   @yield('bank')
                   @yield('hasiltogel')
                   @yield('liveresult')
-
+                  @yield('hitungan')
+                  @yield('winloseagen')
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">

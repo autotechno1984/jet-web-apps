@@ -112,6 +112,11 @@ class AdminController extends Controller
         return view('Laporan.laporanomset');
     }
 
+    function winloseagen()
+    {
+        return view('Laporan.winloseagen');
+    }
+
     function adminlist()
     {
         return view('backend.usermember');
@@ -142,4 +147,8 @@ class AdminController extends Controller
         return view('backend.liveresult');
     }
 
+    function hitungan()
+    {
+        return view('backend.hitungan');
+    }
 }
