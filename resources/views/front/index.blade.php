@@ -134,8 +134,8 @@
 <div class="container-fluid" style="background: #091353; padding-bottom: 15px;">
     <div class="container text-center" id="result-number" >
 
-        <h3 class="text-white pt-2 pb-2">Hasil Terakhir : {{ $periode->pasaran }} - Periode : {{ $periode->id }}</h3>
-        <h5 style="color:white; font-size:2rem;">{{ date('Y-m-d', strtotime($periode->tgl_periode)) }}</h5>
+        <h3 class="text-white pt-2 pb-2">Hasil Terakhir : {{ $periode->pasaran ?? '-' }} - Periode : {{ $periode->id ?? '-' }}</h3>
+        <h5 style="color:white; font-size:2rem;">{{ (date('Y-m-d', strtotime($periode->tgl_periode))) ?? '-' }}</h5>
         <div class="row" style="font-size:1.3rem;">
             <div class="col-lg-1"></div>
             <div class="col-lg-3">
