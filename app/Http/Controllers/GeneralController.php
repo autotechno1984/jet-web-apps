@@ -907,15 +907,28 @@ class GeneralController extends Controller
 
     public function statement() {
         $userid = Auth::user()->id;
+        $market = Result::all();
         $sekarang = Carbon::parse(now())->format('Y-m-d');
         $seminggu = Carbon::parse(now())->subday(7)->format('Y-m-d');
-        $runningInvoice = DB::table('invoices')->where('user_id', $userid)->where('status',0)->paginate(12);
+        $runningInvoice = DB::table('invoices')->where('user_id', $userid)->where('winlose', '0.00')->paginate(12);
+        $invoicewinlose = DB::table('invoices')->where('user_id', $userid)->where('winlose', '!=', '0.00')
+            ->whereBetween(DB::raw('date_format(tgl_invoice,"%Y-%m-%d")'), [$seminggu, $sekarang])->orderBy('id','Desc')
+            ->get();
+        $givencredit = transaksidepowd::select(DB::raw('sum(amount) as credit'))->where('user_id', $userid)->groupBy('user_id')->get();
+        $userkredit = Profile::where('user_id', $userid)->pluck('kredit')->first();
+        $danayangbisaditarik = (float) $userkredit - (float) $givencredit->pluck('credit')->first();
+
         $transaksi = DB::table('transaksidepowds')
             ->select('kategori','amount','bank','akun_bank','nama_bank','user_bank','user_nomor_bank','nama_akun_bank','catatan', DB::raw('coalesce(sum(amount) over (order by data_request rows between unbounded preceding and 1 preceding),0) saldoawal, amount, (sum(amount) over(order by data_request)) balance '), DB::raw('date_format(data_request,"%Y-%m-%d") as tanggal'))
             ->where('user_id', $userid)
             ->whereBetween(DB::raw('date_format(data_request,"%Y-%m-%d")'), [$seminggu, $sekarang])->orderBy('id','Desc')->paginate(10);
 
-        return view('front.statement',compact('transaksi','runningInvoice'));
+        return view('front.statement',compact('transaksi','runningInvoice','invoicewinlose','market','givencredit','userkredit','danayangbisaditarik'));
+    }
+
+    public function statementdetail($id){
+        $invoicedetail = InvoiceDetail::where('invoice_id', $id)->get();
+        return view('front.statementdetail',compact('invoicedetail'));
     }
 
     public function invoicedetail($id){

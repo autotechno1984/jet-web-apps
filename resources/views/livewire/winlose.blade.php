@@ -1,16 +1,16 @@
 <div>
     <div class="row">
         <div class="col-lg-2">
-            <input type="date" class="form-control">
+            <input wire:model="search" type="date" class="form-control">
         </div>
         <div class="col-lg-1">
-            <button class="btn-outline-primary form-control">Cari</button>
+            <button wire:click.prevent="caridata" class="btn-outline-primary form-control">Cari</button>
         </div>
         <div class="col-lg-1">
-            <button class="btn-outline-primary form-control">Hari ini</button>
+            <button wire:click.prevent="today" class="btn-outline-primary form-control">Hari ini</button>
         </div>
         <div class="col-lg-1">
-            <button class="btn-outline-primary form-control">Semalam</button>
+            <button wire:click.prevent="semalam" class="btn-outline-primary form-control">Semalam</button>
         </div>
     </div>
 
@@ -19,13 +19,28 @@
             <table class="table table-bordered table-striped text-center">
                 <thead>
                     <tr>
-                        <th>Total Member</th>
-                        <th>Username</th>
+                        <th>pasaran</th>
+                        <th>Tanggal</th>
                         <th>Omset</th>
                         <th>Diskon</th>
                         <th>Win-Lose</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @forelse($data as $item)
+                        <tr>
+                            <td>{{ $item->member }}</td>
+                            <td>{{ $item->tanggal }}</td>
+                            <td>{{ number_format($item->omset,2) }}</td>
+                            <td>{{ number_format($item->diskon) }}</td>
+                            <td>{{ number_format($item->winlose,2) }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5">Blm ada Data</td>
+                        </tr>
+                    @endforelse
+                </tbody>
             </table>
         </div>
     </div>

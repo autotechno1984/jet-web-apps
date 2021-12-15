@@ -264,6 +264,7 @@ class Hitungan extends Component
             ]);
         }
 
+
         $invoicelose = Invoices::where('status', 0)->where('result_id', $this->daftarperiode)->get();
 
         foreach ($invoicelose as $data){

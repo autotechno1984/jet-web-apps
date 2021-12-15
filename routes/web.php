@@ -34,8 +34,8 @@ Auth::routes();
 
 Route::get('/', function() {
 
-    $hasilshg = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
-    $periode = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status',0)->OrderBy('id', 'Desc')->first();
+    $hasilshg = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
+    $periode = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status',0)->OrderBy('id', 'Desc')->first();
     $tabelshg = tabelhasil::where('result_id', $hasilshg)->get();
     $recentvideo = Video::select('url')->orderBy('id','Desc')->skip(1)->take(3)->get();
     $videoBaru = Video::pluck('url')->last();
@@ -88,6 +88,7 @@ Route::middleware(['auth','PreventBackHistory'])->group(function(){
     Route::post('member/depo', [GeneralController::class,'deposit'])->name('deposit');
     Route::post('member/withdraw', [GeneralController::class, 'withdraw'])->name('withdraw');
     Route::get('member/statement', [GeneralController::class,'statement'])->name('statement');
+    Route::get('member/statement-detail/{id}', [GeneralController::class, 'statementdetail'])->name('statementdetail');
     Route::get('member/statement/{id}/invoicedetail', [GeneralController::class, 'invoicedetail'])->name('invoicedetail');
     Route::get('member/ganti-password', [GeneralController::class,'gantipassword'])->name('gantipassword');
     Route::put('member/ganti-password-baru', [GeneralController::class,'gantipasswordbaru'])->name('gantipasswordbaru');
