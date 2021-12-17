@@ -4,10 +4,11 @@
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-lg-12">
-                            <div class="row">
-                            <div class="col-lg-5">
+                <div class="row" >
+                    <div class="col-lg-12" id="statementkredit">
+
+                        <div class="row">
+                            <div class="col-lg-5" >
                                 <h5>Kredit Yang Diberikan  </h5>
                             </div>
                             <div class="col-lg-1">
@@ -94,34 +95,26 @@
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <table class="table table-bordered table-striped text-center">
-                                    <thead>
-                                        <tr>
-                                            <th>No.Inv</th>
-                                            <th>Tanggal</th>
-                                            <th>Pasaran</th>
-                                            <th>amount</th>
-                                            <th>Diskon</th>
-                                            <th>Win-Lose</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse($invoicewinlose as $data)
-                                            <tr>
-                                                <td><a href="{{ route('statementdetail', [$data->id]) }}">{{ $data->id }}</a></td>
-                                                <td>{{ date("Y-m-d", strtotime($data->tgl_invoice)) }}</td>
-                                                <td>{{ $market->where('id', $data->result_id)->pluck('pasaran')->first() }}</td>
-                                                <td>{{ number_format($data->amount) }}</td>
-                                                <td>{{ number_format($data->amount - $data->total,2) }}</td>
-                                                <td style="color:{{ ($data->winLose < 0) ? 'red;': 'black;' }}">{{ number_format($data->winLose) }}</td>
-                                            </tr>
-                                        @empty
-                                                <tr>
-                                                    <td colspan="6">No Data</td>
-                                                </tr>
-                                        @endforelse
-                                    </tbody>
-                                </table>
+
+                                @forelse($invoicewinlose as $item)
+                                    <div id="winlosebox" style="margin-bottom:1px; border-radius:5px 5px 5px 5px;" class="shadow">
+                                        <p>No.Inv : <span><a href="{{ route('statementdetail', [$item->id]) }}">{{ $item->id }}</a></span> </p>
+                                        <p>Tanggal: {{ date("Y-m-d", strtotime($item->tgl_invoice)) }}</p>
+                                        <p>Pasaran : <span>{{ $market->where('id', $item->result_id)->pluck('pasaran')->first()}} - {{ $item->result_id }}</span></p>
+                                        <p>Amount : <span>{{  number_format($item->amount)  }}</span></p>
+                                        <p>Diskon : <span>{{ number_format($item->amount - $item->total,2) }}</span></p>
+                                        <p>Win-Lose : <span style="color:{{ ($item->winLose > 0) ? 'blue;' : 'red;' }}">{{ number_format($item->winLose) }}</span></p>
+                                    </div>
+                                @empty
+                                    <div>
+                                        <h6>No data</h6>
+                                    </div>
+                                @endforelse
+
+
+                                <div>
+                                    {{ $invoicewinlose->links() }}
+                                </div>
 
                             </div>
                             <div></div>
@@ -135,36 +128,24 @@
                         </h2>
                         <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <table class="table table-bordered table-striped text-center" style="font-size:0.8rem;">
-                                    <thead>
-                                        <tr>
-                                            <th>No.Inv</th>
-                                            <th>Pasaran</th>
-                                            <th>Jumlah</th>
-                                            <th>Diskon</th>
-                                            <th>Total</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse($runningInvoice as $inv)
-                                            <tr >
-                                                <td ><a href="{{ route('invoicedetail', [$inv->id]) }}" >{{ $inv->id }}</a></td>
-                                                <td>{{ $inv->result_id }}</td>
-                                                <td>{{ number_format($inv->amount) }}</td>
-                                                <td>{{ number_format($inv->amount - $inv->total) }}</td>
-                                                <td>{{ number_format($inv->total) }}</td>
-                                                <td>Proses</td>
-                                            </tr>
-                                         @empty
-                                            <tr>
-                                                <td colspan="6"></td>
-                                            </tr>
-                                        @endforelse
 
-                                        </div>
-                                    </tbody>
-                            </table>
+                                @forelse($runningInvoice as $inv)
+                                <div id="invoicerunning" style="margin-bottom:1px; border-radius:5px 5px 5px 5px;" class="shadow">
+                                    <p>No.Inv : <span><a href="{{ route('invoicedetail', [$inv->id]) }}">{{ $inv->id }}</a></span> </p>
+                                    <p>Tanggal: <span>{{ date("Y-m-d", strtotime($inv->tgl_invoice)) }}</span> </p>
+                                    <p>Pasaran : <span>{{ $market->where('id', $inv->result_id)->pluck('pasaran')->first()}} - {{ $inv->result_id }}</span> </p>
+                                    <p>Amount : <span>{{ number_format($inv->amount) }}</span></p>
+                                    <p>Diskon : <span>{{ number_format($inv->amount - $inv->total) }}</span></p>
+                                    <p>Total : <span>{{ number_format($inv->total) }}</span></p>
+                                    <p>Status : <span>Running</span></p>
+                                </div>
+
+                                @empty
+                                     <div class="text-center">
+                                           <p>No Data</p>
+                                     </div>
+                                @endforelse
+
                             <div>
                                 {{ $runningInvoice->links() }}
                             </div>

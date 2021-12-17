@@ -1,0 +1,67 @@
+#winlosebox, #invoicerunning {
+    background: #F5F5F5;
+}
+
+#winlosebox p, #invoicerunning p {
+    margin-bottom:2px;
+}
+
+@media (max-width: 560px) {
+    .col-amount {
+        width: 50%;
+    }
+
+    .cols-macau {
+
+        width: 100%;
+    }
+    #winlosebox {
+        font-size:12px;
+    }
+
+    #invoicerunning{
+        font-size:12px;
+    }
+
+}
+
+@media (max-width: 887px){
+    #statementkredit .col-lg-5{
+
+        width:40%;
+    }
+    #statementkredit .col-lg-1{
+        width:5%;
+    }
+
+    #statementkredit .col-lg-6{
+        width: 55%;
+    }
+}
+
+@media (max-width: 480px){
+    #statementkredit h5 {
+        font-size:13px;
+    }
+    #statementkredit .col-lg-5{
+        width:60%;
+    }
+    #statementkredit .col-lg-1{
+        width:5%;
+    }
+
+    #statementkredit .col-lg-6{
+        width: 30%;
+    }
+
+    table {
+        font-size:12px;
+    }
+    #winlosebox {
+        font-size:12px;
+    }
+
+    #invoicerunning {
+        font-size:12px;
+    }
+}

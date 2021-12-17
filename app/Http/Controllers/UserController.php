@@ -67,35 +67,38 @@ class UserController extends Controller
             'email' => 'required:unique:users',
             'password' => 'required|min:8',
             'group' => 'required',
-            'handphone' => 'required|min:10'
+            'handphone' => 'required|min:10',
+
         ]);
 
+        \DB::beginTransaction();
+            $user = new User;
+            $profile = new Profile;
 
-        $user = new User;
-        $profile = new Profile;
+            $user->name = $request->nama;
+            $user->username = $request->username;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->is_admin = $request->group;
+            $user->referallid = Str::random(8);
+            $user->status = $request->group;
+            $user->bann = '1';
+            $user->save();
 
-        $user->name = $request->nama;
-        $user->username = $request->username;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->is_admin = $request->group;
-        $user->referallid = Str::random(8);
-        $user->status = $request->group;
-        $user->bann = '1';
-        $user->save();
+            $profile->user_id = $user->id;
+            $profile->handphone = $request->handphone;
+            $profile->alamat = $request->alamat;
+            $profile->provinsi = $request->provinsi;
+            $profile->kota = $request->kota;
+            $profile->kodekota = $request->kodekota;
+            $profile->kelurahan = $request->kelurahan;
+            $profile->kecamatan = $request->kecamatan;
+            $profile->rtrw = $request->rtrw;
+            $profile->save();
+        \DB::commit();
 
-        $profile->user_id = $user->id;
-        $profile->handphone = $request->handphone;
-        $profile->alamat = $request->alamat;
-        $profile->provinsi = $request->provinsi;
-        $profile->kota = $request->kota;
-        $profile->kodekota = $request->kodekota;
-        $profile->kelurahan = $request->kelurahan;
-        $profile->kecamatan = $request->kecamatan;
-        $profile->rtrw = $request->rtrw;
-        $profile->save();
+            return redirect()->route('admin.user-list');
 
-        return redirect()->route('admin.user-list');
 
     }
 

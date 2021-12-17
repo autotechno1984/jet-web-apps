@@ -62,9 +62,9 @@ Route::get('/shanghai-cobra-detail/{id}', function($id){
 });
 
 Route::get('/live', function(){
-
    return view('front.liveresult');
 });
+
 Route::middleware(['auth','PreventBackHistory'])->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('togel/{id}', [GeneralController::class,'togel'])->name('togel');
@@ -182,10 +182,4 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
 });
 
 //Front-End
-
-
-
-
-
-
 

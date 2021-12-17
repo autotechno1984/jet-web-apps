@@ -76,7 +76,7 @@ class Inputhasil extends Component
          $this->consol7 = '';
          $this->consol8 = '';
          $this->consol9 = '';
-
         return redirect()->back();
+
     }
 }

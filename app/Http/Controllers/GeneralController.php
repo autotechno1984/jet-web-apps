@@ -913,7 +913,7 @@ class GeneralController extends Controller
         $runningInvoice = DB::table('invoices')->where('user_id', $userid)->where('winlose', '0.00')->paginate(12);
         $invoicewinlose = DB::table('invoices')->where('user_id', $userid)->where('winlose', '!=', '0.00')
             ->whereBetween(DB::raw('date_format(tgl_invoice,"%Y-%m-%d")'), [$seminggu, $sekarang])->orderBy('id','Desc')
-            ->get();
+            ->paginate(7);
         $givencredit = transaksidepowd::select(DB::raw('sum(amount) as credit'))->where('user_id', $userid)->groupBy('user_id')->get();
         $userkredit = Profile::where('user_id', $userid)->pluck('kredit')->first();
         $danayangbisaditarik = (float) $userkredit - (float) $givencredit->pluck('credit')->first();

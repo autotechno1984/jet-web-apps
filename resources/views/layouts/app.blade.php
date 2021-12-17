@@ -19,20 +19,10 @@
     <script src="https://kit.fontawesome.com/942785f6e0.js" crossorigin="anonymous"></script>
     <!-- Styles Bootstrap 4.6-->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/memberfront.css') }}">
 {{--    Bootstrap 5.1   --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style>
-        @media (max-width: 560px) {
-            .col-amount {
-                width: 50%;
-            }
-
-            .cols-macau {
-
-                width: 100%;
-            }
-
-        }
     </style>
 </head>
 <body style="background: #a0aec0;">
