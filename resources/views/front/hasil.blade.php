@@ -131,8 +131,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @forelse($tablehasil->where('tipe','H') as $data)
-                                <tr >
+                        @forelse($tablehasil->where('tipe','H')->take(10) as $data)
+                                <tr>
                                     <td style="color:white;">{{ date('y-m-d', strtotime($data->tgl_periode)) }}</td>
                                     <td style="color:white;">{{ $data->id }}</td>
                                     <td style="color:white;">{{ $data->pasaran }}</td>

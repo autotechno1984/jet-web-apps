@@ -211,6 +211,9 @@
                   @yield('liveresult')
                   @yield('hitungan')
                   @yield('winloseagen')
+                  @yield('winloseagendetail')
+                  @yield('winloseinvoicedetail')
+                  @yield('invoicedetailuser')
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">

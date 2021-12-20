@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\banner;
 use App\Models\Contact;
 use App\Models\InvoiceDetail;
+use App\Models\Invoices;
 use App\Models\Result;
 use App\Models\User;
 use App\Models\Video;
@@ -117,6 +118,27 @@ class AdminController extends Controller
         return view('Laporan.winloseagen');
     }
 
+    function winloseagendetail($id)
+    {
+        $users = User::all();
+
+        $invoice = Invoices::select('user_id',\DB::raw('count(id) as jumlah'),\DB::raw('sum(amount) as omset'), \DB::raw('sum(total) as total'), \DB::raw('sum(winLose) as winlose'), \DB::raw('(sum(amount)-sum(total)) as diskon'))
+            ->where('result_id', $id)->groupBy('user_id')->get();
+        return view('Laporan.winlosedetail', compact('id','invoice', 'users'));
+
+    }
+
+    function winloseinvoicedetail($id, $resultid)
+    {
+        $users = User::all();
+        $invoice = Invoices::where('user_id', $resultid)->where('result_id', $id)->get();
+        return view('Laporan.winloseinvoicedetail',compact('invoice', 'id','resultid','users'));
+    }
+
+    function invoicedetailuser($id){
+        $invoicedetail = InvoiceDetail::where('invoice_id', $id)->get();
+        return view('Laporan.invoicedetailuser',compact('invoicedetail'));
+    }
     function adminlist()
     {
         return view('backend.usermember');

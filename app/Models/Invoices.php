@@ -13,4 +13,5 @@ class Invoices extends Model
     {
         return $this->hasMany(InvoiceDetail::class);
     }
+
 }

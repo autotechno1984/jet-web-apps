@@ -19,7 +19,8 @@
             <table class="table table-bordered table-striped text-center">
                 <thead>
                     <tr>
-                        <th>pasaran</th>
+                        <th>jlh</th>
+                        <th>Pasaran</th>
                         <th>Tanggal</th>
                         <th>Omset</th>
                         <th>Diskon</th>
@@ -29,7 +30,8 @@
                 <tbody>
                     @forelse($data as $item)
                         <tr>
-                            <td>{{ $item->member }}</td>
+                            <td><a href="{{ route('admin.winloseagendetail',[$item->result_id]) }}">{{ $item->member }}</a></td>
+                            <td>{{ $pasaran->where('id', $item->result_id)->pluck('pasaran')->first() }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ number_format($item->omset,2) }}</td>
                             <td>{{ number_format($item->diskon) }}</td>
@@ -37,7 +39,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5">Blm ada Data</td>
+                            <td colspan="6">Blm ada Data</td>
                         </tr>
                     @endforelse
                 </tbody>

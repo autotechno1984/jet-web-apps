@@ -112,6 +112,9 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::get('/laporan-by-omset',[AdminController::class,'laporanByOmset'])->name('laporanOmset');
         Route::get('/winlose-agen', [AdminController::class, 'winloseagen'])->name('winloseagen');
         Route::get('/liveresult', [AdminController::class, 'liveresult'])->name('liveresult');
+        Route::get('/winlose-agen-detail/{id}', [AdminController::class, 'winloseagendetail'])->name('winloseagendetail');
+        Route::get('/winlose-agen-detail/{id}/{rsid}', [AdminController::class,'winloseinvoicedetail'])->name('winloseinvoicedetail');
+        Route::get('/winlose-agen-detail-invoicedetail/{id}',[AdminController::class,'invoicedetailuser'])->name('invoicedetailuser');
         Route::get('/laporan-by-omset/download', [LaporanOmset::class,'export'])->name('exportlaporanomset');
         //Members
         Route::get('/user-list', [UserController::class, 'members'])->name('user-list');
