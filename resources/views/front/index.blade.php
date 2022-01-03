@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Salsa&family=Sura&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Oswald&family=Poppins:ital,wght@0,200;0,500;1,100&display=swap" rel="stylesheet">
     <title>Shanghai Cobra Lottery</title>
 </head>
@@ -135,7 +136,7 @@
     <div class="container text-center" id="result-number" >
 
         <h3 class="text-white pt-2 pb-2">Hasil Terakhir : {{ $periode->pasaran ?? '-' }} - Periode : {{ $periode->id ?? '-' }}</h3>
-        <h5 style="color:white; font-size:2rem;">{{ (date('Y-m-d', strtotime($periode->tgl_periode))) ?? '-' }}</h5>
+        <h5 style="color:white; font-size:2rem;">{{ (date('d-m-Y', strtotime($periode->tgl_periode))) ?? '-' }}</h5>
         <div class="row" style="font-size:1.3rem;">
             <div class="col-lg-1"></div>
             <div class="col-lg-3">
@@ -267,12 +268,12 @@
 </div>
 
 <div class="container-fluid">
-   <h1 class="text-center font-weight-bold" style="letter-spacing: 0.2rem;">Shanghai Cobra</h1>
+   <h1 class="text-center font-weight-bold" style="letter-spacing: 0.2rem; font-family:'Salsa'">Shanghai Cobra</h1>
 </div>
 <a href="https://wa.me/+6287886486915" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <footer class="w-100 " style="background: #091353; ">
 
-    <h6 class="text-center text-white" style="padding-top:1rem;">Shanghai-Cobra &copy;2019 Copyright</h6>
+    <h6 class="text-center text-white" style="padding-top:1rem; font-family: 'Salsa' ">Shanghai-Cobra &copy;2019 Copyright</h6>
     <div class="text-center pb-3" >
         <span><a href="#"><i class="fab fa-instagram fa-2x" style="color:white; margin-right: 10px;" ></i></a></span>
         <span><a href="#"><i class="fab fa-facebook fa-2x" style="color:white; margin-right: 10px;"></i></a></span>

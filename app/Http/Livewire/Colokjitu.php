@@ -8,6 +8,7 @@ use App\Models\Invoices;
 use App\Models\Result;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Auth;
 
 class Colokjitu extends Component
 {
@@ -16,14 +17,16 @@ class Colokjitu extends Component
     public $posisi = array();
     public $hadiah;
     public $diskon;
+    public $pasaran;
 
 
-    public function mount()
+    public function mount($id)
     {
         $this->nomor = ['1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6, '7' => 7, '8' => 8, '9' => 9, '10' => 0];
         $games = games::select('hadiah', 'diskon')->where('kode', 'CLJ')->get();
         $this->hadiah = $games->pluck('hadiah')->first();
         $this->diskon = $games->pluck('diskon')->first();
+        $this->pasaran = $id;
     }
 
     public function render()
@@ -60,7 +63,7 @@ class Colokjitu extends Component
                 $invoice = new Invoices;
                 $invoice->user_id = $user_id;
                 $invoice->result_id = $this->pasaran;
-                $invoice->amount = array_sum($this->amount);
+                $invoice->amount = $totalamount;
                 $invoice->total = $total;
                 $invoice->diskon = $totaldiskon;
                 $invoice->winLose = 0;
@@ -74,14 +77,14 @@ class Colokjitu extends Component
                         'result_id' => $this->pasaran,
                         'user_id' => $user_id,
                         'kode' => 'CLJ',
-                        'posisi' => $this->posisi,
+                        'posisi' => $this->posisi[$data],
                         'data' => $data,
                         'amount' => $value,
-                        'hadiah' => $this->hadiahclb,
-                        'diskon' => $this->diskonclb,
+                        'hadiah' => $this->hadiah,
+                        'diskon' => $this->diskon,
                         'kei' => 0,
                         'winlose' => 0,
-                        'total' => $value - ($value * ($this->diskonclb /100)),
+                        'total' => $value - ($value * ($this->diskon /100)),
                         'status' => 2,
                         'tgl_beli' => now(),
                         'created_at' => now(),

@@ -28,13 +28,13 @@
                         <td><label for="" class="col-form-label">{{ $i }}</label></td>
                         <td><input type="text" class="form-control" wire:model="nomor.{{$i}}" name="" id=""  readonly></td>
                         <td><select wire:model="posisi.{{$i}}" name="" id="" class="form-select">
-                                <option value="0">Pilih Posisi</option>
+                                <option value="0">Pilih</option>
                                 <option value="1">AS</option>
                                 <option value="2">KOP</option>
                                 <option value="3">KEPALA</option>
                                 <option value="4">EKOR</option>
                             </select></td>
-                        <td><input type="text" wire:model="amount.{{$i}}" name="" id="" class="form-control">@error('amount.'.$i) <span class="error text-danger">{{ $message }}</span> @enderror</td>
+                        <td><input type="text" wire:model="amount.{{$i}}" name="" id="" class="form-control" maxlength="5" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" >@error('amount.'.$i) <span class="error text-danger">{{ $message }}</span> @enderror</td>
                         <td><label for="" class="col-form-label">{{$hadiah}}</label></td>
                         <td><label for="" class="col-form-label">{{$diskon}}</label></td>
                     </tr>

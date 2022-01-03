@@ -28,16 +28,16 @@
                 <tbody>
                     <tr>
                         <td>No.</td>
-                        <td>Nomor</td>
-                        <td>4D-Bet</td>
-                        <td>3D-Bet</td>
-                        <td>2D-Bet</td>
+                        <td style="width:25%;">Nomor</td>
+                        <td style="width:25%;">4D-Bet</td>
+                        <td style="width: 25%;">3D-Bet</td>
+                        <td style="width: 25%;">2D-Bet</td>
                         <td>BB</td>
                     </tr>
                     @for($i ; $i <= $line; $i++)
                     <tr>
 
-                        <td>{{ $i }}</td>
+                        <td><label for="" class="col-form-label">{{ $i }}</label> </td>
 
                         <td><input type="text" wire:model="num.{{$i}}" wire:change.prevent="numchange" name="" id="{{$i}}" class="form-control" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" ></td>
                         <td><input type="text" wire:model="empatd.{{$i}}" name="" id="empat{{$i}}" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4" {{ (isset($num[$i]) && (strlen($num[$i]) >= 4)) ? '' : 'readonly'}}>  @error('empatd.'.$i) <span class="error text-danger">{{ $message }}</span> @enderror </td>

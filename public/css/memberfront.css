@@ -141,4 +141,15 @@
     .form-select {
         font-size:12px;
     }
+
+    .col tr td {
+        padding:1px;
+    }
+    .col tr td input {
+        padding:1px;
+    }
+    .table tr td {
+        padding:2px;
+    }
+
 }
