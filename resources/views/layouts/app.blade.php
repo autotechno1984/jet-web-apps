@@ -20,17 +20,17 @@
     <!-- Styles Bootstrap 4.6-->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/memberfront.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Salsa&family=Sura&display=swap" rel="stylesheet">
 {{--    Bootstrap 5.1   --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <style>
-    </style>
+    @livewireStyles
 </head>
-<body style="background: #a0aec0;">
+    <body style="background: #a0aec0;">
     <div id="app">
         <nav class="navbar navbar-expand-md shadow-sm navbar-dark" style="background: #2c3034 !important; color:#fff !important;  ">
             <div class="container">
                 <a href="#"></a>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="#" style="font-family: 'Salsa'">
                     Shanghai - Cobra
                 </a>
                 <button class="navbar-toggler" style="border: 1px solid white;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -59,28 +59,18 @@
                                 </li>
                             @endif
                         @else
-
+                        <li class="nav-item dropdown">
+                            <a href="#" id="navbarDropdown" class="nav-link text-white dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Togel</a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                @foreach($markets as $market)
+                                <a href="{{ route('togel', [$market->id]) }}" class="dropdown-item">{{ $market->pasaran }} - {{ $market->id }}</a>
+                                @endforeach
+                            </div>
+                        </li>
                             <li class="nav-item dropdown">
-
-                                <a id="togelDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    Togel
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-left" aria-labelledby="togelDropdown">
-                                    @foreach($markets as $market)
-
-                                        <a href="{{route( 'togel', [$market->id] ) }}" class="dropdown-item">{{ $market->pasaran }}</a>
-
-                                    @endforeach
-{{--                                    <a href="{{ route('togel') }}" class="dropdown-item">GRAND-SHANGHAI</a>--}}
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-
                                 <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a href="{{ route('transaksi') }}" class="dropdown-item">Transaksi</a>
                                     @if(isset(Auth::user()->profile->kredit))
@@ -108,8 +98,6 @@
             </div>
         </nav>
 
-
-
             @yield('content')
             @yield('togel')
             @yield('transaksi')
@@ -117,25 +105,22 @@
             @yield('gantipassword')
             @yield('invoicedetail')
             @yield('statementdetail')
+            @yield('marketdashboard')
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-
     <script src="{{ asset('js/script.js')}}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script>
         $(document).ready(function(){
             $(".alert").delay(3000).slideUp(500);
                     });
-
-
     </script>
+    @livewireScripts
 
-    <script type="text/javascript">
-        $("#password").password('toggle');
-    </script>
-
-
+{{--    <script type="text/javascript">--}}
+{{--        $("#password").password('toggle');--}}
+{{--    </script>--}}
 
 </body>
 </html>

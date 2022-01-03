@@ -3,16 +3,14 @@
 
 
 
-
-
     <div class="" style="margin-left:20px; margin-right:20px; margin-top:10px;">
         <div class="row">
             <div class="col-lg-2 mb-3">
                 <a href="{{ route('admin.users.index') }}" class="btn btn-primary form-control">Add User</a>
             </div>
         </div>
-        <livewire:members/>
-{{--        <table id="members" class="table table-striped">--}}
+        @livewire('member-list')
+        {{--        <table id="members" class="table table-striped">--}}
 {{--            <thead>--}}
 {{--            <tr>--}}
 {{--                <th>ID</th>--}}

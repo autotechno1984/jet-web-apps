@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-2">
             <select wire:model="pasarans" name="pasaran" id="" class="form-select">
-                <option value="">Pilih Market Berjalan</option>
+                <option value="0">Pilih Market Berjalan</option>
                 @forelse($pasaran as $data)
                     <option value="{{ $data->id }}">{{ $data->pasaran }}</option>
                 @empty
@@ -13,7 +13,7 @@
 
         <div class="col-lg-2">
             <select wire:model="kode" name="kode" id="" class="form-select">
-                <option value="">Kode </option>
+                <option value="0">Kode </option>
                 <option value="4D">4D</option>
                 <option value="3D">3D</option>
                 <option value="2D">2D</option>
@@ -34,7 +34,7 @@
             <input wire:model="caridata" type="text" name="" id="" class="form-control" placeholder="Cari Angka">
         </div>
         <div class="col-lg-1">
-            <button wire:click="export" class="btn-primary form-control">Export</button>
+            <button wire:click="generatepdf" class="btn-primary form-control">Export</button>
         </div>
     </div>
     <div class="row mt-1">

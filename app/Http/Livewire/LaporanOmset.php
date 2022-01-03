@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\games;
 use App\Models\InvoiceDetail;
 use App\Models\Result;
 use App\Models\User;
@@ -14,10 +15,15 @@ class LaporanOmset extends Component
     public $pasarans;
     public $kode;
     public $caridata;
-
+    public $user_id;
+    public $datapass;
+    public function mount(){
+        $this->user_id = $this->pasarans;
+    }
 
     public function render()
     {
+        $this->datapass = Result::find($this->pasarans);
         $username = User::all();
         if($this->kode == ''){
             $omset = InvoiceDetail::where('status',2)->where('result_id',$this->pasarans)->paginate(15);
@@ -31,16 +37,12 @@ class LaporanOmset extends Component
         return view('livewire.laporan-omset',compact('omset','username','pasaran'));
     }
 
-    public function export()
-    {
-        if($this->kode == ''){
-            return (new OmsetDaily($this->pasarans))->download('OmsetByPasaran.xlsx');
-        }elseif($this->caridata == ''){
-            return Excel::download(OmsetDaily::where('status',2)->where('result_id', $this->pasaran)->where('kode', $this->kode)->get(), 'omsetbykode.xlsx');
-        }else {
-            return Excel::download(OmsetDaily::where('status', 2)->where('result_id', $this->pasaran)->where('kode', $this->kode)->where('data', $this->caridata)->get(), 'Omsetbykodenddata.xlsx');
-        }
 
+    public function generatepdf(){
+
+                    if($this->pasarans != null && $this->pasarans != 0) {
+                        return redirect()->route('admin.exportlaporanomset', $this->pasarans);
+            }
     }
 }
 

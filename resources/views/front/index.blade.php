@@ -113,7 +113,7 @@
         <div class="carousel-inner">
 
             <div class="carousel-item active" >
-                        <img src="https://i.ibb.co/bWL2dJq/Shanghai-cobra.jpg" class="d-block w-100" alt="...">
+                        <img src="{{ asset('img/Shanghaicobra.png') }}" class="d-block w-100" alt="...">
 
 
             </div>

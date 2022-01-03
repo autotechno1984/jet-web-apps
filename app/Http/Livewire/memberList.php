@@ -13,7 +13,7 @@ use PowerComponents\LivewirePowerGrid\PowerGridEloquent;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 use PowerComponents\LivewirePowerGrid\Traits\ActionButton;
 
-class Members extends PowerGridComponent
+final class memberList extends PowerGridComponent
 {
     use ActionButton;
 
@@ -130,16 +130,16 @@ class Members extends PowerGridComponent
                 ->title('Referall ID')
                 ->field('referallid'),
             Column::add()
-                 ->title('Upline ID')
-                 ->field('uplineid'),
+                ->title('Upline ID')
+                ->field('uplineid'),
             Column::add()
-                 ->title('Status')
-                 ->field('status')
-                 ->bodyAttribute('','font-weight:bold;'),
+                ->title('Status')
+                ->field('status')
+                ->bodyAttribute('','font-weight:bold;'),
 
 
         ]
-;
+            ;
     }
 
     /*
@@ -153,11 +153,11 @@ class Members extends PowerGridComponent
 
     public function actions(): array
     {
-       return [
-           Button::add('edit')
-               ->caption(__('Edit'))
-               ->class('btn btn-primary form-control')
-               ->route('admin.users.show', ['user' => 'id'])
+        return [
+            Button::add('edit')
+                ->caption(__('Edit'))
+                ->class('btn btn-primary form-control')
+                ->route('admin.users.show', ['user' => 'id'])
 
 //           Button::add('destroy')
 //               ->caption(__('Delete'))
@@ -179,14 +179,14 @@ class Members extends PowerGridComponent
 
     public function update(array $data ): bool
     {
-       try {
-           $updated = User::query()->find($data['id'])->update([
+        try {
+            $updated = User::query()->find($data['id'])->update([
                 $data['field'] => $data['value']
-           ]);
-       } catch (QueryException $exception) {
-           $updated = false;
-       }
-       return $updated;
+            ]);
+        } catch (QueryException $exception) {
+            $updated = false;
+        }
+        return $updated;
     }
 
     public function updateMessages(string $status, string $field = '_default_message'): string
@@ -209,5 +209,4 @@ class Members extends PowerGridComponent
     {
         return null;
     }
-
 }

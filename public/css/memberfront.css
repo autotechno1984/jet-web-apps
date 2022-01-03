@@ -5,41 +5,71 @@
 #winlosebox p, #invoicerunning p {
     margin-bottom:2px;
 }
+.table tbody input{
+    background: lightblue;
+    text-align: center;
+}
 
-@media (max-width: 560px) {
-    .col-amount {
-        width: 50%;
-    }
-
-    .cols-macau {
-
+.flex-menu .form-control{
+    width: 100%;
+}
+@media screen and (max-width:1200px){
+    #menu-dashboard .col-sm-2 {
         width: 100%;
     }
-    #winlosebox {
-        font-size:12px;
+    .flex-menu {
+        display: flex;
+        justify-content: space-around;
     }
+    #selectline {
+        font-size:12px;
+        width:70px !important;
+    }
+    #sidebar-game .form-control{
+        width:150px;
+    }
+}
 
-    #invoicerunning{
-        font-size:12px;
-    }
+@media (max-width: 1000px){
 
 }
 
 @media (max-width: 887px){
     #statementkredit .col-lg-5{
-
         width:40%;
     }
     #statementkredit .col-lg-1{
         width:5%;
     }
-
     #statementkredit .col-lg-6{
         width: 55%;
     }
+    #sidebar-game .form-control{
+        width:120px;
+    }
 }
 
-@media (max-width: 480px){
+@media (max-width: 560px) {
+    .col-amount {
+        width: 50%;
+    }
+    .cols-macau {
+        width: 100%;
+    }
+    #winlosebox {
+        font-size:12px;
+    }
+    #invoicerunning{
+        font-size:12px;
+    }
+    .table tr td .form-select {
+        font-size:13px;
+    }
+}
+
+
+
+@media (max-width: 518px){
     #statementkredit h5 {
         font-size:13px;
     }
@@ -62,6 +92,53 @@
     }
 
     #invoicerunning {
+        font-size:12px;
+    }
+
+    .col .font-size-small {
+        width:100px !important;
+        font-size: 10px;
+
+    }
+
+    .table {
+        width: 100% !important;
+        font-size: 12px;
+    }
+
+    .table input , .table button{
+        font-size:12px;
+    }
+
+    #selectline {
+        width: 80px;
+        font-size:12px;
+
+    }
+
+    #sidebar-game .form-control{
+        width:100px;
+        font-size:12px;
+    }
+
+    .form-select {
+        font-size:12px;
+    }
+}
+
+@media (max-width: 477px){
+    .form-select {
+        font-size:12px;
+    }
+}
+
+@media (max-width: 381px){
+    .flex-menu{
+        display: flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+    }
+    .form-select {
         font-size:12px;
     }
 }

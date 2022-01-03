@@ -3,6 +3,7 @@
     <div class="row">
         <div class="col-lg-2">
             <select wire:model="dataid" name="pasaran" id="" class="form-select">
+                <option value="#">pilih market anda</option>
                 @forelse($pasaran as $data)
                     <option value="{{ $data->id }}">{{ $data->pasaran }}</option>
                     @empty
@@ -67,7 +68,7 @@
                             <td colspan="3">tdk ada data</td>
                         </tr>
                     @endforelse
-                    {{ $empatangka->links() }}
+
                 </tbody>
                 <tfoot>
                     <tr>
@@ -76,6 +77,8 @@
                     </tr>
                 </tfoot>
             </table>
+            <div>
+            </div>
         </div>
         <div class="col-lg-2">
             <h6>3D</h6>
@@ -100,7 +103,7 @@
                         <td colspan="3">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -133,7 +136,7 @@
                         <td colspan="3">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -166,7 +169,7 @@
                         <td colspan="3">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -199,7 +202,7 @@
                         <td colspan="3">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -238,7 +241,7 @@
                         <td colspan="4">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -271,7 +274,7 @@
                         <td colspan="3">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -304,7 +307,7 @@
                         <td colspan="3">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -339,7 +342,7 @@
                         <td colspan="4">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -374,7 +377,7 @@
                         <td colspan="4">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -409,7 +412,7 @@
                         <td colspan="4">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -445,7 +448,7 @@
                         <td colspan="3">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>
@@ -478,7 +481,7 @@
                         <td colspan="3">tdk ada data</td>
                     </tr>
                 @endforelse
-                {{ $empatangka->links() }}
+{{--                {{ $empatangka->links() }}--}}
                 </tbody>
                 <tfoot>
                 <tr>

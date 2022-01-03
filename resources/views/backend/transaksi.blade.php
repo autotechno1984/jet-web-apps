@@ -113,46 +113,6 @@
         </div>
         <div class="row mt-1">
             <livewire:transaksidepositwd/>
-{{--            <livewire:transaksidpwd/>--}}
-
-{{--            <table class="table table-bordered table-striped text-center">--}}
-{{--                <thead>--}}
-{{--                <tr>--}}
-{{--                    <th>Tgl Pengajuan</th>--}}
-{{--                    <th>Tgl Diproses</th>--}}
-{{--                    <th>Nama</th>--}}
-{{--                    <th>Username</th>--}}
-{{--                    <th>Kategori</th>--}}
-{{--                    <th>Amount</th>--}}
-{{--                    <th>Status</th>--}}
-{{--                    <th>Catatan</th>--}}
-{{--                    <th>Admin</th>--}}
-{{--                </tr>--}}
-{{--                </thead>--}}
-{{--                <tbody>--}}
-{{--                    @foreach($transaksi as $data)--}}
-{{--                        <tr>--}}
-{{--                            <td>{{ $data->data_request }}</td>--}}
-{{--                            <td>{{ $data->date_approved }}</td>--}}
-{{--                            <td>{{ $data->user->get(0)->name }}</td>--}}
-{{--                            <td>{{ $data->user->get(0)->username }}</td>--}}
-{{--                            @if($data->kategori == 'DEPO')--}}
-{{--                                <td class="bg-primary text-white">{{ $data->kategori }}</td>--}}
-{{--                            @elseif($data->kategori = 'WD')--}}
-{{--                                <td class="bg-danger text-white">{{ $data->kategori }}</td>--}}
-{{--                            @else--}}
-{{--                                <td>{{ $data->kategori }}</td>--}}
-{{--                            @endif--}}
-{{--                            <td>{{ number_format($data->amount) }}</td>--}}
-{{--                            <td>{{ $data->status }}</td>--}}
-{{--                            <th>{{ $data->catatan }}</th>--}}
-{{--                            <th>{{ $data->approvedby }}</th>--}}
-{{--                        </tr>--}}
-{{--                    @endforeach--}}
-{{--                </tbody>--}}
-{{--            </table>--}}
-
-{{--            {{ $transaksi->links() }}--}}
         </div>
     </div>
 @endsection

@@ -32,17 +32,71 @@ class GeneralController extends Controller
 
     public function togel($id) {
 
-        $userid = Auth::user()->id;
-        $markets = Result::where('status', 1)->get();
-        $tempInv = InvoiceTemp::where('user_id', $userid)->where('result_id', $id)->paginate(10);
+//        $userid = Auth::user()->id;
+        $pasaran = Result::find($id);
+//        $tempInv = InvoiceTemp::where('user_id', $userid)->where('result_id', $id)->paginate(10);
+//
+//
+////        $checkInv = InvoiceTemp::where('user_id', $userid)->first();
+//        $totaldiskon = DB::table('invoice_temps')->select(DB::raw('sum(amount) as jumlah'),DB::raw('sum(amount * (diskon/100)) as total'))->where('user_id', $userid)->where('result_id',$id)->first();
+//
+//        return view('front.togel',compact('id','tempInv', 'totaldiskon','markets'));
 
 
-//        $checkInv = InvoiceTemp::where('user_id', $userid)->first();
-        $totaldiskon = DB::table('invoice_temps')->select(DB::raw('sum(amount) as jumlah'),DB::raw('sum(amount * (diskon/100)) as total'))->where('user_id', $userid)->where('result_id',$id)->first();
+        return view('market.dashboard',compact('id', 'pasaran'));
 
-        return view('front.togel',compact('id','tempInv', 'totaldiskon','markets'));
+    }
 
+    public function empatd($id){
+        $pasaran = Result::find($id);
+        return view('backend.empatd',compact('pasaran', 'id'));
+    }
 
+    public function colokbebasview($id){
+        $pasaran = Result::find($id);
+        return view('backend.colokbebas',compact('pasaran', 'id'));
+    }
+
+    public function colokmacauview($id){
+        $pasaran = Result::find($id);
+        return view('backend.colokmacau',compact('pasaran', 'id'));
+    }
+    public function colokjituview($id){
+        $pasaran = Result::find($id);
+        return view('backend.colokjitu' ,compact('pasaran', 'id'));
+    }
+
+    public function coloknagaview($id){
+        $pasaran = Result::find($id);
+        return view('backend.coloknaga' ,compact('pasaran', 'id'));
+    }
+
+    public function limapuluhspesial($id){
+        $pasaran = Result::find($id);
+        return view('backend.limapuluhspesial' ,compact('pasaran', 'id'));
+    }
+
+    public function limapuluhumum($id){
+        $pasaran = Result::find($id);
+        return view('backend.limapuluhumum' ,compact('pasaran', 'id'));
+    }
+
+    public function limapuluhkombinasi($id){
+        $pasaran = Result::find($id);
+        return view('backend.limapuluhkombinasi' ,compact('pasaran', 'id'));
+    }
+    public function macauview($id){
+        $pasaran = Result::find($id);
+        return view('backend.macau' ,compact('pasaran', 'id'));
+    }
+    public function dasarview($id){
+        $pasaran = Result::find($id);
+        return view('backend.dasar' ,compact('pasaran', 'id'));
+    }
+
+    public function shioview($id){
+        $pasaran = Result::find($id);
+        return view('backend.shio' ,compact('pasaran', 'id'));
     }
 
     public function angka(Request $request){
@@ -149,12 +203,10 @@ class GeneralController extends Controller
                     'tgl_beli' => now(),
                     'created_at' => now(),
                     'updated_at' => now(),
-
                 );
             }
 
             InvoiceTemp::insert($dataArray);
-
 
             Profile::where('user_id', $user_id)
                 ->update([ 'kredit' => $checkkredit - $kredituse ]);

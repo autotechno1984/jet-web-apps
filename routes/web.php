@@ -68,6 +68,17 @@ Route::get('/live', function(){
 Route::middleware(['auth','PreventBackHistory'])->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('togel/{id}', [GeneralController::class,'togel'])->name('togel');
+    Route::get('/empatd/{id}',[GeneralController::class, 'empatd'])->name('empatd');
+    Route::get('/colokbebas/{id}',[GeneralController::class, 'colokbebasview'])->name('colokbebasview');
+    Route::get('/colokmacau/{id}',[GeneralController::class, 'colokmacauview'])->name('colokmacauview');
+    Route::get('/colokjitu/{id}',[GeneralController::class, 'colokjituview'])->name('view.colokjitu');
+    Route::get('/coloknaga/{id}',[GeneralController::class, 'coloknagaview'])->name('view.coloknaga');
+    Route::get('limagpuluhumum/{id}', [GeneralController::class,'limapuluhumum'])->name('view.limapuluhumum');
+    Route::get('limapuluhspesial/{id}', [GeneralController::class,'limapuluhspesial'])->name('view.limapuluhspesial');
+    Route::get('limapuluhkombinasi/{id}', [GeneralController::class,'limapuluhkombinasi'])->name('view.limapuluhkombinasi');
+    Route::get('macau/{id}', [GeneralController::class, 'macauview'])->name('view.macau');
+    Route::get('dasar/{id}', [GeneralController::class, 'dasarview'])->name('view.dasar');
+    Route::get('shio/{id}', [GeneralController::class, 'shioview'])->name('view.shio');
     Route::post('togel/beli-angka',[GeneralController::class,'angka'])->name('angka');
     Route::post('togel/beli-angkabb',[GeneralController::class,'angkabb'])->name('angkabb');
     Route::post('togel/colok-bebas',[GeneralController::class,'colokbebas'])->name('colokbebas');
@@ -110,12 +121,12 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::post('/web-setting/videos', [AdminController::class,'addvideo'])->name('addvideo');
         Route::get('/bank' ,[AdminController::class, 'bank'])->name('bank');
         Route::get('/laporan-by-omset',[AdminController::class,'laporanByOmset'])->name('laporanOmset');
+        Route::get('/laporan-by-omset/download/{id}', [AdminController::class,'export'])->name('exportlaporanomset');
         Route::get('/winlose-agen', [AdminController::class, 'winloseagen'])->name('winloseagen');
         Route::get('/liveresult', [AdminController::class, 'liveresult'])->name('liveresult');
         Route::get('/winlose-agen-detail/{id}', [AdminController::class, 'winloseagendetail'])->name('winloseagendetail');
         Route::get('/winlose-agen-detail/{id}/{rsid}', [AdminController::class,'winloseinvoicedetail'])->name('winloseinvoicedetail');
         Route::get('/winlose-agen-detail-invoicedetail/{id}',[AdminController::class,'invoicedetailuser'])->name('invoicedetailuser');
-        Route::get('/laporan-by-omset/download', [LaporanOmset::class,'export'])->name('exportlaporanomset');
         //Members
         Route::get('/user-list', [UserController::class, 'members'])->name('user-list');
         Route::get('/user-admin', [AdminController::class, 'adminlist'])->name('admin-list');

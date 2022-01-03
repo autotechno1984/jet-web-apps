@@ -9,10 +9,11 @@ use Livewire\Component;
 class Winlose extends Component
 {
     public $data;
-    public $search;
+    public $search = '';
     public $pasaran;
     public function mount()
     {
+
         $hariini = date('Y-m-d', strtotime(now()));
         $this->data = Invoices::select('result_id',\DB::raw('sum(amount) as omset'),\DB::raw('(sum(amount) - sum(total)) as diskon'), \DB::raw('date_format(tgl_invoice,"%Y-%m-%d") as tanggal'))
             ->where(\DB::raw('DATE_FORMAT(tgl_invoice, "%Y-%m-%d")'),$hariini)

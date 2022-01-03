@@ -13,7 +13,7 @@ use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
-
+use PDF;
 
 class AdminController extends Controller
 {
@@ -172,5 +172,13 @@ class AdminController extends Controller
     function hitungan()
     {
         return view('backend.hitungan');
+    }
+
+    function export($id){
+        $data = Result::find($id);
+        $invdetail = InvoiceDetail::where('result_id', $id)->get();
+        $user = User::select('id','username')->get();
+        $pdf = PDF::loadView('print.laporanpdfomset',compact('data','invdetail','user'));
+        return $pdf->download('LaporanOmset-Periode-'.$id.'.pdf');
     }
 }
