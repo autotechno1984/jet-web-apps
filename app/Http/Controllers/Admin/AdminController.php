@@ -181,4 +181,13 @@ class AdminController extends Controller
         $pdf = PDF::loadView('print.laporanpdfomset',compact('data','invdetail','user'));
         return $pdf->download('LaporanOmset-Periode-'.$id.'.pdf');
     }
+
+    function tagihanmember(){
+        return view('backend.tagihanmember');
+    }
+
+    function tagihanmemberdetail($id){
+
+        return view('backend.tagihanmemberdetail', compact('id'));
+    }
 }

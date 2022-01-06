@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\MarketController;
@@ -34,8 +35,8 @@ Auth::routes();
 
 Route::get('/', function() {
 
-    $hasilshg = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
-    $periode = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status',0)->OrderBy('id', 'Desc')->first();
+    $hasilshg = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
+    $periode = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status',0)->OrderBy('id', 'Desc')->first();
     $tabelshg = tabelhasil::where('result_id', $hasilshg)->get();
     $recentvideo = Video::select('url')->orderBy('id','Desc')->skip(1)->take(3)->get();
     $videoBaru = Video::pluck('url')->last();
@@ -50,9 +51,8 @@ Route::get('/hadiah', function(){
 });
 
 Route::get('/hasil', function(){
-    $tablehasil = Result::with('tabelhasil')->orderBy('id','Desc')->get();
-    $market = Result::where('tipe','D')->select('pasaran')->groupBy('pasaran')->get();
-   return view('front.hasil', compact('tablehasil','market'));
+    $result =  Result::with('tabelhasil')->where('tipe','H')->orderBy('id','Desc')->paginate(20);
+    return view('front.hasil', compact('result'));
 });
 
 Route::get('/shanghai-cobra-detail/{id}', function($id){
@@ -65,6 +65,7 @@ Route::get('/live', function(){
    return view('front.liveresult');
 });
 
+Route::get('/history-hasil', [FrontController::class, 'hasil']);
 Route::middleware(['auth','PreventBackHistory'])->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('togel/{id}', [GeneralController::class,'togel'])->name('togel');
@@ -128,6 +129,8 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::get('/winlose-agen-detail/{id}/{rsid}', [AdminController::class,'winloseinvoicedetail'])->name('winloseinvoicedetail');
         Route::get('/winlose-agen-detail-invoicedetail/{id}',[AdminController::class,'invoicedetailuser'])->name('invoicedetailuser');
         //Members
+        Route::get('/laporan-tagihan-member', [AdminController::class, 'tagihanmember'])->name('tagihanmember');
+        Route::get('/laporan-tagihan-member-detail/{id}', [AdminController::class, 'tagihanmemberdetail'])->name('tagihanmemberdetail');
         Route::get('/user-list', [UserController::class, 'members'])->name('user-list');
         Route::get('/user-admin', [AdminController::class, 'adminlist'])->name('admin-list');
         Route::get('/data', [UserController::class, 'data'])->name('data');

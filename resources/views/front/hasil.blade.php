@@ -131,9 +131,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                        @forelse($tablehasil->where('tipe','H')->take(10) as $data)
+
+                        @forelse($result as $data)
                                 <tr>
-                                    <td style="color:white;">{{ date('y-m-d', strtotime($data->tgl_periode)) }}</td>
+                                    <td style="color:white;">{{ date('d-m-Y', strtotime($data->tgl_periode)) }}</td>
                                     <td style="color:white;">{{ $data->id }}</td>
                                     <td style="color:white;">{{ $data->pasaran }}</td>
                                     <td style="color:white;">{{ $data->tabelhasil->pluck('hasil')->get(0) }}</td>
@@ -148,41 +149,43 @@
                 </table>
             </div>
             <div>
+                {{ $result }}
 {{--                {{ $tablehasil->links() }}--}}
             </div>
+
         </div>
         <div class="d-flex flex-wrap justify-content-between">
-               @forelse($market as $data)
+{{--               @forelse($market as $data)--}}
 
-                <div style="width:30%; margin-right:20px;">
-                    <h5 style="color:gold;">{{ $data->pasaran }}</h5>
-                    <table class="table table-bordered" style="color:gold;">
-                        <thead>
-                            <tr>
-                                <th>Tanggal</th>
-                                <th>Periode</th>
-                                <th>Nomor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($tablehasil->where('pasaran', $data->pasaran)->take(10)->sortByDesc('id') as $togel)
-                                <tr>
-                                    <td>{{$togel->tgl_periode }}</td>
-                                    <td>{{ $togel->id }}</td>
-                                    <td>{{ $togel->tabelhasil->pluck('hasil')->first() }}</td>
-                                </tr>
-                                @empty
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
-            @empty
-                <div class="w-50">
-                    <table>
+{{--                <div style="width:30%; margin-right:20px;">--}}
+{{--                    <h5 style="color:gold;">{{ $data->pasaran }}</h5>--}}
+{{--                    <table class="table table-bordered" style="color:gold;">--}}
+{{--                        <thead>--}}
+{{--                            <tr>--}}
+{{--                                <th>Tanggal</th>--}}
+{{--                                <th>Periode</th>--}}
+{{--                                <th>Nomor</th>--}}
+{{--                            </tr>--}}
+{{--                        </thead>--}}
+{{--                        <tbody>--}}
+{{--                            @forelse($tablehasil->where('pasaran', $data->pasaran)->take(10)->sortByDesc('id') as $togel)--}}
+{{--                                <tr>--}}
+{{--                                    <td>{{$togel->tgl_periode }}</td>--}}
+{{--                                    <td>{{ $togel->id }}</td>--}}
+{{--                                    <td>{{ $togel->tabelhasil->pluck('hasil')->first() }}</td>--}}
+{{--                                </tr>--}}
+{{--                                @empty--}}
+{{--                            @endforelse--}}
+{{--                        </tbody>--}}
+{{--                    </table>--}}
+{{--                </div>--}}
+{{--            @empty--}}
+{{--                <div class="w-50">--}}
+{{--                    <table>--}}
 
-                    </table>
-                </div>
-            @endforelse
+{{--                    </table>--}}
+{{--                </div>--}}
+{{--            @endforelse--}}
 
         </div>
     </div>

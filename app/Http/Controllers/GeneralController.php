@@ -47,6 +47,7 @@ class GeneralController extends Controller
 
     }
 
+
     public function empatd($id){
         $pasaran = Result::find($id);
         return view('backend.empatd',compact('pasaran', 'id'));

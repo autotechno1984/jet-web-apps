@@ -138,6 +138,9 @@
                                 <a class="nav-link collapsed" href="{{ route('admin.winloseagen') }}" >
                                     Laporan Win - Lose
                                 </a>
+                                <a class="nav-link collapsed" href="{{ route('admin.tagihanmember') }}" >
+                                    Laporan Tagihan Member
+                                </a>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseShio" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
@@ -214,6 +217,8 @@
                   @yield('winloseagendetail')
                   @yield('winloseinvoicedetail')
                   @yield('invoicedetailuser')
+                  @yield('tagihanmember')
+                  @yield('tagihanmemberdetail')
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
