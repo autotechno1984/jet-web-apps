@@ -137,7 +137,7 @@
 
         <h4 class="text-white pt-2 pb-2 text-decoration-underline" style="margin-bottom:2px;">Live Draw : <span style="font-family: 'Salsa';">Shanghai - Cobra</span>  </h4>
         <h4 style="color:white; letter-spacing: 5px;" >{{ \Carbon\Carbon::parse($periode->tgl_periode)->locale('id')->dayName .','. (date('d-m-Y', strtotime($periode->tgl_periode))) ?? '-' }}</h4>
-        <h4 class="text-white">Tutup. {{ substr($periode->jam_tutup,0,5) }}.WIB. Periode : {{ $periode->id ?? '-' }}</h4>
+        <h4 class="text-white"> Periode : {{ $periode->id ?? '-' }} Jam {{ substr($periode->jam_tutup,0,5) }}.WIB</h4>
         <div class="row" style="font-size:1.3rem;">
             <div class="col-lg-1"></div>
             <div class="col-lg-3">
