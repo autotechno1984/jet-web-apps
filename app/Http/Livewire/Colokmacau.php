@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\games;
 use App\Models\InvoiceDetail;
 use App\Models\Invoices;
+use App\Models\Profile;
 use App\Models\Result;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -41,6 +42,7 @@ class Colokmacau extends Component
     }
 
     public function createinvoice(){
+        $kredituse = 0;
         foreach($this->nomor as $data => $value){
                if(strlen($value) == 2){
                     $validatedata = $this->validate(
@@ -92,9 +94,11 @@ class Colokmacau extends Component
                         'created_at' => now(),
                         'updated_at' => now(),
                     );
+                    $kredituse = $kredituse + $value;
                 }
 
                 InvoiceDetail::insert($datainsert);
+                Profile::where('user_id',$user_id)->update(['kredit' => $kredit - $kredituse]);
                 DB::commit();
                 session()->flash('success','Data Sudah Berhasil Disimpan');
                 return redirect()->route('colokmacauview', $this->pasaran);

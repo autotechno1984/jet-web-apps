@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\games;
 use App\Models\InvoiceDetail;
 use App\Models\Invoices;
+use App\Models\Profile;
 use App\Models\Result;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -31,6 +32,7 @@ class Colokbebas extends Component
     }
 
     public function total(){
+           $kredituse = 0;
             $validateMin = $this->validate(
                 ['amount.*' => 'gte:10'],
                 ['amount.*.gte' => 'min bet 10',]
@@ -76,9 +78,11 @@ class Colokbebas extends Component
                         'created_at' => now(),
                         'updated_at' => now(),
                     );
+                    $kredituse = $kredituse + $value;
                 }
 
                 InvoiceDetail::insert($datainsert);
+                Profile::where('user_id',$user_id)->update(['kredit' => $kredit - $kredituse]);
                 DB::commit();
                 session()->flash('success','Data Sudah Berhasil Disimpan');
                 return redirect()->route('colokbebasview', $this->pasaran);

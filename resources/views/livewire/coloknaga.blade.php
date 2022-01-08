@@ -24,8 +24,8 @@
             @for($i = 1; $i <= 10; $i++)
                 <tr>
                     <td><label for="" class="col-form-label">{{$i}}</label></td>
-                    <td><input type="text" wire:model="nomor.{{$i}}" name="" id="" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="3"></td>
-                    <td><input type="text" wire:model="amount.{{$i}}" name="" id="" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4">@error('amount.'.$i) <span class="error text-danger">{{ $message }}</span> @enderror</td>
+                    <td><input type="text" wire:model="nomor.{{$i}}" name="" id="" class="form-control" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="3"></td>
+                    <td><input type="text" wire:model="amount.{{$i}}" name="" id="" class="form-control" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4">@error('amount.'.$i) <span class="error text-danger">{{ $message }}</span> @enderror</td>
                     <td><label for="" class="col-form-label">{{$hadiah}}</label></td>
                     <td><label for="" class="col-form-label">{{$diskon }}</label></td></tr>
             @endfor

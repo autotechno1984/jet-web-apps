@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\games;
 use App\Models\InvoiceDetail;
 use App\Models\Invoices;
+use App\Models\Profile;
 use App\Models\Result;
 use Decimal\Decimal;
 use Livewire\Component;
@@ -45,6 +46,8 @@ class Empatd extends Component
 
     public function createinvoice()
     {
+        $kredituse = 0;
+
         Collection::macro('permute', function () {
             if ($this->isEmpty()) {
                 return new static([[]]);
@@ -253,9 +256,11 @@ class Empatd extends Component
                         'created_at' => now(),
                         'updated_at' => now(),
                     );
+                    $kredituse = $kredituse + $data['amount'];
                 }
 
                 InvoiceDetail::insert($datainsert);
+                Profile::where('user_id',$user_id)->update(['kredit' => $kredit - $kredituse]);
                 DB::commit();
                 session()->flash('success','Data Sudah Berhasil Disimpan');
                 return redirect()->route('empatd', $this->pasaran);
