@@ -23,7 +23,7 @@
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        Shanghai - Cobra
+        SHANGHAI COBRA
     </div>
     <nav>
         <ul>
@@ -109,7 +109,7 @@
 </header>
 <div class="container-fluid" style="background: #0a53be; color:white;">
     <div class="container">
-        <h3 >Hadiah Shanghai Cobra</h3>
+        <h3 >Hadiah SHANGHAI COBRA</h3>
         <div class="row">
             <div class="col-lg-4">
                 <table class="table table-bordered text-center text-white">
@@ -261,7 +261,7 @@
 
 <a href="https://wa.me/+6287886486915" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <footer class="w-100 " style="background: #091353; ">
-    <h6 class="text-center text-white" style="padding-top:1rem;">Shanghai-Cobra &copy;2019 Copyright</h6>
+    <h6 class="text-center text-white" style="padding-top:1rem;">SHANGHAI COBRA &copy;2019 Copyright</h6>
     <div class="text-center pb-3" >
         <span><a href="#"><i class="fab fa-instagram fa-2x" style="color:white; margin-right: 10px;" ></i></a></span>
         <span><a href="#"><i class="fab fa-facebook fa-2x" style="color:white; margin-right: 10px;"></i></a></span>

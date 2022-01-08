@@ -17,7 +17,7 @@
             <tr>
                 <td>#</td>
                 <td>Tebak</td>
-                <td>Amount</td>
+                <td>Jumlah</td>
                 <td>Hadiah</td>
                 <td>Diskon</td>
             </tr>

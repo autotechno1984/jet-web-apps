@@ -17,7 +17,7 @@
             <tr>
                 <td>#</td>
                 <td>Data</td>
-                <td>Nominal</td>
+                <td>Jumlah</td>
                 <td>Hadiah</td>
                 <td>Kei</td>
             </tr>

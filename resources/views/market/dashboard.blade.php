@@ -3,7 +3,7 @@
 <div class="container text-center pt-2">
     <div class="row">
         <div class="col bg-primary text-white shadow" style="border-radius:5px; width: 450px;" >
-                <p style="margin:0;">Market : <span>{{ $pasaran->pasaran }} </span></p>
+                <p style="margin:0;">Pasaran : <span>{{ $pasaran->pasaran }} </span></p>
                 <p style="margin:0;">Periode: <span>{{ $pasaran->id }} </span> <span> - </span>{{ date("d-m-Y",strtotime($pasaran->tgl_periode)) }}</p>
                 <p style="margin:0; padding-bottom:10px;">Jam Tutup : {{ $pasaran->jam_tutup }}</p>
         </div>

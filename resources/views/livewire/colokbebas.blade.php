@@ -18,7 +18,7 @@
             <tr>
                 <td>No.</td>
                 <td>Colok</td>
-                <td>Amount</td>
+                <td>Jumlah</td>
                 <td>Hadiah</td>
                 <td>Diskon</td>
             </tr>

@@ -19,7 +19,7 @@
                     <td>#</td>
                     <td style="width:15%;">Nomor</td>
                     <td style="width:30%">Posisi</td>
-                    <td style="width:25%">Amount</td>
+                    <td style="width:25%">Jumlah</td>
                     <td style="width:15%">Hadiah</td>
                     <td style="width:15%">Diskon</td>
                 </tr>

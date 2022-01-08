@@ -17,7 +17,7 @@
             <tr>
                 <td>#</td>
                 <td>Tebak</td>
-                <td>Amount</td>
+                <td>Jumlah</td>
                 <td>Kei</td>
             </tr>
                     @for($i = 1 ; $i <= 6 ;$i++)

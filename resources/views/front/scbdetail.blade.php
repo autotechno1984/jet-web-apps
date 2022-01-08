@@ -118,9 +118,11 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="pt-3">Daftar Keluaran Togel Shanghai-Cobra</h3>
-                <h3 style="color:gold;">Periode {{ $data->id }} - {{ $data->pasaran }}</h3>
-                <h5 style="color:gold;">{{ $data->tgl_periode }}</h5>
+                <h3 class="pt-3">Daftar Keluaran Togel</h3>
+                <h3 style="font-weight: bold;">SHANGHAI COBRA</h3>
+                <h3 style="color:gold;">Periode {{ $data->id }} - {{ substr($data->pasaran, strpos($data->pasaran, " ")+1) }}</h3>
+                <h3 style="color:gold;">Jam : {{ substr($data->jambuka,0,5) }}.WIB</h3>
+                <h3 style="color:gold;">{{\Carbon\Carbon::parse($data->tgl_periode)->locale('id')->dayName.', '. date('d-m-Y', strtotime($data->tgl_periode ))}}</h3>
                 <table class="table table-bordered table-striped text-white text-center" id="scb">
                     <thead class="align-middle">
                     <tr>
@@ -136,13 +138,13 @@
                                 <td style="color:white;">{{ $data->result_id }}</td>
                                 @switch($data->kode)
                                     @case('sh1')
-                                    <td style="color:gold;background:darkred;">1st Prize</td>
+                                    <td style="color:gold;background:darkred;">Hadiah ke-1</td>
                                     @break
                                     @case('sh2')
-                                    <td style="color:gold;background:darkred;">2nd Prize</td>
+                                    <td style="color:gold;background:darkred;">Hadiah ke-2</td>
                                     @break
                                     @case('sh3')
-                                    <td style="color:gold;background:darkred;">3rd Prize</td>
+                                    <td style="color:gold;background:darkred;">Hadiah ke-3</td>
                                     @break
                                     @case('sh4')
                                     <td style="color:white;background:darkgoldenrod;">Starter 1</td>

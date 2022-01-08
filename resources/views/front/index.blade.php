@@ -24,7 +24,7 @@
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        Shanghai-Cobra
+        SHANGHAI COBRA
     </div>
     <nav>
         <ul>
@@ -134,31 +134,30 @@
 {{-- Grand Shanghai Result--}}
 <div class="container-fluid" style="background: #091353; padding-bottom: 15px;">
     <div class="container text-center" id="result-number" >
-
-        <h4 class="text-white pt-2 pb-2 text-decoration-underline" style="margin-bottom:2px;">Live Draw : <span style="font-family: 'Salsa';">Shanghai - Cobra</span>  </h4>
+        <h4 class="text-white pt-2 pb-2 text-decoration-underline" style="margin-bottom:2px;">Live Draw : <span>SHANGHAI COBRA</span>  </h4>
         <h4 style="color:white; letter-spacing: 5px;" >{{ \Carbon\Carbon::parse($periode->tgl_periode)->locale('id')->dayName .','. (date('d-m-Y', strtotime($periode->tgl_periode))) ?? '-' }}</h4>
-        <h4 class="text-white"> Periode : {{ $periode->id ?? '-' }} Jam {{ substr($periode->jam_tutup,0,5) }}.WIB</h4>
+        <h4 class="text-white"> Periode : {{ $periode->id ?? '-' }}-Jam {{ substr($periode->jam_tutup,0,5) }}.WIB</h4>
         <div class="row" style="font-size:1.3rem;">
             <div class="col-lg-1"></div>
             <div class="col-lg-3">
                 <table class="table" style="font-family: 'Oswald', sans-serif; border-top-left-radius: 20px; border-top-right-radius: 20px;">
                     <thead style=" font-weight: bold; border-bottom: 4px solid gold; background: black; color:white; letter-spacing: 0.3rem; ">
                         <tr>
-                            <td colspan="2" style="border-top-left-radius: 20px; border-top-right-radius: 20px; ">4D RESULT</td>
+                            <td colspan="2" style="border-top-left-radius: 20px; border-top-right-radius: 20px; ">HASIL 4D</td>
                         </tr>
 
                     </thead>
                     <tbody style="font-weight: bold; background: white;">
                     <tr >
-                        <td style="color:gold; background: #BD1616;">1st Prize</td>
+                        <td style="color:gold; background: #BD1616;">Hadiah 1</td>
                         <td> {{ $tabelshg->where('kode','sh1')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
-                        <td style="color:gold; background: #BD1616;">2nd Prize</td>
+                        <td style="color:gold; background: #BD1616;">Hadiah 2</td>
                         <td> {{ $tabelshg->where('kode','sh2')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
-                        <td style="color:gold; background: #BD1616;">3rd Prize</td>
+                        <td style="color:gold; background: #BD1616;">Hadiah 3</td>
                         <td> {{ $tabelshg->where('kode','sh3')->pluck('hasil')->first() }}</td>
                     </tr>
                     </tbody>
@@ -268,13 +267,12 @@
 
 </div>
 
-<div class="container-fluid">
-   <h1 class="text-center font-weight-bold" style="letter-spacing: 0.2rem; font-family:'Salsa'">Shanghai Cobra</h1>
+<div class="container-fluid"><h1 class="text-center font-weight-bold">SHANGHAI COBRA</h1>
 </div>
 <a href="https://wa.me/+6287886486915" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <footer class="w-100 " style="background: #091353; ">
 
-    <h6 class="text-center text-white" style="padding-top:1rem; font-family: 'Salsa' ">Shanghai-Cobra &copy;2019 Copyright</h6>
+    <h6 class="text-center text-white" style="padding-top:1rem;">SHANGHAI COBRA &copy;2019 Copyright</h6>
     <div class="text-center pb-3" >
         <span><a href="#"><i class="fab fa-instagram fa-2x" style="color:white; margin-right: 10px;" ></i></a></span>
         <span><a href="#"><i class="fab fa-facebook fa-2x" style="color:white; margin-right: 10px;"></i></a></span>
