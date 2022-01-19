@@ -16,14 +16,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Oswald&family=Poppins:ital,wght@0,200;0,500;1,100&display=swap" rel="stylesheet">
-    <title>Shanghai Cobra Lottery</title>
+    <title>GRAND SHANGHAI Lottery</title>
 </head>
 <body >
 
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        Shanghai-Cobra
+        <img src="{{ asset('img/Grandshanghailogo.png') }}" alt="logo grand shanghai">
     </div>
     <nav>
         <ul>
@@ -119,7 +119,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h3 class="pt-3">Daftar Keluaran Togel</h3>
-                <h3 style="font-weight: bold;">SHANGHAI COBRA</h3>
+                <h3 style="font-weight: bold;">GRAND SHANGHAI</h3>
                 <h3 style="color:gold;">Periode {{ $data->id }} - {{ substr($data->pasaran, strpos($data->pasaran, " ")+1) }}</h3>
                 <h3 style="color:gold;">Jam : {{ substr($data->jambuka,0,5) }}.WIB</h3>
                 <h3 style="color:gold;">{{\Carbon\Carbon::parse($data->tgl_periode)->locale('id')->dayName.', '. date('d-m-Y', strtotime($data->tgl_periode ))}}</h3>
@@ -202,12 +202,12 @@
 
 
 <div class="container-fluid">
-    <h1 class="text-center font-weight-bold" style="letter-spacing: 0.2rem; margin:0;">Shanghai Cobra</h1>
+    <h1 class="text-center font-weight-bold" style="letter-spacing: 0.2rem; margin:0;">GRAND SHANGHAI</h1>
 </div>
 <a href="https://wa.me/+6287886486915" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <footer class="w-100 " style="background: #091353; ">
 
-    <h6 class="text-center text-white" style="padding-top:1rem;">Shanghai-Cobra &copy;2019 Copyright</h6>
+    <h6 class="text-center text-white" style="padding-top:1rem;">GRAND SHANGHAI &copy;2019 Copyright</h6>
     <div class="text-center pb-3" >
         <span><a href="#"><i class="fab fa-instagram fa-2x" style="color:white; margin-right: 10px;" ></i></a></span>
         <span><a href="#"><i class="fab fa-facebook fa-2x" style="color:white; margin-right: 10px;"></i></a></span>

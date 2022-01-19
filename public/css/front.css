@@ -15,7 +15,7 @@ header {
     padding: 0 100px;
     background: #091353;
     width:100%;
-    height:50px;
+    height:120px;
     border-bottom: 5px solid yellow;
 
 }
@@ -42,6 +42,8 @@ header nav ul {
 header nav ul li {
     list-style: none;
     position:relative;
+    font-size:18px;
+    top: 30px;
 }
 header nav ul li.sub-menu:before {
     content: '\f0d7';
@@ -153,11 +155,11 @@ header nav ul li a.active {
     }
 
     header nav {
-
         position: absolute;
-        width: 100%;
-        top:50px;
-        height:1000px;
+        width: 90%;
+        top:5px;
+        bottom: 0px;
+        height:100vh;
         background: #091353;
         left:-100%;
         transition: 0.5s;

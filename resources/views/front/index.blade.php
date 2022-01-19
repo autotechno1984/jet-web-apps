@@ -17,14 +17,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Salsa&family=Sura&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Oswald&family=Poppins:ital,wght@0,200;0,500;1,100&display=swap" rel="stylesheet">
-    <title>Shanghai Cobra Lottery</title>
+    <title>Grand Shanghai Lottery</title>
 </head>
 <body >
 
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        SHANGHAI COBRA
+        <img src="{{ asset('img/Grandshanghailogo.png') }}" alt="logo grand shanghai">
     </div>
     <nav>
         <ul>
@@ -114,7 +114,7 @@
         <div class="carousel-inner">
 
             <div class="carousel-item active" >
-                        <img src="{{ asset('img/Shanghaicobra.png') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('img/grand-shanghai.jpg') }}" class="d-block w-100" alt="...">
 
 
             </div>
@@ -134,7 +134,7 @@
 {{-- Grand Shanghai Result--}}
 <div class="container-fluid" style="background: #091353; padding-bottom: 15px;">
     <div class="container text-center" id="result-number" >
-        <h4 class="text-white pt-2 pb-2 text-decoration-underline" style="margin-bottom:2px;">Live Draw : <span>SHANGHAI COBRA</span>  </h4>
+        <h4 class="text-white pt-2 pb-2 text-decoration-underline" style="margin-bottom:2px;">Live Draw : <span>GRAND SHANGHAI</span>  </h4>
         <h4 style="color:white; letter-spacing: 5px;" >{{ \Carbon\Carbon::parse($periode->tgl_periode)->locale('id')->dayName .','. (date('d-m-Y', strtotime($periode->tgl_periode))) ?? '-' }}</h4>
         <h4 class="text-white"> Periode : {{ $periode->id ?? '-' }}-Jam {{ substr($periode->jam_tutup,0,5) }}.WIB</h4>
         <div class="row" style="font-size:1.3rem;">
@@ -267,12 +267,12 @@
 
 </div>
 
-<div class="container-fluid"><h1 class="text-center font-weight-bold">SHANGHAI COBRA</h1>
+<div class="container-fluid"><h1 class="text-center font-weight-bold">GRAND SHANGHAI</h1>
 </div>
 <a href="https://wa.me/+6287886486915" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <footer class="w-100 " style="background: #091353; ">
 
-    <h6 class="text-center text-white" style="padding-top:1rem;">SHANGHAI COBRA &copy;2019 Copyright</h6>
+    <h6 class="text-center text-white" style="padding-top:1rem;">GRAND SHANGHAI &copy;2019 Copyright</h6>
     <div class="text-center pb-3" >
         <span><a href="#"><i class="fab fa-instagram fa-2x" style="color:white; margin-right: 10px;" ></i></a></span>
         <span><a href="#"><i class="fab fa-facebook fa-2x" style="color:white; margin-right: 10px;"></i></a></span>

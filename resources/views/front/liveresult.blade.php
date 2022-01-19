@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Salsa&family=Sura&display=swap" rel="stylesheet">
-    <title>Shanghai Cobra Lottery</title>
+    <title>GRAND SHANGHAI Lottery</title>
     @livewireStyles
 </head>
 <body >
@@ -29,7 +29,7 @@
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        SHANGHAI - COBRA
+        GRAND SHANGHAI
     </div>
     <nav>
         <ul>
@@ -121,7 +121,7 @@
 
 <a href="https://wa.me/+6287886486915" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
 <footer class="w-100 " style="background: #091353; ">
-    <h6 class="text-center text-white" style="padding-top:1rem;">SHANGHAI COBRA &copy;2019 Copyright</h6>
+    <h6 class="text-center text-white" style="padding-top:1rem;">GRAND SHANGHAI &copy;2019 Copyright</h6>
     <div class="text-center pb-3" >
         <span><a href="#"><i class="fab fa-instagram fa-2x" style="color:white; margin-right: 10px;" ></i></a></span>
         <span><a href="#"><i class="fab fa-facebook fa-2x" style="color:white; margin-right: 10px;"></i></a></span>

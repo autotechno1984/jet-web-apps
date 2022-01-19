@@ -1,6 +1,6 @@
 <div wire:poll.keep-alive class="container" style="padding-top:10px; padding-bottom:10px; ">
     <div style="width:300px; height: 900px; border:2px solid gold; padding-top:10px; padding-bottom:10px;margin:auto;" id="liveresult">
-        <h3 style="border-bottom: 3px solid gold; padding-bottom: 8px;" class="text-center">SHANGHAI COBRA</h3>
+        <h3 style="border-bottom: 3px solid gold; padding-bottom: 8px;" class="text-center">GRAND SHANGHAI</h3>
 
         <h4 class="text-center" style="font-family: 'salsa', cursive;">{{ $liveresult->pluck('pasaran')->first() }}</h4>
         <h4 class="text-center" style="font-family: 'Salsa', cursive;">Periode : {{ $liveresult->pluck('periode')->first() }}</h4>
