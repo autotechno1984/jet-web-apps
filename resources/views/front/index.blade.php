@@ -24,7 +24,7 @@
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        <img src="{{ asset('img/Grandshanghailogo.png') }}" alt="logo grand shanghai">
+        <img src="{{ asset('img/logoshanghai.png') }}" alt="logo grand shanghai">
     </div>
     <nav>
         <ul>

@@ -29,7 +29,7 @@
 <!-- === NAV ==== -->
 <header >
     <div class="logo">
-        GRAND SHANGHAI
+        <img src="{{ asset('img/logoshanghai.png') }}" alt="logo grand shanghai">
     </div>
     <nav>
         <ul>
