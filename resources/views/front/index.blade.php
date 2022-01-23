@@ -227,33 +227,33 @@
 
     </div>
 
-    <div class="container text-center mt-3 " id="others-results" >
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <table class="table table-bordered" style="background: black; color:white;">
-                    <thead>
-                    <th colspan="3">
-                        Other 4D Result's
-                    </th>
-                    <tr style="background: white; color:black;">
-                        <th>Date</th>
-                        <th>Market</th>
-                        <th>Results</th>
-                    </tr>
-                    </thead>
-                    <tbody style="background: white;color:black;">
-                        <tr>
+{{--    <div class="container text-center mt-3 " id="others-results" >--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-lg-2"></div>--}}
+{{--            <div class="col-lg-8">--}}
+{{--                <table class="table table-bordered" style="background: black; color:white;">--}}
+{{--                    <thead>--}}
+{{--                    <th colspan="3">--}}
+{{--                        Other 4D Result's--}}
+{{--                    </th>--}}
+{{--                    <tr style="background: white; color:black;">--}}
+{{--                        <th>Date</th>--}}
+{{--                        <th>Market</th>--}}
+{{--                        <th>Results</th>--}}
+{{--                    </tr>--}}
+{{--                    </thead>--}}
+{{--                    <tbody style="background: white;color:black;">--}}
+{{--                        <tr>--}}
 
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-lg-2">
+{{--                        </tr>--}}
+{{--                    </tbody>--}}
+{{--                </table>--}}
+{{--            </div>--}}
+{{--            <div class="col-lg-2">--}}
 
-            </div>
-        </div>
-    </div>
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 
 </div>
