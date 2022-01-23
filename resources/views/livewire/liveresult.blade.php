@@ -16,7 +16,7 @@
                     <h2>Hadiah Pertama</h2>
                 </div>
                 <div class="col-7" style="background: black">
-                    <h2 style="letter-spacing: 5px; font-weight: bold">{{ $liveresult->pluck('sh1')->first() }}</h2>
+                    <h2 style="color:gold; letter-spacing: 5px; font-weight: bold">{{ $liveresult->pluck('sh1')->first() }}</h2>
                 </div>
             </div>
             <div class="row mt-1 mx-auto">
@@ -45,7 +45,7 @@
                     <h2>Pertama</h2>
                 </div>
                 <div class="col-7" style="background: white">
-                    <h2 style="color:gold; letter-spacing: 5px; font-weight: bold">{{ $liveresult->pluck('sh4')->first() }}</h2>
+                    <h2 style=" letter-spacing: 5px; font-weight: bold">{{ $liveresult->pluck('sh4')->first() }}</h2>
                 </div>
             </div>
             <div class="row mt-1 mx-auto">
