@@ -19,6 +19,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Oswald&family=Poppins:ital,wght@0,200;0,500;1,100&display=swap" rel="stylesheet">
     <title>Grand Shanghai Lottery</title>
     <style>
+        .menu-toggle {
+            padding-top:20px;
+        }
         @media (max-width: 1300px){
             header nav {
                 position: absolute;

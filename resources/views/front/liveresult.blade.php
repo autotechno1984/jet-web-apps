@@ -25,6 +25,9 @@
     <title>GRAND SHANGHAI Lottery</title>
     @livewireStyles
     <style>
+        .menu-toggle {
+            padding-top:20px;
+        }
         @media (max-width: 1300px){
             header nav {
                 position: absolute;
