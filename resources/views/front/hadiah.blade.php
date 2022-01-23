@@ -50,8 +50,8 @@
             </li>
         </ul>
     </nav>
-    <div class="menu-toggle">
-        <i class="fas fa-bars fa-1x"></i>
+    <div class="menu-toggle pt-2">
+        <i class="fas fa-bars fa-2x"></i>
     </div>
 
     {{--    Modal--}}
