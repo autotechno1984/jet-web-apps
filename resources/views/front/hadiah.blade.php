@@ -17,6 +17,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Oswald&family=Poppins:ital,wght@0,200;0,500;1,100&display=swap" rel="stylesheet">
     <title>GRAND SHANGHAI Lottery</title>
+    <style>
+        header nav {
+            position: absolute;
+            width: 80%;
+            top:5px;
+            bottom: 0px;
+            margin-bottom: -500px;
+            background: #091353;
+            left:-100%;
+            transition: 0.5s;
+        }
+        @media (max-width: 575px) {
+            #liveresult{
+                display: block !important;
+            }
+            #web {
+                display: none !important;
+            }
+
+        }
+    </style>
 </head>
 <body >
 
@@ -50,7 +71,7 @@
             </li>
         </ul>
     </nav>
-    <div class="menu-toggle pt-2">
+    <div class="menu-toggle mt-1">
         <i class="fas fa-bars fa-2x"></i>
     </div>
 
