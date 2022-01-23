@@ -19,15 +19,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Oswald&family=Poppins:ital,wght@0,200;0,500;1,100&display=swap" rel="stylesheet">
     <title>Grand Shanghai Lottery</title>
     <style>
-        header nav {
-            position: absolute;
-            width: 80%;
-            top:5px;
-            bottom: 0px;
-            margin-bottom: -500px;
-            background: #091353;
-            left:-100%;
-            transition: 0.5s;
+        @media (max-width: 1300px){
+            header nav {
+                position: absolute;
+                width: 80%;
+                top:5px;
+                bottom: 0px;
+                margin-bottom: -500px;
+                background: #091353;
+                left:-100%;
+                transition: 0.5s;
+            }
         }
         @media (max-width: 575px) {
             #liveresult{
