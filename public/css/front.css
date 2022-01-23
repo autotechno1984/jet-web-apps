@@ -11,10 +11,6 @@ body {
     overflow-y:auto;
 }
 
-#liveresult {
-    display: none;
-}
-
 header {
     padding: 0 100px;
     background: #091353;

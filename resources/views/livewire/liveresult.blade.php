@@ -118,7 +118,7 @@
         <h1 style="font-family: 'salsa', cursive; margin-top:10px;">SALAM JP...</h1>
     </div>
 
-    <div style="width:300px; height: 900px; border:2px solid gold;margin:auto;" id="liveresult">
+    <div style="width:300px; height: 900px; border:2px solid gold;margin:auto; display:none;" id="liveresult">
         <div style="background:red;">
             <h3 style="border-bottom: 3px solid gold; padding:5px;" class="text-center">GRAND SHANGHAI</h3>
 
