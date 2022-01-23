@@ -213,10 +213,10 @@ header nav ul li a.active {
 
 @media (max-width: 575px) {
     #liveresult{
-        display: block;
+        display: block !important;
     }
     #web {
-        display: none;
+        display: none !important;
     }
     .modal-body .col-sm-6 {
         width:50%;
