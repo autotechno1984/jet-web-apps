@@ -8,7 +8,7 @@
 
     <!-- Styles -->
 
-    <link rel="stylesheet" href="{{ asset('/css/front.css') }}">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/942785f6e0.js" ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +20,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ asset('/css/front.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Salsa&family=Sura&display=swap" rel="stylesheet">
     <title>GRAND SHANGHAI Lottery</title>
     @livewireStyles
+    <style>
+        @media (max-width: 575px) {
+            #liveresult{
+                display: block !important;
+            }
+            #web {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body >
 
