@@ -41,6 +41,10 @@
                 display: none !important;
             }
 
+            #gsh1{
+                padding-top:5px;
+                font-size:2rem !important;
+            }
         }
     </style>
 </head>
@@ -65,7 +69,7 @@
             {{--                </ul>--}}
             {{--            </li>--}}
             <li><a href="/live">LIVE</a></li>
-            <li><a href="/bencut">BENCUT</a></li>
+            <li><a href="#">BENCUT</a></li>
             <li><a href="#">ENG</a>
                 <ul>
                     <li><a href="#">IND</a></li>
@@ -136,85 +140,23 @@
 
 {{-- Grand Shanghai Result--}}
 <div class="container-fluid" style="background: #091353; text-align: center; color:white;">
-    <div class="container" style="overflow-x:auto;">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="py-3">Daftar Keluaran Togel GRAND SHANGHAI</h3>
-                <h3><a href="/hasil-keluaran-4D" style="color:white;">Data Keluaran Togel 4D</a></h3>
-                <table class="table table-bordered table-striped text-white text-center" id="scb">
-                    <thead class="align-middle">
-                    <tr>
-                        <th rowspan="2">Tanggal</th>
-                        <th rowspan="2">Periode</th>
-                        <th rowspan="2">Pasaran</th>
-                        <th colspan="3">Hadiah-Utama</th>
-                        <th rowspan="2">Detail</th>
-                    </tr>
-                    <tr>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                        @forelse($result as $data)
-                                <tr>
-                                    <td style="color:white;">{{ date('d-m-Y', strtotime($data->tgl_periode)) }}</td>
-                                    <td style="color:white;">{{ $data->id }}</td>
-                                    <td style="color:white;">{{ $data->pasaran }}</td>
-                                    <td style="color:white;">{{ $data->tabelhasil->pluck('hasil')->get(0) }}</td>
-                                    <td style="color:white;">{{ $data->tabelhasil->pluck('hasil')->get(1) }}</td>
-                                    <td style="color:white;">{{ $data->tabelhasil->pluck('hasil')->get(2) }}</td>
-                                    <td ><a href="/shanghai-cobra-detail/{{ $data->tabelhasil->pluck('result_id')->get(0) }}" style="color:white;">Detail</a></td>
-                                </tr>
-                        @empty
-
-                        @endforelse
-                    </tbody>
-                </table>
+    <h1 style="letter-spacing: 5px; color:gold; font-size:2.8rem;" id="gsh1"> GRAND SHANGHAI</h1>
+    <div class="d-flex flex-wrap justify-content-center" >
+        @forelse($bencut as $data)
+        <div class="card" style="width: 30rem; background: #091353; padding:10px 5px 10px 5px;" >
+            <img src="{{ asset($data->filename) }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Ramalan Khusus</h5>
+                <h5 class="card-title">Tanggal : {{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->dayName }} , {{ date('d-m-Y', strtotime($data->tanggal)) }} </h5>
+                <a href="{{ 'bencut-download/'.$data->id  }}" class="btn btn-primary">Download</a>
             </div>
-            <div>
-                {{ $result }}
-{{--                {{ $tablehasil->links() }}--}}
+        </div>
+        @empty
+            <div style="height:600px;">
+                <h1 style="top:50%;">Blm ada Prediksi.</h1>
             </div>
 
-        </div>
-        <div class="d-flex flex-wrap justify-content-between">
-{{--               @forelse($market as $data)--}}
-
-{{--                <div style="width:30%; margin-right:20px;">--}}
-{{--                    <h5 style="color:gold;">{{ $data->pasaran }}</h5>--}}
-{{--                    <table class="table table-bordered" style="color:gold;">--}}
-{{--                        <thead>--}}
-{{--                            <tr>--}}
-{{--                                <th>Tanggal</th>--}}
-{{--                                <th>Periode</th>--}}
-{{--                                <th>Nomor</th>--}}
-{{--                            </tr>--}}
-{{--                        </thead>--}}
-{{--                        <tbody>--}}
-{{--                            @forelse($tablehasil->where('pasaran', $data->pasaran)->take(10)->sortByDesc('id') as $togel)--}}
-{{--                                <tr>--}}
-{{--                                    <td>{{$togel->tgl_periode }}</td>--}}
-{{--                                    <td>{{ $togel->id }}</td>--}}
-{{--                                    <td>{{ $togel->tabelhasil->pluck('hasil')->first() }}</td>--}}
-{{--                                </tr>--}}
-{{--                                @empty--}}
-{{--                            @endforelse--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
-{{--                </div>--}}
-{{--            @empty--}}
-{{--                <div class="w-50">--}}
-{{--                    <table>--}}
-
-{{--                    </table>--}}
-{{--                </div>--}}
-{{--            @endforelse--}}
-
-        </div>
+        @endforelse
     </div>
 </div>
 
@@ -224,7 +166,7 @@
     <h1 class="text-center font-weight-bold" style="letter-spacing: 0.2rem; margin:0;">GRAND SHANGHAI</h1>
 </div>
 <a href="https://wa.me/+6287886486915" class="whatsapp_float" target="_blank"> <i class="fa fa-whatsapp whatsapp-icon"></i></a>
-<footer class="w-100 " style="background: #091353; ">
+<footer class="w-100" style="background: #091353; ">
 
     <h6 class="text-center text-white" style="padding-top:1rem;">GRAND SHANGHAI &copy;2019 Copyright</h6>
     <div class="text-center pb-3" >

@@ -9,6 +9,7 @@ use App\Http\Livewire\LaporanOmset;
 use App\Http\Livewire\Results;
 use App\Models\Admin;
 use App\Models\banner;
+use App\Models\bencut;
 use App\Models\Contact;
 use App\Models\Result;
 use App\Models\tabelhasil;
@@ -55,6 +56,10 @@ Route::get('/hasil', function(){
     return view('front.hasil', compact('result'));
 });
 
+Route::get('/hasil-keluaran-4D', function(){
+
+   return view('front.datatogelempatd');
+});
 Route::get('/shanghai-cobra-detail/{id}', function($id){
    $tabelhasil = tabelhasil::where('result_id', $id)->get();
    $data = Result::find($id);
@@ -63,6 +68,17 @@ Route::get('/shanghai-cobra-detail/{id}', function($id){
 
 Route::get('/live', function(){
    return view('front.liveresult');
+});
+
+Route::get('/bencut', function(){
+   $bencut = bencut::all();
+   return view('front.bencut',compact('bencut'));
+});
+
+Route::get('/bencut-download/{id}', function($id){
+    $bencut = bencut::find($id);
+    $filename = public_path($bencut->filename);
+    return Response()->download($filename);
 });
 
 Route::get('/history-hasil', [FrontController::class, 'hasil']);
@@ -140,6 +156,11 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::post('/users/{id}/user-limit', [UserController::class,'userlimit'])->name('userlimit');
         Route::put('/users/{id}/update-referall', [UserController::class,'referall'])->name('referall');
         Route::get('/tabel-shio', [AdminController::class, 'tabelshio'])->name('tabelshio');
+        Route::get('/bencut', [AdminController::class, 'bencut'])->name('bencut');
+        Route::get('/bencut-tambah', [AdminController::class, 'bencutbaru'])->name('bencut-tambah');
+        Route::post('/bencut-tambah', [AdminController::class, 'tambahbencut'])->name('tambahbencut');
+        Route::get('/bencut-hapus-all', [AdminController::class, 'bencuthapussemua'])->name('bencuthapussemua');
+        Route::get('/bencut-edit/{id}', [AdminController::class,'editbencut'])->name('editbencut');
         Route::get('input-hasil', [AdminController::class, 'inputhasil'])->name('inputhasil');
         Route::get('input-togel', [AdminController::class, 'inputtogel'])->name('inputtogel');
         Route::get('hitungan', [AdminController::class,'hitungan'])->name('hitungan');

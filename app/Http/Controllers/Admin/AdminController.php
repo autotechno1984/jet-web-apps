@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\banner;
+use App\Models\bencut;
 use App\Models\Contact;
 use App\Models\InvoiceDetail;
 use App\Models\Invoices;
@@ -189,5 +190,51 @@ class AdminController extends Controller
     function tagihanmemberdetail($id){
 
         return view('backend.tagihanmemberdetail', compact('id'));
+    }
+
+    function bencut(){
+        $no = 1;
+        $bencut = bencut::orderBy('tanggal', 'asc')->get();
+        return view('backend.bencut',compact('bencut', 'no'));
+    }
+
+    function bencutbaru(){
+        return view('backend.bencuttambah');
+    }
+
+    function tambahbencut(Request $request){
+
+        $request->validate([
+           'tanggal' => 'required',
+           'gambar' => 'required|mimes:jpeg,jpg,png|max:200'
+        ],[
+            'tanggal.required' => 'silahkan di pilih tanggal',
+            'gambar.required' => 'blm ada foto yang di pilih'
+        ]);
+
+        $imagename = 'img/'.time().$request->gambar->getClientOriginalName();
+        $savedata = new bencut;
+        $savedata->tanggal = $request->tanggal;
+        $savedata->keterangan = $request->keterangan;
+        $savedata->filename =  $imagename;
+        $savedata->save();
+        $request->gambar->move(public_path('img'), $imagename);
+        return redirect()->route('admin.bencut');
+    }
+
+    function bencuthapussemua(){
+        $deleteall = bencut::all();
+        foreach($deleteall as $data){
+            \File::delete(public_path($data->filename));
+        }
+        bencut::truncate();
+        return redirect()->route('admin.bencut');
+    }
+
+    function editbencut($id){
+        $bencut = bencut::find($id);
+        \File::delete(public_path($bencut->filename));
+        $bencut->delete();
+        return redirect()->route('admin.bencut');
     }
 }

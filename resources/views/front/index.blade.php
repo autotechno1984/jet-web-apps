@@ -66,7 +66,7 @@
 {{--                </ul>--}}
 {{--            </li>--}}
             <li><a href="/live">LIVE</a></li>
-            <li><a href="#">CONTACT</a></li>
+            <li><a href="/bencut">BENCUT</a></li>
             <li><a href="#">ENG</a>
                 <ul>
                     <li><a href="#">IND</a></li>

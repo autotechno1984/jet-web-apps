@@ -135,87 +135,25 @@
 </header>
 
 {{-- Grand Shanghai Result--}}
-<div class="container-fluid" style="background: #091353; text-align: center; color:white;">
-    <div class="container" style="overflow-x:auto;">
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="py-3">Daftar Keluaran Togel GRAND SHANGHAI</h3>
-                <h3><a href="/hasil-keluaran-4D" style="color:white;">Data Keluaran Togel 4D</a></h3>
-                <table class="table table-bordered table-striped text-white text-center" id="scb">
-                    <thead class="align-middle">
-                    <tr>
-                        <th rowspan="2">Tanggal</th>
-                        <th rowspan="2">Periode</th>
-                        <th rowspan="2">Pasaran</th>
-                        <th colspan="3">Hadiah-Utama</th>
-                        <th rowspan="2">Detail</th>
-                    </tr>
-                    <tr>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
+<div class="container-fluid" style=" background: #091353; text-align: center; color:white; height: 100vh;">
+    <h2 style="color:gold;">DAFTAR HASIL 4D</h2>
+    <h3>GRAND SHANGHAI SIANG</h3>
+    <div class="container pt-2">
+        <table class="table table-bordered text-white text-center">
+            <thead>
+            <tr>
+                <th>Senin</th>
+                <th>Selasa</th>
+                <th>Rabu</th>
+                <th>Kamis</th>
+                <th>Jumat</th>
+                <th>Sabtu</th>
+            </tr>
+            </thead>
 
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                        @forelse($result as $data)
-                                <tr>
-                                    <td style="color:white;">{{ date('d-m-Y', strtotime($data->tgl_periode)) }}</td>
-                                    <td style="color:white;">{{ $data->id }}</td>
-                                    <td style="color:white;">{{ $data->pasaran }}</td>
-                                    <td style="color:white;">{{ $data->tabelhasil->pluck('hasil')->get(0) }}</td>
-                                    <td style="color:white;">{{ $data->tabelhasil->pluck('hasil')->get(1) }}</td>
-                                    <td style="color:white;">{{ $data->tabelhasil->pluck('hasil')->get(2) }}</td>
-                                    <td ><a href="/shanghai-cobra-detail/{{ $data->tabelhasil->pluck('result_id')->get(0) }}" style="color:white;">Detail</a></td>
-                                </tr>
-                        @empty
-
-                        @endforelse
-                    </tbody>
-                </table>
-            </div>
-            <div>
-                {{ $result }}
-{{--                {{ $tablehasil->links() }}--}}
-            </div>
-
-        </div>
-        <div class="d-flex flex-wrap justify-content-between">
-{{--               @forelse($market as $data)--}}
-
-{{--                <div style="width:30%; margin-right:20px;">--}}
-{{--                    <h5 style="color:gold;">{{ $data->pasaran }}</h5>--}}
-{{--                    <table class="table table-bordered" style="color:gold;">--}}
-{{--                        <thead>--}}
-{{--                            <tr>--}}
-{{--                                <th>Tanggal</th>--}}
-{{--                                <th>Periode</th>--}}
-{{--                                <th>Nomor</th>--}}
-{{--                            </tr>--}}
-{{--                        </thead>--}}
-{{--                        <tbody>--}}
-{{--                            @forelse($tablehasil->where('pasaran', $data->pasaran)->take(10)->sortByDesc('id') as $togel)--}}
-{{--                                <tr>--}}
-{{--                                    <td>{{$togel->tgl_periode }}</td>--}}
-{{--                                    <td>{{ $togel->id }}</td>--}}
-{{--                                    <td>{{ $togel->tabelhasil->pluck('hasil')->first() }}</td>--}}
-{{--                                </tr>--}}
-{{--                                @empty--}}
-{{--                            @endforelse--}}
-{{--                        </tbody>--}}
-{{--                    </table>--}}
-{{--                </div>--}}
-{{--            @empty--}}
-{{--                <div class="w-50">--}}
-{{--                    <table>--}}
-
-{{--                    </table>--}}
-{{--                </div>--}}
-{{--            @endforelse--}}
-
-        </div>
+        </table>
     </div>
+
 </div>
 
 

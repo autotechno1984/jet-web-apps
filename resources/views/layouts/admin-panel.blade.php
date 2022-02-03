@@ -152,6 +152,10 @@
                                     Tabel Shio
                                     {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
                                 </a>
+                                <a class="nav-link collapsed" href="{{ route('admin.bencut') }}"  >
+                                    Bencut
+                                    {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
+                                </a>
                                 <a class="nav-link collapsed" href="{{ route('admin.inputhasil') }}"  >
                                     Input Hasil
                                     {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
@@ -219,6 +223,9 @@
                   @yield('invoicedetailuser')
                   @yield('tagihanmember')
                   @yield('tagihanmemberdetail')
+                  @yield('bencut')
+                  @yield('bencuttambah')
+                  @yield('editbencut')
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
