@@ -206,7 +206,7 @@ class AdminController extends Controller
 
         $request->validate([
            'tanggal' => 'required',
-           'gambar' => 'required|mimes:jpeg,jpg,png|max:200'
+           'gambar' => 'required|mimes:jpeg,jpg,png|max:250'
         ],[
             'tanggal.required' => 'silahkan di pilih tanggal',
             'gambar.required' => 'blm ada foto yang di pilih'
