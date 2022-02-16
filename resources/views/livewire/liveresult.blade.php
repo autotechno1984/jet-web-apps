@@ -171,25 +171,25 @@
             <h5 style=" padding:5px; letter-spacing: 5px; margin-bottom:0;" class="text-center">HIBURAN PERTAMA</h5>
         </div>
         <div wire:poll class="d-flex justify-content-between mt-1">
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh7')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh8')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh9')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px; padding-left:20px; letter-spacing:2px;" value="{{ $liveresult->pluck('sh7')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px; padding-left:20px; letter-spacing:2px;" value="{{ $liveresult->pluck('sh8')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px; padding-left:20px; letter-spacing:2px;" value="{{ $liveresult->pluck('sh9')->first() }}" readonly>
         </div>
         <div style="background:red;">
             <h5 style=" padding:5px; letter-spacing: 5px; margin-bottom:0;" class="text-center">HIBURAN KEDUA</h5>
         </div>
         <div wire:poll class="d-flex justify-content-between mt-1">
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh10')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh11')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh12')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px; padding-left:20px; letter-spacing:2px;" value="{{ $liveresult->pluck('sh10')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px; padding-left:20px; letter-spacing:2px;" value="{{ $liveresult->pluck('sh11')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px; padding-left:20px; letter-spacing:2px;" value="{{ $liveresult->pluck('sh12')->first() }}" readonly>
         </div>
         <div style="background:red;">
             <h5 style=" padding:5px; letter-spacing: 5px; margin-bottom:0;" class="text-center">HIBURAN KETIGA</h5>
         </div>
         <div wire:poll class="d-flex justify-content-between mt-1">
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh13')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh14')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh15')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px; padding-left:20px; letter-spacing:2px;" value="{{ $liveresult->pluck('sh13')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px; padding-left:20px; letter-spacing:2px;" value="{{ $liveresult->pluck('sh14')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px; padding-left:20px; letter-spacing:2px;" value="{{ $liveresult->pluck('sh15')->first() }}" readonly>
         </div>
 
         <h4 class="text-center mt-5">Salam Jp !!</h4>
