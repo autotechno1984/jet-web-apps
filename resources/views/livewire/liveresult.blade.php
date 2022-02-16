@@ -1,10 +1,10 @@
 <div wire:poll.keep-alive class="container" style="padding-top:10px; padding-bottom:10px; ">
     <div class="text-center" id="web">
         <div style="background: red; padding:5px; border-radius: 5px;">
-            <h1>GRAND SHANGHAI</h1>
+            <h1 class="mt-2" style="font-family: 'salsa', cursive;">{{ $liveresult->pluck('pasaran')->first() }}</h1>
         </div>
 
-        <h1 class="mt-2" style="font-family: 'salsa', cursive;">{{ $liveresult->pluck('pasaran')->first() }}</h1>
+
         <h3 style="letter-spacing: 5px; font-family: 'salsa', cursive;">Periode : <span class="text-decoration-underline">{{ $liveresult->pluck('periode')->first() }}</span></h3>
         <h3 style="font-family: 'salsa', cursive;">{{ \Carbon\Carbon::parse($liveresult->pluck('tanggal')->first())->locale('id')->dayName .' , '. date('d-m-Y', strtotime($liveresult->pluck('tanggal')->first()))  }} </h3>
     <div class="text-center mx-auto" style="background: red; border-radius: 5px; padding:5px; width: 80%">
