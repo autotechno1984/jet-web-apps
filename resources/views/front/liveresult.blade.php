@@ -48,8 +48,8 @@
                 display: none !important;
             }
             #starter_prize input::first-letter{
-                color:blue;
-                font-weight: bold;
+                color:blue !important;
+                font-weight: bold !important;
             }
         }
     </style>
