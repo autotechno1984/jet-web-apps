@@ -49,6 +49,7 @@
             }
             #starter_prize input::first-letter{
                 color:blue;
+                font-weight: bold;
             }
         }
     </style>
