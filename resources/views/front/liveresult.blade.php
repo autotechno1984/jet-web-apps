@@ -47,7 +47,9 @@
             #web {
                 display: none !important;
             }
-
+            #starter_prize input::first-letter{
+                color:blue;
+            }
         }
     </style>
 </head>

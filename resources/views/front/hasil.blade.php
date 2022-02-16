@@ -139,7 +139,8 @@
     <div class="container" style="overflow-x:auto;">
         <div class="row">
             <div class="col-lg-12">
-                <h3 class="py-3">Daftar Keluaran Togel GRAND SHANGHAI</h3>
+                <h3 class="py-3">Daftar Keluaran Togel </h3>
+                <h3>GRAND SHANGHAI</h3>
                 <h3><a href="/hasil-keluaran-4D" style="color:white;">Data Keluaran Togel 4D</a></h3>
                 <table class="table table-bordered table-striped text-white text-center" id="scb">
                     <thead class="align-middle">

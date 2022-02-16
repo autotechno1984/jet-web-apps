@@ -120,7 +120,7 @@
             <div class="col-lg-12">
                 <h3 class="pt-3">Daftar Keluaran Togel</h3>
                 <h3 style="font-weight: bold;">GRAND SHANGHAI</h3>
-                <h3 style="color:gold;">Periode {{ $data->id }} - {{ substr($data->pasaran, strpos($data->pasaran, " ")+1) }}</h3>
+                <h3 style="color:gold;">Periode {{ $data->id }} - {{ substr($data->pasaran, -5) }}</h3>
                 <h3 style="color:gold;">Jam : {{ substr($data->jambuka,0,5) }}.WIB</h3>
                 <h3 style="color:gold;">{{\Carbon\Carbon::parse($data->tgl_periode)->locale('id')->dayName.', '. date('d-m-Y', strtotime($data->tgl_periode ))}}</h3>
                 <table class="table table-bordered table-striped text-white text-center" id="scb">

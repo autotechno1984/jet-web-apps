@@ -253,12 +253,16 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Hadiah 3angka</td>
+                            <td>Hadiah 3A</td>
                             <td>Rp. 500.000</td>
                         </tr>
                         <tr>
-                            <td>Hadiah 2Angka</td>
-                            <td>Rp. 70.000</td>
+                            <td>Hadiah 2A</td>
+                            <td>Rp. 65.000</td>
+                        </tr>
+                        <tr>
+                            <td>Hadiah 2A-BB</td>
+                            <td>Rp. 5.000</td>
                         </tr>
                     </tbody>
                 </table>
@@ -273,7 +277,7 @@
             <h2 style="color:yellow;">Hadiah Jackpot : Rp. 100.000.000</h2>
             <h5>Kupon Hadiah Grand Jackpot</h5>
             <p>Harga 1 Kupon Rp.10.000</p>
-            <p>** Hadiah Jackpot Diputar setiap hari minggu Jam 23:00 WIB</p>
+            <p>** Hadiah Jackpot Diputar setiap hari minggu Jam 00:00 WIB</p>
             <p>Nomor Jackpot didapat dari penggabungan hadiah 2ndprize dan 1stprize </p>
             <p>Contoh 2stprize = 5678 dan 1stprize = 1234</p>
             <p>Maka nomor jackpot adalah = 56781234</p>

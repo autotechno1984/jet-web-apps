@@ -158,7 +158,7 @@
         <div style="background:red; margin-top:15px;">
             <h3 style="border-bottom: 3px solid gold; padding:5px; letter-spacing: 5px;" class="text-center">STARTER PRIZE</h3>
         </div>
-        <div wire:poll class="d-flex justify-content-between mb-4">
+        <div wire:poll class="d-flex justify-content-between mb-4" id="starter_prize">
             <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"1. ". $liveresult->pluck('sh4')->first() }}" readonly>
             <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"2. ". $liveresult->pluck('sh5')->first() }}" readonly>
             <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"3. ". $liveresult->pluck('sh6')->first() }}" readonly>
@@ -171,25 +171,25 @@
             <h5 style=" padding:5px; letter-spacing: 5px; margin-bottom:0;" class="text-center">HIBURAN PERTAMA</h5>
         </div>
         <div wire:poll class="d-flex justify-content-between mt-1">
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"1. ". $liveresult->pluck('sh7')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"2. ". $liveresult->pluck('sh8')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"3. ". $liveresult->pluck('sh9')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh7')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh8')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh9')->first() }}" readonly>
         </div>
         <div style="background:red;">
             <h5 style=" padding:5px; letter-spacing: 5px; margin-bottom:0;" class="text-center">HIBURAN KEDUA</h5>
         </div>
         <div wire:poll class="d-flex justify-content-between mt-1">
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"4. ". $liveresult->pluck('sh10')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"5. ". $liveresult->pluck('sh11')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"6. ". $liveresult->pluck('sh12')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh10')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh11')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh12')->first() }}" readonly>
         </div>
         <div style="background:red;">
             <h5 style=" padding:5px; letter-spacing: 5px; margin-bottom:0;" class="text-center">HIBURAN KETIGA</h5>
         </div>
         <div wire:poll class="d-flex justify-content-between mt-1">
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"7. ". $liveresult->pluck('sh13')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"8. ". $liveresult->pluck('sh14')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"9. ". $liveresult->pluck('sh15')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh13')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh14')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh15')->first() }}" readonly>
         </div>
 
         <h4 class="text-center mt-5">Salam Jp !!</h4>
