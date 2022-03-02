@@ -30,14 +30,15 @@ use Illuminate\Support\Facades\Auth;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+
 */
 
 Auth::routes();
 
 Route::get('/', function() {
 
-    $hasilshg = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
-    $periode = Result::whereIn('kode', ['SHG1', 'SHG2'])->where('status',0)->OrderBy('id', 'Desc')->first();
+    $hasilshg = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status', 0)->orderBy('id', 'Desc')->pluck('id')->first();
+    $periode = Result::whereIn('kode', ['SHGS', 'SHGM'])->where('status',0)->OrderBy('id', 'Desc')->first();
     $tabelshg = tabelhasil::where('result_id', $hasilshg)->get();
     $recentvideo = Video::select('url')->orderBy('id','Desc')->skip(1)->take(3)->get();
     $videoBaru = Video::pluck('url')->last();
@@ -124,6 +125,7 @@ Route::middleware(['auth','PreventBackHistory'])->group(function(){
 });
 
 Route::prefix('admin-panel')->name('admin.')->group(function(){
+
     Route::middleware(['guest:admin','checkIp','PreventBackHistory'])->group(function(){
         Route::view('/login', 'backend.adminlogin')->name('login');
         Route::post('/check', [AdminController::class,'check'])->name('check');
@@ -164,6 +166,7 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::get('input-hasil', [AdminController::class, 'inputhasil'])->name('inputhasil');
         Route::get('input-togel', [AdminController::class, 'inputtogel'])->name('inputtogel');
         Route::get('hitungan', [AdminController::class,'hitungan'])->name('hitungan');
+        Route::get('/input-manual', [AdminController::class, 'inputmanual'])->name('inputmanual');
         Route::resource('/users', UserController::class , ['names' => [
             'index' => 'users.index',
             'create' => 'users.create',

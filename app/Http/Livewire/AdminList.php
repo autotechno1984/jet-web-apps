@@ -13,6 +13,7 @@ class AdminList extends Component
     public $username;
     public $password;
     public $handphone;
+    public $level;
     public $usernamecheck;
     public $passwordbaru;
     public $messageusernotexist;
@@ -35,6 +36,7 @@ class AdminList extends Component
             'username' => 'required',
             'password' => 'required|min:8',
             'handphone' => 'required|min:10',
+            'level' => 'required'
         ]);
 
         $admin = new Admin;
@@ -42,7 +44,8 @@ class AdminList extends Component
         $admin->username = $this->username;
         $admin->password = Hash::make($this->password);
         $admin->handphone = $this->handphone;
-        $admin->role = 1;
+        $admin->role = $this->level;
+        $admin->bann = 1;
         $admin->save();
 
 
@@ -50,6 +53,7 @@ class AdminList extends Component
         $this->username = '';
         $this->password = '';
         $this->handphone = '';
+        $this->level ='';
         return redirect()->back();
 
     }

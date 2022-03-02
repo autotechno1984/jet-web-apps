@@ -200,7 +200,7 @@
                 <tbody>
                     @forelse($tablehasil as $table)
                             <tr>
-                                <td>{{ date('y-m-d', strtotime($table->periode)) }}</td>
+                                <td>{{ date('y-m-d', strtotime($table->tgl_periode)) }}</td>
                                 <td>{{ $table->id }}</td>
                                 <td>{{ $table->tabelhasil->pluck('hasil')->get(0) }}</td>
                                 <td>{{ $table->tabelhasil->pluck('hasil')->get(1) }}</td>

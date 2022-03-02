@@ -38,6 +38,7 @@ class AdminController extends Controller
     function home(){
         $result = Result::where('status',1)->get();
         $invoicedetail = InvoiceDetail::where('status',2)->get();
+
         return view("backend.dashboard",compact('result','invoicedetail'));
     }
 
@@ -236,5 +237,10 @@ class AdminController extends Controller
         \File::delete(public_path($bencut->filename));
         $bencut->delete();
         return redirect()->route('admin.bencut');
+    }
+
+    function inputmanual(){
+
+        return view('backend.inputmanual');
     }
 }

@@ -47,6 +47,7 @@ class Hitungan extends Component
         $utama3 = $hasil->where('kode','sh3')->pluck('hasil')->first();
         $utama2 = $hasil->where('kode','sh2')->pluck('hasil')->first();
         $utama1 = $hasil->where('kode','sh1')->pluck('hasil')->first();
+
         $chkconsol9 = InvoiceDetail::where('result_id', $this->daftarperiode)->where('kode','4D')->where('data', $consol9 )->count();
         if($chkconsol9 != 0 ){
             $hadiah = games::where('kode', 'sh15')->pluck('hadiah')->first();
@@ -250,7 +251,19 @@ class Hitungan extends Component
                     'status' => 1,
                 ]);
         }
+       //Dua d bb
 
+        $duadbb = strrev($duad);
+        $checkduadbb = InvoiceDetail::where('result_id', $this->daftarperiode)->where('kode', '2D')->where('data', $duadbb)->count();
+        if($checkduadbb != 0){
+            $hadiah = games::where('kode', '2DBB')->pluck('hadiah')->first();
+            $updateduad = InvoiceDetail::where('result_id', $this->daftarperiode)->where('kode','2D')->where('data', $duadbb)
+                ->update([
+                    'is_win' => 1,
+                    'hadiah' => $hadiah,
+                    'status' => 1,
+                ]);
+        }
         $invoicedetailwin = InvoiceDetail::where('result_id', $this->daftarperiode)->where('is_win',1)->get();
 
         $this->statusempatd = 'DATA Upadate';

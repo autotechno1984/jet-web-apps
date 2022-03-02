@@ -40,6 +40,19 @@
                             <input type="text" wire:model="handphone" class="form-control" name="handphone" id="username" placeholder="Handphone">
                         </div>
                     </div>
+                        <div class="row mt-1">
+                            <div class="col-lg-6">
+                                <label for="level" class="col-form-label">level</label>
+                            </div>
+                            <div class="col-lg-6">
+                                <select wire:model="level" id="" class="form-select">
+                                    <option>Silahkan Dipilih Salah Satu</option>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Cs</option>
+                                    <option value="3">Sortir</option>
+                                </select>
+                            </div>
+                        </div>
                     <div class="row mt-1">
                         <div class="col-lg-6"></div>
                         <div class="col-lg-6">

@@ -30,7 +30,7 @@
                 <tbody>
                     @forelse($data as $item)
                         <tr>
-                            <td><a href="{{ route('admin.winloseagendetail', isset($item->result_id) ?? '' ) }}">{{ $item->member }}</a></td>
+                            <td><a href="{{ route('admin.winloseagendetail', [$item->result_id]) }}">{{ $item->member }}</a></td>
                             <td>{{ $pasaran->where('id', $item->result_id )->pluck('pasaran')->first() }}</td>
                             <td>{{ $item->tanggal  }}</td>
                             <td>{{ number_format($item->omset,2)  }}</td>

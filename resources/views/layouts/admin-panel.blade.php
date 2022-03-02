@@ -67,18 +67,23 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                @if(Auth::guard('admin')->user()->role != 3)
+
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('admin.user-list') }}">User List</a>
                                 </nav>
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route('admin.admin-list') }}">Admin List</a>
                                 </nav>
+                                @endif
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Market & Games
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            @if(Auth::guard('admin')->user()->role != 3)
+
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link" href="{{ route('admin.market.index') }}" >
@@ -109,7 +114,7 @@
                                  </nav>
 
                             </div>
-
+                            @endif
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTransaksi" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Transaksi
@@ -122,6 +127,10 @@
                                 </a>
                                 <a class="nav-link collapsed" href="{{ route('admin.hitungan') }}"  >
                                     Hitungan
+                                    {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
+                                </a>
+                                <a class="nav-link collapsed" href="{{ route('admin.inputmanual') }}"  >
+                                    Input Manual
                                     {{--                                        <div class="sb-sidenav-collapse-arrow"></div>--}}
                                 </a>
                             </div>
@@ -142,11 +151,13 @@
                                     Laporan Tagihan Member
                                 </a>
                             </div>
+
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseShio" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Dan Lain - Lain
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            @if(Auth::guard('admin')->user()->role != 3)
                             <div class="collapse" id="collapseShio" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <a class="nav-link collapsed" href="{{ route('admin.tabelshio') }}"  >
                                     Tabel Shio
@@ -173,7 +184,7 @@
                                 </a>
 
                             </div>
-
+                            @endif
                             <div class="sb-sidenav-menu-heading">Front</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsewebsetting" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
@@ -226,6 +237,7 @@
                   @yield('bencut')
                   @yield('bencuttambah')
                   @yield('editbencut')
+                  @yield('manualinput')
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
@@ -261,6 +273,14 @@
                     setTimeout(function(){ $(".alert").slideUp(500);
                     }, 3000); // 3 secs
                 });
+            });
+
+            window.addEventListener('alert', event => {
+                toastr[event.detail.type](event.detail.message,
+                    event.detail.title ?? ''), toastr.options = {
+                    "closeButton": true,
+                    "progressBar": true,
+                }
             });
         </script>
 

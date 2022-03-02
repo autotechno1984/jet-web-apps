@@ -25,11 +25,17 @@ class Inputhasil extends Component
     public $consol8;
     public $consol9;
 
+
+
+
+    public function mount(){
+
+    }
+
     public function render()
-    {
-        $hasil = Result::where('status', 2)->get();
-        $tablehasil = Result::with('tabelhasil')->where('tipe','H')->paginate(15);
-        return view('livewire.inputhasil', compact('hasil','tablehasil'));
+    {   $hasil = Result::where('status', 2)->get();
+        $tablehasil = Result::with('tabelhasil')->orderBy('id','desc')->paginate(20);
+        return view('livewire.inputhasil',compact('hasil', 'tablehasil'));
     }
 
     public function savehasil() {

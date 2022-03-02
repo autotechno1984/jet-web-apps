@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class tabelhasil extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'result_id',
         'kode',
         'hasil',
     ];
-    use HasFactory;
+
 
     public function Result(){
         return $this->belongsTo(Result::class);
