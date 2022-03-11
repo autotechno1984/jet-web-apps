@@ -175,15 +175,15 @@
                     </thead>
                     <tbody style="font-weight: bold; background: white;">
                     <tr >
-                        <td style="color:gold; background: #BD1616;">Hadiah 1</td>
+                        <td style="color:gold; background: #BD1616; width:50%;">Hadiah 1</td>
                         <td> {{ $tabelshg->where('kode','sh1')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
-                        <td style="color:gold; background: #BD1616;">Hadiah 2</td>
+                        <td style="color:gold; background: #BD1616; width:50%;">Hadiah 2</td>
                         <td> {{ $tabelshg->where('kode','sh2')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
-                        <td style="color:gold; background: #BD1616;">Hadiah 3</td>
+                        <td style="color:gold; background: #BD1616; width:50%;">Hadiah 3</td>
                         <td> {{ $tabelshg->where('kode','sh3')->pluck('hasil')->first() }}</td>
                     </tr>
                     </tbody>
