@@ -150,6 +150,7 @@
                                 <a class="nav-link collapsed" href="{{ route('admin.tagihanmember') }}" >
                                     Laporan Tagihan Member
                                 </a>
+                                </a>
                             </div>
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseShio" aria-expanded="false" aria-controls="collapsePages">
@@ -238,6 +239,8 @@
                   @yield('bencuttambah')
                   @yield('editbencut')
                   @yield('manualinput')
+                  @yield('winlosesub')
+
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">

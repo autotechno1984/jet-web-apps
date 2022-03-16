@@ -235,7 +235,9 @@ class Empatd extends Component
                 $invoice->diskon = $totaldiskon;
                 $invoice->winLose = 0;
                 $invoice->status = 0;
+                $invoice->adminid = 0;
                 $invoice->tgl_invoice = now();
+                $invoice->nonota = 0;
                 $invoice->save();
 
                 foreach($cobadata as $data){
@@ -256,7 +258,7 @@ class Empatd extends Component
                         'created_at' => now(),
                         'updated_at' => now(),
                     );
-                    $kredituse = $kredituse + $data['amount'];
+                    $kredituse = $kredituse + $data['total'];
                 }
 
                 InvoiceDetail::insert($datainsert);

@@ -18,6 +18,7 @@ class Result extends Model
         'status'
     ];
 
+
     public function result_details(){
         return $this->hasMany(ResultDetail::class);
     }

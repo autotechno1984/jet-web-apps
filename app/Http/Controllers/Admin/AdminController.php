@@ -115,6 +115,10 @@ class AdminController extends Controller
         return view('Laporan.laporanomset');
     }
 
+
+    function wlsubagen(){
+        return view('Laporan.winlosesubagen');
+    }
     function winloseagen()
     {
         return view('Laporan.winloseagen');
@@ -123,7 +127,6 @@ class AdminController extends Controller
     function winloseagendetail($id)
     {
         $users = User::all();
-
         $invoice = Invoices::select('user_id',\DB::raw('count(id) as jumlah'),\DB::raw('sum(amount) as omset'), \DB::raw('sum(total) as total'), \DB::raw('sum(winLose) as winlose'), \DB::raw('(sum(amount)-sum(total)) as diskon'))
             ->where('result_id', $id)->groupBy('user_id')->get();
         return view('Laporan.winlosedetail', compact('id','invoice', 'users'));
@@ -184,6 +187,25 @@ class AdminController extends Controller
         return $pdf->download('LaporanOmset-Periode-'.$id.'.pdf');
     }
 
+    function exportwlsubagen($date){
+        $pasaran = Result::all();
+        $result = Result::where(\DB::raw('DATE_FORMAT(tgl_periode, "%Y-%m-%d")'),$date)->limit(10)->pluck('id');
+        $invoice = Invoices::whereIn('result_id', $result)->get();
+        $groups  = $invoice->groupBy('user_id');
+        $user = User::all();
+        $groupwithcount = $groups->map(function ($group) {
+
+            return [
+                'user_id' => $group->first()['user_id'], // opposition_id is constant inside the same group, so just take the first or whatever.
+                'amount' => $group->sum('amount'),
+            ];
+
+        });
+
+        return view('Laporan.laporanwlsubagen', compact('invoice', 'groupwithcount', 'date', 'result', 'pasaran', 'user'));
+
+    }
+
     function tagihanmember(){
         return view('backend.tagihanmember');
     }
@@ -240,7 +262,7 @@ class AdminController extends Controller
     }
 
     function inputmanual(){
-
         return view('backend.inputmanual');
     }
+
 }

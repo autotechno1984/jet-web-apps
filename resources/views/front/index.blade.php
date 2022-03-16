@@ -176,15 +176,15 @@
                     <tbody style="font-weight: bold; background: white;">
                     <tr >
                         <td style="color:gold; background: #BD1616; width:50%;">Hadiah 1</td>
-                        <td> {{ $tabelshg->where('kode','sh1')->pluck('hasil')->first() }}</td>
+                        <td style="letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh1')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
                         <td style="color:gold; background: #BD1616; width:50%;">Hadiah 2</td>
-                        <td> {{ $tabelshg->where('kode','sh2')->pluck('hasil')->first() }}</td>
+                        <td style="letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh2')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
                         <td style="color:gold; background: #BD1616; width:50%;">Hadiah 3</td>
-                        <td> {{ $tabelshg->where('kode','sh3')->pluck('hasil')->first() }}</td>
+                        <td style="letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh3')->pluck('hasil')->first() }}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -196,16 +196,13 @@
                     </thead>
                     <tbody style="background: white;">
                     <tr>
-                        <td>1.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh4')->pluck('hasil')->first() }}</td>
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px; color:red;"> {{ $tabelshg->where('kode','sh4')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
-                        <td>2.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh5')->pluck('hasil')->first() }}</td>
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px; color:blue;"> {{ $tabelshg->where('kode','sh5')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
-                        <td>3.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh6')->pluck('hasil')->first() }}</td>
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px; color:orange;"> {{ $tabelshg->where('kode','sh6')->pluck('hasil')->first() }}</td>
                     </tr>
                     </tbody>
                 </table>
@@ -216,29 +213,27 @@
                     <th colspan="6" style="border-top-left-radius: 20px; border-top-right-radius: 20px; letter-spacing: 0.2rem;" >Consolation Prize</th>
                     </thead>
                     <tbody style="background: white;">
-                    <tr>
-                        <td>1.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh7')->pluck('hasil')->first() }}</td>
-                        <td>2.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh8')->pluck('hasil')->first() }}</td>
-                        <td>3.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh9')->pluck('hasil')->first() }}</td>
+                    <tr style="background: silver;">
+
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh7')->pluck('hasil')->first() }}</td>
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh8')->pluck('hasil')->first() }}</td>
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh9')->pluck('hasil')->first() }}</td>
+
                     </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh10')->pluck('hasil')->first() }}</td>
-                        <td>5.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh11')->pluck('hasil')->first() }}</td>
-                        <td>6.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh12')->pluck('hasil')->first() }}</td>
+                    <tr style="background: #FFD365;">
+
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh10')->pluck('hasil')->first() }}</td>
+
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh11')->pluck('hasil')->first() }}</td>
+
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh12')->pluck('hasil')->first() }}</td>
+
                     </tr>
-                    <tr>
-                        <td>7.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh13')->pluck('hasil')->first() }}</td>
-                        <td>8.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh14')->pluck('hasil')->first() }}</td>
-                        <td>9.</td>
-                        <td style="font-weight: bold"> {{ $tabelshg->where('kode','sh15')->pluck('hasil')->first() }}</td>
+                    <tr style="background: #D18CE0;">
+
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh13')->pluck('hasil')->first() }}</td>
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh14')->pluck('hasil')->first() }}</td>
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px;"> {{ $tabelshg->where('kode','sh15')->pluck('hasil')->first() }}</td>
                     </tr>
                     </tbody>
                 </table>

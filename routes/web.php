@@ -52,6 +52,7 @@ Route::get('/hadiah', function(){
    return view('front.hadiah');
 });
 
+
 Route::get('/hasil', function(){
     $result =  Result::with('tabelhasil')->where('tipe','H')->orderBy('id','Desc')->paginate(20);
     return view('front.hasil', compact('result'));
@@ -141,6 +142,8 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::get('/bank' ,[AdminController::class, 'bank'])->name('bank');
         Route::get('/laporan-by-omset',[AdminController::class,'laporanByOmset'])->name('laporanOmset');
         Route::get('/laporan-by-omset/download/{id}', [AdminController::class,'export'])->name('exportlaporanomset');
+        Route::get('/laporan-by-omset/download/wl-subagen/{id}', [AdminController::class,'exportwlsubagen'])->name('exportlaporanwlsubagen');
+
         Route::get('/winlose-agen', [AdminController::class, 'winloseagen'])->name('winloseagen');
         Route::get('/liveresult', [AdminController::class, 'liveresult'])->name('liveresult');
         Route::get('/winlose-agen-detail/{id}', [AdminController::class, 'winloseagendetail'])->name('winloseagendetail');
@@ -149,6 +152,7 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         //Members
         Route::get('/laporan-tagihan-member', [AdminController::class, 'tagihanmember'])->name('tagihanmember');
         Route::get('/laporan-tagihan-member-detail/{id}', [AdminController::class, 'tagihanmemberdetail'])->name('tagihanmemberdetail');
+        Route::get('/laporan-win-lose-agen-dan-subagen', [AdminController::class, 'wlsubagen'])->name('wlsubagen');
         Route::get('/user-list', [UserController::class, 'members'])->name('user-list');
         Route::get('/user-admin', [AdminController::class, 'adminlist'])->name('admin-list');
         Route::get('/data', [UserController::class, 'data'])->name('data');

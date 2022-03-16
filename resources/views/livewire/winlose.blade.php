@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         <div class="col-lg-2">
-            <input wire:model="search" type="date" class="form-control">
+            <input wire:model.defer="search" type="date" class="form-control">
         </div>
         <div class="col-lg-1">
             <button wire:click.prevent="caridata" class="btn-outline-primary form-control">Cari</button>
@@ -12,10 +12,13 @@
         <div class="col-lg-1">
             <button wire:click.prevent="semalam" class="btn-outline-primary form-control">Semalam</button>
         </div>
+        <div class="col-lg-2">
+            <button wire:click.prevent="wlsubagen" class="btn-outline-primary form-control">Lap Agen dan Sub</button>
+        </div>
     </div>
 
     <div class="row mt-1">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <table class="table table-bordered table-striped text-center">
                 <thead>
                     <tr>
@@ -24,10 +27,12 @@
                         <th>Tanggal</th>
                         <th>Omset</th>
                         <th>Diskon</th>
+                        <th>Total</th>
                         <th>Win-Lose</th>
                     </tr>
                 </thead>
                 <tbody>
+
                     @forelse($data as $item)
                         <tr>
                             <td><a href="{{ route('admin.winloseagendetail', [$item->result_id]) }}">{{ $item->member }}</a></td>
@@ -35,11 +40,12 @@
                             <td>{{ $item->tanggal  }}</td>
                             <td>{{ number_format($item->omset,2)  }}</td>
                             <td>{{ number_format($item->diskon,2)  }}</td>
+                            <td>{{ number_format($item->omset,2) -  number_format($item->diskon,2) }}</td>
                             <td>{{ number_format($item->winlose,2)  }}</td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6">Blm ada Data</td>
+                            <td colspan="7">Blm ada Data</td>
                         </tr>
                     @endforelse
                 </tbody>
