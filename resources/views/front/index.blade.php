@@ -205,7 +205,7 @@
                     </tr>
                     <tr>
                         <td style="width: 50%;">Hadiah 3</td>
-                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px; color:orange;"> {{ $tabelshg->where('kode','sh6')->pluck('hasil')->first() }}</td>
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px; color:lawngreen;"> {{ $tabelshg->where('kode','sh6')->pluck('hasil')->first() }}</td>
                     </tr>
                     </tbody>
                 </table>
