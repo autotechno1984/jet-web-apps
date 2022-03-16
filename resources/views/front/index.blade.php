@@ -196,12 +196,15 @@
                     </thead>
                     <tbody style="background: white;">
                     <tr>
-                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px; color:red;"> {{ $tabelshg->where('kode','sh4')->pluck('hasil')->first() }}</td>
+                        <td style="width:50%;">Hadiah 1</td>
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px; color:red; width:50%;"> {{ $tabelshg->where('kode','sh4')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px; color:blue;"> {{ $tabelshg->where('kode','sh5')->pluck('hasil')->first() }}</td>
+                        <td style="width: 50%;">Hadiah 2</td>
+                        <td colspan="2" style="font-weight: bold; letter-spacing: 5px; color:blue; width:50%;"> {{ $tabelshg->where('kode','sh5')->pluck('hasil')->first() }}</td>
                     </tr>
                     <tr>
+                        <td style="width: 50%;">Hadiah 3</td>
                         <td colspan="2" style="font-weight: bold; letter-spacing: 5px; color:orange;"> {{ $tabelshg->where('kode','sh6')->pluck('hasil')->first() }}</td>
                     </tr>
                     </tbody>
