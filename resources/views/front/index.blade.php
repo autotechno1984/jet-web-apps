@@ -189,7 +189,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-3">
                 <table class="table" style="font-family: 'Oswald', sans-serif;  border-top-left-radius: 20px; border-top-right-radius: 20px;">
                     <thead style="border-bottom:4px solid gold; background: black; color:white;">
                     <th style="border-top-left-radius: 20px; border-top-right-radius: 20px; letter-spacing: 0.2rem;" colspan="2">Starter Prizes</th>
@@ -241,9 +241,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-1">
 
-            </div>
         </div>
     </div>
 
