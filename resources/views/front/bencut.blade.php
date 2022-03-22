@@ -146,7 +146,7 @@
         <div class="card" style="width: 30rem; background: #091353; padding:10px 5px 10px 5px;" >
             <img src="{{ asset($data->filename) }}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Ramalan Khusus</h5>
+                <h5 class="card-title">Ramalan Khusus :</h5>
                 <h5 class="card-title">Tanggal : {{ \Carbon\Carbon::parse($data->tanggal)->locale('id')->dayName }} , {{ date('d-m-Y', strtotime($data->tanggal)) }} </h5>
                 <a href="{{ 'bencut-download/'.$data->id  }}" class="btn btn-primary">Download</a>
             </div>
