@@ -191,18 +191,22 @@ class AdminController extends Controller
         $pasaran = Result::all();
         $result = Result::where(\DB::raw('DATE_FORMAT(tgl_periode, "%Y-%m-%d")'),$date)->limit(10)->pluck('id');
         $invoice = Invoices::whereIn('result_id', $result)->get();
+        $invoiceDetails = InvoiceDetail::whereIn('result_id', $result)->where('is_win',1)->get();
         $groups  = $invoice->groupBy('user_id');
         $user = User::all();
+        $userref = User::where('uplineid','!=', 'null')->get();
         $groupwithcount = $groups->map(function ($group) {
 
             return [
-                'user_id' => $group->first()['user_id'], // opposition_id is constant inside the same group, so just take the first or whatever.
+                'user_id' => $group->first()['user_id'], // opposition_id is constant inside the same group, so just take the first or whatever
                 'amount' => $group->sum('amount'),
+                'total' => $group->sum('total'),
+                'winLose' => $group->sum('winLose'),
             ];
 
         });
 
-        return view('Laporan.laporanwlsubagen', compact('invoice', 'groupwithcount', 'date', 'result', 'pasaran', 'user'));
+        return view('Laporan.laporanwlsubagen', compact('invoice', 'groupwithcount', 'date', 'result', 'pasaran', 'user', 'invoiceDetails','userref'));
 
     }
 
@@ -229,7 +233,7 @@ class AdminController extends Controller
 
         $request->validate([
            'tanggal' => 'required',
-           'gambar' => 'required|mimes:jpeg,jpg,png|max:250'
+           'gambar' => 'required|mimes:jpeg,jpg,png|max:300'
         ],[
             'tanggal.required' => 'silahkan di pilih tanggal',
             'gambar.required' => 'blm ada foto yang di pilih'
