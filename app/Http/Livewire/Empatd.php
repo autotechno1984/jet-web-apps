@@ -239,7 +239,6 @@ class Empatd extends Component
                 $invoice->tgl_invoice = now();
                 $invoice->nonota = 0;
                 $invoice->save();
-
                 foreach($cobadata as $data){
                     $datainsert[] = array(
                         'invoice_id' => $invoice->id,
@@ -258,8 +257,9 @@ class Empatd extends Component
                         'created_at' => now(),
                         'updated_at' => now(),
                     );
-                    $kredituse = $kredituse + $data['total'];
+                    $kredituse = $kredituse + ( $data['amount'] - ( ($data['diskon'] / 100) * $data['amount'] )) ;
                 }
+
 
                 InvoiceDetail::insert($datainsert);
                 Profile::where('user_id',$user_id)->update(['kredit' => $kredit - $kredituse]);

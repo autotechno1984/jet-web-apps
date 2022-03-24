@@ -56,6 +56,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'csl-3',
                     'status' => 1,
                 ]);
 
@@ -69,6 +70,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'csl-3',
                     'status' => 1,
                 ]);
 
@@ -80,6 +82,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'csl-3',
                     'status' => 1,
                 ]);
 
@@ -93,6 +96,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'csl-2',
                     'status' => 1,
                 ]);
 
@@ -105,6 +109,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'csl-2',
                     'status' => 1,
                 ]);
 
@@ -117,6 +122,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'csl-2',
                     'status' => 1,
                 ]);
 
@@ -129,6 +135,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'csl-1',
                     'status' => 1,
                 ]);
 
@@ -141,6 +148,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'csl-1',
                     'status' => 1,
                 ]);
 
@@ -153,6 +161,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'csl-1',
                     'status' => 1,
                 ]);
 
@@ -165,6 +174,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'str-3',
                     'status' => 1,
                 ]);
 
@@ -177,6 +187,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'str-2',
                     'status' => 1,
                 ]);
 
@@ -189,6 +200,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'str-1',
                     'status' => 1,
                 ]);
 
@@ -201,6 +213,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'hu-3',
                     'status' => 1,
                 ]);
 
@@ -213,6 +226,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'hu-2',
                     'status' => 1,
                 ]);
 
@@ -225,6 +239,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'hu-1',
                     'status' => 1,
                 ]);
 
@@ -237,6 +252,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => 'hu-1',
                     'status' => 1,
                 ]);
         }
@@ -248,6 +264,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => '2D',
                     'status' => 1,
                 ]);
         }
@@ -261,6 +278,7 @@ class Hitungan extends Component
                 ->update([
                     'is_win' => 1,
                     'hadiah' => $hadiah,
+                    'j_hadiah' => '2DBB',
                     'status' => 1,
                 ]);
         }
@@ -277,7 +295,6 @@ class Hitungan extends Component
             ]);
         }
 
-
         $invoicelose = Invoices::where('status', 0)->where('result_id', $this->daftarperiode)->get();
 
         foreach ($invoicelose as $data){
@@ -289,6 +306,7 @@ class Hitungan extends Component
            'status' => 0
         ]);
     }
+
     public function closemarket()
     {
         $invoicewin = Invoices::where('result_id', $this->daftarperiode)->where('status',1)->select('user_id',\DB::raw('sum(winlose) as win'))->groupBy('user_id')->get();
@@ -299,9 +317,11 @@ class Hitungan extends Component
                'kredit' => $userkredit + $win->win
             ]);
         }
+
         $updateresult = Result::where('id', $this->daftarperiode)->update([
             'status' => 0
         ]);
+
         return redirect()->back();
     }
 }

@@ -17,7 +17,7 @@ class Winlose extends Component
     {
         $hariini = date('Y-m-d', strtotime(now()));
         $this->search = $hariini;
-        $this->data = Invoices::select('result_id',\DB::raw('count(DISTINCT(result_id)) as member'), \DB::raw('sum(amount) as omset'),\DB::raw('(sum(amount) - sum(total)) as diskon'), \DB::raw('date_format(tgl_invoice,"%Y-%m-%d") as tanggal'))
+        $this->data = Invoices::select('result_id',\DB::raw('count(DISTINCT(result_id)) as member'), \DB::raw('sum(amount) as omset'),\DB::raw('(sum(amount) - sum(total)) as diskon'), \DB::raw('sum(winLose) as winlose'),\DB::raw('date_format(tgl_invoice,"%Y-%m-%d") as tanggal'))
             ->where(\DB::raw('DATE_FORMAT(tgl_invoice, "%Y-%m-%d")'),$hariini)
             ->groupBy('result_id','tanggal')->get();
         $this->pasaran = Result::all();
@@ -31,7 +31,7 @@ class Winlose extends Component
     public function today(){
         $hariini = date('Y-m-d', strtotime(now()));
         $this->search = $hariini;
-        $this->data = Invoices::select('result_id',\DB::raw('count(DISTINCT(result_id)) as member'), \DB::raw('sum(amount) as omset'),\DB::raw('(sum(amount) - sum(total)) as diskon'), \DB::raw('sum(winlose) as winlose'), \DB::raw('date_format(tgl_invoice,"%Y-%m-%d") as tanggal'))
+        $this->data = Invoices::select('result_id',\DB::raw('count(DISTINCT(result_id)) as member'), \DB::raw('sum(amount) as omset'),\DB::raw('(sum(amount) - sum(total)) as diskon'), \DB::raw('sum(winLose) as winlose'), \DB::raw('date_format(tgl_invoice,"%Y-%m-%d") as tanggal'))
             ->where(\DB::raw('DATE_FORMAT(tgl_invoice, "%Y-%m-%d")'),$hariini)
             ->groupBy('result_id','tanggal')->get();
         $this->pasaran = Result::all();
@@ -50,7 +50,7 @@ class Winlose extends Component
     public function caridata()
     {
         $cari = date('Y-m-d', strtotime($this->search));
-        $this->data = Invoices::select('result_id',\DB::raw('count(DISTINCT(result_id)) as member'),\DB::raw('sum(amount) as omset'),\DB::raw('(sum(amount) - sum(total)) as diskon'), \DB::raw('sum(winlose) as winlose'), \DB::raw('date_format(tgl_invoice,"%Y-%m-%d") as tanggal'))
+        $this->data = Invoices::select('result_id',\DB::raw('count(DISTINCT(result_id)) as member'),\DB::raw('sum(amount) as omset'),\DB::raw('(sum(amount) - sum(total)) as diskon'), \DB::raw('sum(winLose) as winlose'), \DB::raw('date_format(tgl_invoice,"%Y-%m-%d") as tanggal'))
             ->where(\DB::raw('DATE_FORMAT(tgl_invoice, "%Y-%m-%d")'),$cari)
             ->groupBy('result_id','tanggal')->get();
         $this->pasaran = Result::all();
@@ -61,7 +61,7 @@ class Winlose extends Component
 
         $semalam = date('Y-m-d', strtotime(now()->subDays(1)));
         $this->search = $semalam;
-        $this->data = Invoices::select('result_id',\DB::raw('count(DISTINCT(result_id)) as member'),\DB::raw('sum(amount) as omset'),\DB::raw('(sum(amount) - sum(total)) as diskon'), \DB::raw('sum(winlose) as winlose'), \DB::raw('date_format(tgl_invoice,"%Y-%m-%d") as tanggal'))
+        $this->data = Invoices::select('result_id',\DB::raw('count(DISTINCT(result_id)) as member'),\DB::raw('sum(amount) as omset'),\DB::raw('(sum(amount) - sum(total)) as diskon'), \DB::raw('sum(winLose) as winlose'), \DB::raw('date_format(tgl_invoice,"%Y-%m-%d") as tanggal'))
             ->where(\DB::raw('DATE_FORMAT(tgl_invoice, "%Y-%m-%d")'),$semalam)
             ->groupBy('result_id','tanggal')->get();
         $this->pasaran = Result::all();

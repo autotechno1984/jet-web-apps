@@ -159,9 +159,9 @@
             <h3 style="border-bottom: 3px solid gold; padding:5px; letter-spacing: 5px;" class="text-center">STARTER PRIZE</h3>
         </div>
         <div wire:poll class="d-flex justify-content-between mb-4" id="starter_prize">
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"1. ". $liveresult->pluck('sh4')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"2. ". $liveresult->pluck('sh5')->first() }}" readonly>
-            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{"3. ". $liveresult->pluck('sh6')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh4')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh5')->first() }}" readonly>
+            <input type="text" name="" id="" style="width:95px; font-size:20px;" value="{{ $liveresult->pluck('sh6')->first() }}" readonly>
         </div>
 
         <div style="background:red; margin-top:15px; margin-bottom:0px;">

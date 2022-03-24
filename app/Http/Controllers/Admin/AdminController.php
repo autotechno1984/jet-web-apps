@@ -188,13 +188,23 @@ class AdminController extends Controller
     }
 
     function exportwlsubagen($date){
+
         $pasaran = Result::all();
         $result = Result::where(\DB::raw('DATE_FORMAT(tgl_periode, "%Y-%m-%d")'),$date)->limit(10)->pluck('id');
         $invoice = Invoices::whereIn('result_id', $result)->get();
+        $invoiceUser = Invoices::whereIn('result_id', $result)->groupBy('user_id')->pluck('user_id')->toArray();
         $invoiceDetails = InvoiceDetail::whereIn('result_id', $result)->where('is_win',1)->get();
         $groups  = $invoice->groupBy('user_id');
-        $user = User::all();
-        $userref = User::where('uplineid','!=', 'null')->get();
+        $datauser = User::all();
+        $user = User::whereIn('id', $invoiceUser)->get();
+        $userref = User::select('id','referallid')->whereNull('uplineid')->get();
+        $userupline = User::select('uplineid')->whereNotNull('uplineid')->groupBy('uplineid')->get();
+        $upline = User::select('uplineid')->whereNotNull('uplineid')->groupBy('uplineid')->pluck('uplineid')->toArray();
+        $dataagen = User::select('id','referallid')->get();
+        $agen = $userref->whereNotIn('referallid', $upline);
+        $agens = $agen->whereIn('id', $invoiceUser);
+
+
         $groupwithcount = $groups->map(function ($group) {
 
             return [
@@ -206,7 +216,7 @@ class AdminController extends Controller
 
         });
 
-        return view('Laporan.laporanwlsubagen', compact('invoice', 'groupwithcount', 'date', 'result', 'pasaran', 'user', 'invoiceDetails','userref'));
+        return view('Laporan.laporanwlsubagen', compact('invoice', 'groupwithcount', 'date', 'result', 'pasaran', 'user', 'invoiceDetails','userref', 'invoiceUser', 'userupline', 'datauser','dataagen','agen', 'agens'));
 
     }
 

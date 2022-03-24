@@ -48,6 +48,7 @@
                             <td colspan="7">Blm ada Data</td>
                         </tr>
                     @endforelse
+
                 </tbody>
             </table>
         </div>

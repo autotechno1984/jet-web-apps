@@ -67,4 +67,6 @@ class User extends Authenticatable
     public function invoicedetail(){
         return $this->belongsTo(InvoiceDetail::class, 'user_id','id');
     }
+
+
 }
