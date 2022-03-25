@@ -257,7 +257,7 @@ class InputData extends Component
                         'diskon' => $data->diskon,
                         'kei' => 0,
                         'winlose' => 0,
-                        'total' => $data->amount - $data->total,
+                        'total' => $data->amount - ( $data->amount * ($data->diskon / 100)),
                         'is_win' => 0,
                         'status' => 2,
                         'tgl_beli' => now(),

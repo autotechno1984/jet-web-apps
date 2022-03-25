@@ -251,7 +251,7 @@ class Empatd extends Component
                         'diskon' => $data['diskon'],
                         'kei' => 0,
                         'winlose' => 0,
-                        'total' => $data['amount'] - ($data['amount'] * ($data['diskon'] /100)),
+                        'total' => $data['amount'] - (($data['amount']) * ($data['diskon'] /100)),
                         'status' => 2,
                         'tgl_beli' => now(),
                         'created_at' => now(),
