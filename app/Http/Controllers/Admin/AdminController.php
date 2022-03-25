@@ -138,6 +138,7 @@ class AdminController extends Controller
         $users = User::all();
         $invoice = Invoices::where('user_id', $resultid)->where('result_id', $id)->get();
         return view('Laporan.winloseinvoicedetail',compact('invoice', 'id','resultid','users'));
+
     }
 
     function invoicedetailuser($id){
@@ -187,10 +188,10 @@ class AdminController extends Controller
         return $pdf->download('LaporanOmset-Periode-'.$id.'.pdf');
     }
 
-    function exportwlsubagen($date){
+    function exportwlsubagen($date, $periode){
 
-        $pasaran = Result::all();
-        $result = Result::where(\DB::raw('DATE_FORMAT(tgl_periode, "%Y-%m-%d")'),$date)->limit(10)->pluck('id');
+        $pasaran = Result::where('id', $periode)->get();
+        $result = Result::where('id', $periode)->pluck('id');
         $invoice = Invoices::whereIn('result_id', $result)->get();
         $invoiceUser = Invoices::whereIn('result_id', $result)->groupBy('user_id')->pluck('user_id')->toArray();
         $invoiceDetails = InvoiceDetail::whereIn('result_id', $result)->where('is_win',1)->get();

@@ -74,7 +74,7 @@
                                                    @if( $groupwithcount->where('user_id', $data->id)->pluck('winLose')->first() > 0)
                                                        <div class="bg-light">
                                                            @foreach( $invoiceDetails->where('user_id', $data->id) as $data)
-                                                               <div class="row">
+                                                               <div class="row my-2">
                                                                    <div class="col-2">Invoice : {{ $data->invoiceid }}</div>
                                                                    <div class="col-2">J-Hadiah : {{ $data->j_hadiah }} </div>
                                                                    <div class="col-2">Amount : {{ $data->amount }}</div>
@@ -127,12 +127,14 @@
                                    @if( $groupwithcount->where('user_id', $data->id)->pluck('winLose')->first() > 0)
                                        <div class="bg-light">
                                            @foreach( $invoiceDetails->where('user_id', $data->id) as $data)
+
                                                <div class="row">
                                                    <div class="col-2">Invoice : {{ $data->invoiceid }}</div>
                                                    <div class="col-2">J-Hadiah : {{ $data->j_hadiah }} </div>
                                                    <div class="col-2">Amount : {{ $data->amount }}</div>
                                                    <div class="col-2">Nomor : {{ $data->data }}</div>
                                                </div>
+
                                            @endforeach
                                        </div>
                                    @else

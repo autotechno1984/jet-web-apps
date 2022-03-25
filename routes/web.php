@@ -142,7 +142,7 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::get('/bank' ,[AdminController::class, 'bank'])->name('bank');
         Route::get('/laporan-by-omset',[AdminController::class,'laporanByOmset'])->name('laporanOmset');
         Route::get('/laporan-by-omset/download/{id}', [AdminController::class,'export'])->name('exportlaporanomset');
-        Route::get('/laporan-by-omset/download/wl-subagen/{id}', [AdminController::class,'exportwlsubagen'])->name('exportlaporanwlsubagen');
+        Route::get('/laporan-by-omset/download/wl-subagen/{id}/{periode}', [AdminController::class,'exportwlsubagen'])->name('exportlaporanwlsubagen');
 
         Route::get('/winlose-agen', [AdminController::class, 'winloseagen'])->name('winloseagen');
         Route::get('/liveresult', [AdminController::class, 'liveresult'])->name('liveresult');

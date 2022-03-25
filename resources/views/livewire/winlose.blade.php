@@ -12,6 +12,13 @@
         <div class="col-lg-1">
             <button wire:click.prevent="semalam" class="btn-outline-primary form-control">Semalam</button>
         </div>
+        <div class="col-lg-1">
+            <select name="periode" id="periode" wire:model.defer="periode" class="form-select">
+                @foreach($pasaran as $data)
+                    <option value="{{ $data->id }}">{{ $data->id }}</option>
+                @endforeach
+            </select>
+        </div>
         <div class="col-lg-2">
             <button wire:click.prevent="wlsubagen" class="btn-outline-primary form-control">Lap Agen dan Sub</button>
         </div>
@@ -33,7 +40,8 @@
                 </thead>
                 <tbody>
 
-                    @forelse($data as $item)
+                    @forelse($datas as $item)
+
                         <tr>
                             <td><a href="{{ route('admin.winloseagendetail', [$item->result_id]) }}">{{ $item->member }}</a></td>
                             <td>{{ $pasaran->where('id', $item->result_id )->pluck('pasaran')->first() }}</td>
