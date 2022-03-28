@@ -1,5 +1,14 @@
 <div>
     <div class="row">
+        <div class="col-12">
+            @if (session()->has('error'))
+                <div class="alert alert-danger text-center">
+                    {{ session('error') }}
+                </div>
+            @endif
+        </div>
+    </div>
+    <div class="row">
         <div class="col-lg-2">
             <input wire:model.defer="search" type="date" class="form-control">
         </div>
@@ -14,6 +23,7 @@
         </div>
         <div class="col-lg-1">
             <select name="periode" id="periode" wire:model.defer="periode" class="form-select">
+                <option value="90">Periode</option>
                 @foreach($pasaran as $data)
                     <option value="{{ $data->id }}">{{ $data->id }}</option>
                 @endforeach

@@ -23,6 +23,7 @@ class Winlose extends Component
             ->where(\DB::raw('DATE_FORMAT(tgl_invoice, "%Y-%m-%d")'),$this->search)
             ->groupBy('result_id','tanggal')->get();
         $this->pasaran = Result::where(\DB::raw('DATE_FORMAT(tgl_periode, "%Y-%m-%d")'),$this->search)->get();
+
     }
 
     public function render()
@@ -40,8 +41,10 @@ class Winlose extends Component
     }
 
     public function wlsubagen(){
-        if($this->search == null && $this->periode == null){
 
+        if($this->periode == null){
+            session()->flash('error', 'Silahkan Dipilih periode');
+            return redirect()->to('admin-panel/winlose-agen');
         }
         else {
 
