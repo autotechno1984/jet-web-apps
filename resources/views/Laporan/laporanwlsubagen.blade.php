@@ -39,11 +39,11 @@
                                    <div class="col-1">Nama</div>
                                    <div class="col-2">{{ $datauser->where('referallid', $upline->uplineid)->pluck('name')->first() }}</div>
                                    <div class="col-1">Omset</div>
-                                   <div class="col-1">{{ $groupwithcount->where('user_id', $upline->id)->pluck('amount')->first() ?? 0 }}</div>
+                                   <div class="col-1">{{ $groupwithcount->where('user_id', $datauser->where('referallid', $upline->uplineid)->pluck('id')->first())->pluck('amount')->first() ?? 0 }}</div>
                                    <div class="col-1">Omset B</div>
-                                   <div class="col-1">{{ $groupwithcount->where('user_id', $upline->id)->pluck('total')->first() ?? 0}}</div>
+                                   <div class="col-1">{{ $groupwithcount->where('user_id', $datauser->where('referallid', $upline->uplineid)->pluck('id')->first())->pluck('total')->first() ?? 0}}</div>
                                    <div class="col-1">Win-Lose</div>
-                                   <div class="col-1">{{ $groupwithcount->where('user_id', $upline->id)->pluck('winLose')->first() ?? 0 }}</div>
+                                   <div class="col-1">{{ $groupwithcount->where('user_id', $datauser->where('referallid', $upline->uplineid)->pluck('id')->first())->pluck('winLose')->first() ?? 0 }}</div>
                                </div>
                                <div class="row mt-1">
 
@@ -98,7 +98,7 @@
                                            <div class="col-2">Ttl Om agen : {{  $invoice->whereIn('user_id', $datauser->where('uplineid', $upline->uplineid)->pluck('id'))->sum('amount') }}</div>
                                            <div class="col-2">Ttl O.B Agen : {{ $invoice->whereIn('user_id', $datauser->where('uplineid', $upline->uplineid)->pluck('id'))->sum('total') }}</div>
                                            <div class="col-3">Ttl Win Lose : {{ $invoice->whereIn('user_id', $datauser->where('uplineid', $upline->uplineid)->pluck('id'))->sum('winLose') }} </div>
-                                           <div class="col-3">Grand Total : {{ $invoice->whereIn('user_id', $datauser->where('uplineid', $upline->uplineid)->pluck('id'))->sum('winLose') + $invoice->whereIn('user_id', $datauser->where('referallid', $upline->uplineid)->pluck('id'))->sum('winLose')  }}</div>
+                                           <div class="col-3">Grand Total : {{ $invoice->where('user_id', $datauser->where('referallid', $upline->uplineid)->pluck('id')->first())->pluck('total')->first() + $invoice->whereIn('user_id', $datauser->where('uplineid', $upline->uplineid)->pluck('id'))->sum('total') }}</div>
                                        </div>
                                    </div>
                                </div>
