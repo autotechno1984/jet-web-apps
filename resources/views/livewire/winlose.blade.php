@@ -58,7 +58,7 @@
                             <td>{{ $item->tanggal  }}</td>
                             <td>{{ number_format($item->omset,2)  }}</td>
                             <td>{{ number_format($item->diskon,2)  }}</td>
-                            <td>{{ $item->omset -  $item->diskon }}</td>
+                            <td>{{ number_format($item->omset -  $item->diskon,2) }}</td>
                             <td>{{ number_format($item->winlose,2)  }}</td>
                         </tr>
                     @empty
