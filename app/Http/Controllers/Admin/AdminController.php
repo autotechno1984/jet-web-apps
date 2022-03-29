@@ -29,6 +29,7 @@ class AdminController extends Controller
 
         $creds =  array_merge($request->only('username', 'password'),['bann' => 1]);
         if( Auth::guard('admin')->attempt($creds) ) {
+            Auth::guard('admin')->logoutOtherDevices(request('password'));
             return redirect()->route('admin.home');
         }else {
             return redirect()->route('admin.login')->with('fail','Username dan password tidak ada');

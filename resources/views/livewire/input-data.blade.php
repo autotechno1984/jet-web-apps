@@ -127,38 +127,38 @@
                     </div>
 
 
-{{--                    <div class="row mt-3">--}}
-{{--                        <div class="col-6">--}}
-{{--                            <label for="Total" class="col-form-label">TOTAL</label>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-6">--}}
-{{--                            <label for="Total" class="col-form-label">{{ number_format($datainvoicetemp->sum('amount'),2) ?? 0 }}</label>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="row mt-1">--}}
-{{--                        <div class="col-6">--}}
-{{--                            <label for="Diskon" class="col-form-label">DISKON</label>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-6">--}}
-{{--                            <label for="Diskon" class="col-form-label">{{number_format($datainvoicetemp->sum('amount'),2 ?? 0) - number_format($datainvoicetemp->sum('total'),2 ?? 0)  }}</label>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="row mt-1">--}}
-{{--                        <div class="col-6">--}}
-{{--                            <label for="GrandTotal" class="col-form-label">GRAND TOTAL</label>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-6">--}}
-{{--                            <label for="GrandTotal" class="col-form-label text-danger font-weight-bold" >{{ number_format($datainvoicetemp->sum('total'),2) ?? 0 }}</label>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="row mt-1">--}}
-{{--                        <div class="col-6">--}}
-{{--                            <label for="JumlahAngka" class="col-form-label">Jumlah Angka</label>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-6">--}}
-{{--                            <label for="JumlahAngka">{{ $datainvoicetemp->count('nomor') }}</label>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label for="Total" class="col-form-label">TOTAL</label>
+                        </div>
+                        <div class="col-6">
+                            <label for="Total" class="col-form-label">{{ number_format($datainvoicetemp->sum('amount'),2) ?? 0 }}</label>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-6">
+                            <label for="Diskon" class="col-form-label">DISKON</label>
+                        </div>
+                        <div class="col-6">
+                            <label for="Diskon" class="col-form-label">{{number_format($datainvoicetemp->sum('amount'),2 ?? 0) - number_format($datainvoicetemp->sum('total'),2 ?? 0)  }}</label>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-6">
+                            <label for="GrandTotal" class="col-form-label">GRAND TOTAL</label>
+                        </div>
+                        <div class="col-6">
+                            <label for="GrandTotal" class="col-form-label text-danger font-weight-bold" >{{ number_format($datainvoicetemp->sum('total'),2) ?? 0 }}</label>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-6">
+                            <label for="JumlahAngka" class="col-form-label">Jumlah Angka</label>
+                        </div>
+                        <div class="col-6">
+                            <label for="JumlahAngka">{{ $datainvoicetemp->count('nomor') }}</label>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -190,6 +190,7 @@
                         </tr>
                         </thead>
                         <tbody>
+
                         @foreach($datainvoicetemp as $invoicetemp)
                             <tr>
                                 <td>{{ $invoicetemp->data }}</td>
@@ -198,6 +199,7 @@
                                 <td><a style="box-shadow: none; border:1px solid white;" wire:click.prevent="deleteInvoice({{ $invoicetemp->id }})" class="btn"><i class="fa-solid fa-trash-can" style="color:red;"></i></a></td>
                             </tr>
                         @endforeach
+
                         </tbody>
 
                     </table>
