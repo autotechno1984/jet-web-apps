@@ -16,6 +16,7 @@ use Livewire\Component;
 use Auth;
 class InputData extends Component
 {
+
     public $namaagen;
     public $username;
     public $userid;
@@ -28,9 +29,11 @@ class InputData extends Component
     public $angka;
     public $pasaran;
     public $datainvoicetemp;
+    public $datamarket;
 
     public function mount(){
         $this->adminid = Auth::guard('admin')->user()->id;
+        $this->datamarket = Result::whereIn('status', [1,2])->get();
         $this->datainvoicetemp = InvoiceTemp::where('adminid', $this->adminid )->get();
     }
 

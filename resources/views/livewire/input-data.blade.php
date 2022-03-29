@@ -78,7 +78,7 @@
                         <div class="col-6">
                             <select name="pasaran" id="" wire:model="pasaran" class="form-select">
                                 <option >Pilih Salah Satu Pasaran</option>
-                                @foreach($markets as $market)
+                                @foreach($datamarket as $market)
                                     <option value="{{ $market->id }}">{{ $market->pasaran }} - {{ $market->id }}</option>
                                 @endforeach
                             </select>
