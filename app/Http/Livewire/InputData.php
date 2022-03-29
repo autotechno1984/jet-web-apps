@@ -44,13 +44,17 @@ class InputData extends Component
 
     public function finddata()
     {
+
         $user = User::where('username', $this->username)->first();
         $this->kredit = User::with('profile')->where('username', $this->username)->first();
         if($user){
+
             $this->nomor = 'd-block';
             $this->namaagen = $user->name;
             $this->userid = $user->id;
             $this->kredit = $this->kredit->profile->kredit;
+            $this->datainvoicetemp = InvoiceTemp::where('adminid', $this->adminid)->where('user_id', $this->userid)->get();
+
         }else {
             $this->namaagen = 'User Tidak Ada';
             $this->nomor = 'd-none';

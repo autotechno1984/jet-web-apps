@@ -29,7 +29,7 @@
                             </label>
                         </div>
                         <div class="col-6">
-                            <input type="text" class="form-control" wire:model="username" wire:keydown.enter="finddata" name="" id="">
+                            <input type="text" class="form-control" wire:model.defer="username" wire:keydown.enter="finddata" name="" id="">
                         </div>
                     </div>
                     <div class="row">
@@ -140,7 +140,7 @@
                             <label for="Diskon" class="col-form-label">DISKON</label>
                         </div>
                         <div class="col-6">
-{{--                            <label for="Diskon" class="col-form-label">{{number_format($datainvoicetemp->sum('amount'),2 ?? 0) - number_format($datainvoicetemp->sum('total'),2 ?? 0)  }}</label>--}}
+                            <label for="Diskon" class="col-form-label">{{number_format($datainvoicetemp->sum('amount'),2) - number_format($datainvoicetemp->sum('total'),2)  }}</label>
                         </div>
                     </div>
                     <div class="row mt-1">
@@ -191,7 +191,7 @@
                         </thead>
                         <tbody>
 
-                        @foreach($datainvoicetemp as $invoicetemp)
+                        @foreach($datainvoicetemp->where('user_id', ) as $invoicetemp)
                             <tr>
                                 <td>{{ $invoicetemp->data }}</td>
                                 <td>{{ $invoicetemp->amount }}</td>
