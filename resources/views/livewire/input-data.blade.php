@@ -140,7 +140,7 @@
                             <label for="Diskon" class="col-form-label">DISKON</label>
                         </div>
                         <div class="col-6">
-{{--                            <label for="Diskon" class="col-form-label">{{number_format($datainvoicetemp->sum('amount'),2) - number_format($datainvoicetemp->sum('total'),2)  }}</label>--}}
+                            <label for="Diskon" class="col-form-label">{{ number_format($datainvoicetemp->sum('amount') - $datainvoicetemp->sum('total'),2)  }}</label>
                         </div>
                     </div>
                     <div class="row mt-1">
