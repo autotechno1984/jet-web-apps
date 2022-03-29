@@ -132,7 +132,7 @@
                             <label for="Total" class="col-form-label">TOTAL</label>
                         </div>
                         <div class="col-6">
-                            <label for="Total" class="col-form-label">{{ number_format($datainvoicetemp->sum('amount'),3) ?? 0 }}</label>
+                            <label for="Total" class="col-form-label">{{ number_format($datainvoicetemp->sum('amount'),2) ?? 0 }}</label>
                         </div>
                     </div>
                     <div class="row mt-1">
@@ -140,7 +140,7 @@
                             <label for="Diskon" class="col-form-label">DISKON</label>
                         </div>
                         <div class="col-6">
-                            <label for="Diskon" class="col-form-label">{{number_format($datainvoicetemp->sum('amount'),2) - number_format($datainvoicetemp->sum('total'),3) ?? 0 }}</label>
+                            <label for="Diskon" class="col-form-label">{{number_format($datainvoicetemp->sum('amount'),2 ?? 0) - number_format($datainvoicetemp->sum('total'),2 ?? 0)  }}</label>
                         </div>
                     </div>
                     <div class="row mt-1">
@@ -148,7 +148,7 @@
                             <label for="GrandTotal" class="col-form-label">GRAND TOTAL</label>
                         </div>
                         <div class="col-6">
-                            <label for="GrandTotal" class="col-form-label text-danger font-weight-bold" >{{ number_format($datainvoicetemp->sum('total'),3) ?? 0 }}</label>
+                            <label for="GrandTotal" class="col-form-label text-danger font-weight-bold" >{{ number_format($datainvoicetemp->sum('total'),2) ?? 0 }}</label>
                         </div>
                     </div>
                     <div class="row mt-1">
