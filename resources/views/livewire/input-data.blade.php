@@ -102,11 +102,11 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col-4">
-                            <input type="text" wire:model="angka" name="nomor" id="nomor" onkeydown="if(event.keyCode == 13 && this.value.length > 1) document.getElementById('nominal').focus();" class="form-control" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" >
+                            <input type="text" wire:model.defer="angka" name="nomor" id="nomor" onkeydown="if(event.keyCode == 13 && this.value.length > 1) document.getElementById('nominal').focus();" class="form-control" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" >
                             @error('angka') <span class="error text-danger" style="font-size:12px;">{{ $message }}</span> @enderror
                         </div>
                         <div class="col-4">
-                            <input type="text" wire:model="nominal" wire:keydown.enter="adddata" onkeydown="if(event.keyCode == 13 && this.value > 0) document.getElementById('nomor').focus();" name="nominal" id="nominal" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="6">
+                            <input type="text" wire:model.defer="nominal" wire:keydown.enter="adddata" onkeydown="if(event.keyCode == 13 && this.value > 0) document.getElementById('nomor').focus();" name="nominal" id="nominal" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="6">
                             @error('nominal') <span class="error text-danger" style="font-size:12px;">{{ $message }}</span> @enderror
                         </div>
                         <div class="col-1">

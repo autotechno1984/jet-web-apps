@@ -65,7 +65,7 @@
                                 @foreach($markets as $market)
                                 <a href="{{ route('togel', [$market->id]) }}" class="dropdown-item">{{ $market->pasaran }} - {{ $market->id }}</a>
                                 @endforeach
-                            </div>
+                            </div>`
                         </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -142,7 +142,6 @@
             <div class="carousel-item active" >
                         <img src="{{ asset('img/grand-shanghai.jpg') }}" class="d-block w-100" alt="...">
 
-
             </div>
 
         </div>

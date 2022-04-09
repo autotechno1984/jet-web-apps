@@ -30,7 +30,7 @@
 
                             @if(count($invoice->whereIn('user_id', $datauser->where('referallid', $upline->uplineid)->pluck('id'))) == 0 && count($invoice->whereIn('user_id',$datauser->where('uplineid', $upline->uplineid)->pluck('id'))) == 0)
 
-                                @else
+                            @else
                            <div class="mt-2">
                                <div class="row py-2" style="border-radius:5px; background:#F4FCD9; font-weight: bold;">
 
