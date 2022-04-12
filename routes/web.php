@@ -153,6 +153,7 @@ Route::prefix('admin-panel')->name('admin.')->group(function(){
         Route::get('/laporan-tagihan-member', [AdminController::class, 'tagihanmember'])->name('tagihanmember');
         Route::get('/laporan-tagihan-member-detail/{id}', [AdminController::class, 'tagihanmemberdetail'])->name('tagihanmemberdetail');
         Route::get('/laporan-win-lose-agen-dan-subagen', [AdminController::class, 'wlsubagen'])->name('wlsubagen');
+        Route::get('/laporan-omset-detail', [AdminController::class, 'omsetdetail'])->name('omsetdetail');
         Route::get('/user-list', [UserController::class, 'members'])->name('user-list');
         Route::get('/user-admin', [AdminController::class, 'adminlist'])->name('admin-list');
         Route::get('/data', [UserController::class, 'data'])->name('data');

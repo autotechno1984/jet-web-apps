@@ -281,4 +281,7 @@ class AdminController extends Controller
         return view('backend.inputmanual');
     }
 
+    function omsetdetail(){
+        return view('Laporan.omsetdetail');
+    }
 }

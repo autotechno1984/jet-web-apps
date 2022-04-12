@@ -144,6 +144,9 @@
                                 <a class="nav-link collapsed" href="{{ route('admin.laporanOmset') }}"  >
                                     Laporan Omset
                                 </a>
+                                <a class="nav-link collapsed" href="{{ route('admin.omsetdetail') }}"  >
+                                    Laporan Omset Detil
+                                </a>
                                 <a class="nav-link collapsed" href="{{ route('admin.winloseagen') }}" >
                                     Laporan Win - Lose
                                 </a>
@@ -240,7 +243,7 @@
                   @yield('editbencut')
                   @yield('manualinput')
                   @yield('winlosesub')
-
+                  @yield('omsetdetail')
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
