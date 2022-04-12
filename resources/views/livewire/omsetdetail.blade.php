@@ -28,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($empatd as $data)
+                @foreach($invdetail->where('kode','4D')->sortByDesc('total') as $data)
                     <tr>
                         <td>{{ $data->kode }}</td>
                         <td>{{ $data->data }}</td>
@@ -48,7 +48,7 @@
               </tr>
               </thead>
               <tbody>
-              @foreach($tigad as $data)
+              @foreach($invdetail->where('kode','3D')->sortByDesc('total') as $data)
                   <tr>
                       <td>{{ $data->kode }}</td>
                       <td>{{ $data->data }}</td>
@@ -69,7 +69,7 @@
               </thead>
               <tbody>
               <tr>
-              @foreach($duad as $data)
+              @foreach($invdetail->where('kode','2D')->sortByDesc('total') as $data)
                   <tr>
                       <td>{{ $data->kode }}</td>
                       <td>{{ $data->data }}</td>
