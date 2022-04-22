@@ -20,7 +20,6 @@ class ipWhiteList
     public function handle(Request $request, Closure $next)
     {
 
-
         $this->whitelistip = WhiteListIp::pluck('whiteip')->toArray();
 
         if(!in_array($request->ip(), $this->whitelistip)){
