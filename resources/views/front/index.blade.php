@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="{{ asset('/css/front.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/942785f6e0.js" ></script>
+    <script src="https://kit.fontawesome.com/914f6a2991.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
