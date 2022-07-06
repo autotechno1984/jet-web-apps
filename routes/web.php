@@ -127,7 +127,7 @@ Route::middleware(['auth','PreventBackHistory'])->group(function(){
 
 Route::prefix('admin-panel')->name('admin.')->group(function(){
 
-    Route::middleware(['guest:admin','checkIp','PreventBackHistory'])->group(function(){
+    Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
         Route::view('/login', 'backend.adminlogin')->name('login');
         Route::post('/check', [AdminController::class,'check'])->name('check');
     });
